@@ -1,23 +1,23 @@
-/	Home	connectfit	
-/aanbod/	Aanbod		
-/egym/	E-Gym	egym	connectfit-egym-page-2026-07-21.html
+/	Home	connectfit	connectfit-home-webflow-2026-08-29.html
+/aanbod/	Aanbod		connectfit-aanbod-webflow-2026-08-29.html
+/egym/	E-Gym	egym	connectfit-egym-webflow-2026-08-29.html
 /fitness/	Fitness	fitness	connectfit-fitness-webflow-2026-08-29.html
 /reformer-pilates/	Reformer Pilates	pilates hoogeveen, reformer pilates hoogeveen	connectfit-reformer-pilates-hoogeveen-2026-08-29.html
-/reformer-pilates/rooster/	Reformer Pilates Rooster	reformer rooster	
-/personal-training/	Personal Training	personal trainer hoogeveen	
-/fysiotherapie/	Fysiotherapie	fysiotherapie hoogeveen	
-/locaties/	Locaties		
+/reformer-pilates/rooster/	Reformer Pilates Rooster	reformer rooster	connectfit-reformer-rooster-2026-08-29.html
+/personal-training/	Personal Training	personal trainer hoogeveen	connectfit-personal-training-webflow-2026-08-29.html
+/fysiotherapie/	Fysiotherapie	fysiotherapie hoogeveen	connectfit-fysiotherapie-webflow-2026-08-29.html
+/locaties/	Locaties		connectfit-locaties-webflow-2026-08-29.html
 /hoogeveen/	Hoogeveen	sportschool hoogeveen, fitness hoogeveen	connectfit-sportschool-hoogeveen-webflow-2026-08-29.html
-/ruinen/	Ruinen	sportschool ruinen, fitness ruinen	connectfit-sportschool-ruinen-2026-08-22.html
+/ruinen/	Ruinen	sportschool ruinen, fitness ruinen	connectfit-sportschool-ruinen-webflow-2026-08-29.html
 /nieuwlande/	Nieuwlande	sportschool nieuwlande, fitness nieuwlande	connectfit-sportschool-nieuwlande-webflow-2026-08-29.html
 /hoogeveen/egym/	E-Gym Hoogeveen	egym hoogeveen	connectfit-egym-hoogeveen-webflow-2026-08-29.html
-/ruinen/egym/	E-Gym Ruinen	egym ruinen	
+/ruinen/egym/	E-Gym Ruinen	egym ruinen	connectfit-egym-ruinen-webflow-2026-08-29.html
 /nieuwlande/egym/	E-Gym Nieuwlande	egym nieuwlande	connectfit-egym-nieuwlande-webflow-2026-08-29.html
 /hoogeveen/fysiotherapie/	Fysiotherapie Hoogeveen	fysiotherapie hoogeveen	connectfit-fysiotherapie-hoogeveen-2026-08-29.html
 /hoogeveen/personal-training/	Personal Training Hoogeveen	personal trainer hoogeveen	connectfit-personal-training-hoogeveen-webflow-2026-08-29.html
-/nieuwlande/fysiotherapie/	Fysiotherapie Nieuwlande	fysio nieuwlande	
-/hoogeveen/revalidatie/	Revalidatie Hoogeveen	revalidatie hoogeveen	
-/hoogeveen/shockwave/	Shockwave Hoogeveen	shockwave therapie hoogeveen	
-/hoogeveen/dietist/	Diëtist Hoogeveen	dietist hoogeveen	
-/prijzen/	Prijzen	egym kosten	
-/proeftraining/	Proeftraining		
+/nieuwlande/fysiotherapie/	Fysiotherapie Nieuwlande	fysio nieuwlande	connectfit-fysiotherapie-nieuwlande-2026-08-29.html
+/hoogeveen/revalidatie/	Revalidatie Hoogeveen	revalidatie hoogeveen	connectfit-revalidatie-hoogeveen-2026-08-29.html
+/hoogeveen/shockwave/	Shockwave Hoogeveen	shockwave therapie hoogeveen	connectfit-shockwave-hoogeveen-2026-08-29.html
+/hoogeveen/dietist/	Diëtist Hoogeveen	dietist hoogeveen	connectfit-dietist-hoogeveen-2026-08-29.html
+/prijzen/	Prijzen	egym kosten	connectfit-prijzen-webflow-2026-08-29.html
+/proeftraining/	Proeftraining		connectfit-proeftraining-webflow-2026-08-29.html
