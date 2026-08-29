@@ -20,7 +20,8 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#777;borde
 a{color:#0b57d0}code{font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:#f5f5f5;padding:2px 5px;border-radius:3px;word-break:break-all}
 td.n{white-space:nowrap}td.kw{color:#666;font-size:13px}
 .s{font-size:11px;padding:2px 7px;border-radius:10px;white-space:nowrap}
-.live{background:#e3f0e4;color:#1d6b28}.todo{background:#f0efe3;color:#77682a}'
+.live{background:#e3f0e4;color:#1d6b28}.todo{background:#f0efe3;color:#77682a}
+p.auto{background:#eef4fd;border-left:3px solid #0b57d0;color:#1b3a6b;font-size:13px;padding:10px 14px;margin:0 0 24px;border-radius:0 4px 4px 0}'
 
 mk_placeholder () { # $1=naam $2=pad $3=keyword $4=doelbestand
   cat <<HTML
@@ -69,14 +70,15 @@ printf 'User-agent: *\nDisallow: /\n' > "$BUILD/robots.txt"
   echo '<title>ConnectFit sitestructuur</title>'
   echo "<style>$css</style>"
   echo '<h1>ConnectFit sitestructuur</h1>'
-  echo '<p class="sub">Previews in de volgorde van de spreadsheet. Het pad is gelijk aan dat van de echte site, dus de preview-URL is de basis plus het pad.</p>'
+  echo '<p class="sub">Previews in de volgorde van de spreadsheet. Het pad is gelijk aan dat van de echte site, dus de preview-URL is de basis plus het pad. Elke pagina opent in een nieuw tabblad.</p>'
+  echo '<p class="auto">Dit overzicht werkt zichzelf bij. Zodra een pagina in de werkmap verandert, staat hij binnen een minuut hier.</p>'
   echo '<table><tr><th>#</th><th>Pagina</th><th>Pad</th><th>Status</th><th>Hoofdzoekwoord</th></tr>'
   i=0
   while IFS=$'\t' read -r path naam kw bron; do
     [ -z "${path:-}" ] && continue
     i=$((i+1))
     if [ -n "${bron:-}" ] && [ -f "$SRC/$bron" ]; then s='<span class="s live">gebouwd</span>'; else s='<span class="s todo">nog te bouwen</span>'; fi
-    printf '<tr><td class="n">%s</td><td class="n"><a href="%s%s">%s</a></td><td><code>%s</code></td><td>%s</td><td class="kw">%s</td></tr>\n' \
+    printf '<tr><td class="n">%s</td><td class="n"><a href="%s%s" target="_blank" rel="noopener">%s</a></td><td><code>%s</code></td><td>%s</td><td class="kw">%s</td></tr>\n' \
       "$i" "$PREFIX" "$path" "$naam" "$path" "$s" "${kw:-—}"
   done < "$DST/pages.tsv"
   echo '</table>'
