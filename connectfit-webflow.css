@@ -14,6 +14,7 @@
   --red-dark:#C10510;
   --white:#fff;
   --off:#F4F5F7;
+  --mint:#DCEAE0;
   --line:#E3E6EA;
   --muted:rgba(255,255,255,.72);
   --muted-dark:rgba(19,28,41,.72);
@@ -366,5 +367,46 @@ select option{background:var(--navy);color:#fff}
 }
 .sticky-cta .btn{width:100%}
 @media(max-width:640px){.sticky-cta{display:block}}
+
+/* ---------- Mintsectie + perk-kaarten ----------
+   Overgenomen uit het live Webflow-project (screenshot 2026-08-29):
+   sectie "Wat je krijgt / Jij verdient meer dan een gewone sportschool".
+   Bleke mintgroene achtergrond, donkere beeldkaarten in een horizontale rail,
+   locatieregel met pin bovenin, rode pill-knop onderin.
+   Dit is geen tweede kleurenset: mint is een sectie-achtergrond, de kaarten en
+   knoppen blijven navy en rood. */
+.section--mint{background:var(--mint);color:var(--navy)}
+.section--mint .rail-nav button{background:var(--navy)}
+.section--mint .rail-nav button:hover{background:var(--navy-2)}
+
+.perk{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:var(--navy-3);color:#fff;
+  min-height:clamp(430px,42vw,560px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:26px 26px 28px;
+  isolation:isolate;
+}
+.perk img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+}
+.perk::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(19,28,41,.45) 0%,rgba(19,28,41,.55) 42%,rgba(19,28,41,.93) 100%);
+}
+.perk-loc{
+  position:absolute;top:22px;left:26px;right:26px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  font-family:Montserrat,sans-serif;font-weight:600;font-size:11.5px;
+  text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.92);
+}
+.perk-loc svg{width:13px;height:13px;fill:#fff;flex:0 0 auto}
+.perk h3{font-size:clamp(21px,2.2vw,26px);margin-bottom:14px}
+.perk p{color:rgba(255,255,255,.86);font-size:15.5px}
+.perk .btn{margin-top:22px;align-self:flex-start}
+@media(max-width:640px){
+  .perk{min-height:400px;padding:22px 22px 24px}
+  .perk-loc{top:18px;left:22px;right:22px}
+}
 
 @media print{.todo,.sticky-cta{display:none}}
