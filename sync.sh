@@ -49,7 +49,7 @@ while IFS=$'\t' read -r path naam kw bron; do
   if [ -n "${bron:-}" ] && [ -f "$SRC/$bron" ]; then
     # root-absolute links en relatieve assets naar het projectpad trekken,
     # zodat navigatie tussen de previews blijft werken
-    perl -pe "s{(href|src)=\"/(?!/)}{\$1=\"${PREFIX}/}g; s{(href|src)=\"assets/}{\$1=\"${PREFIX}/assets/}g" \
+    perl -pe "s{(href|src)=\"/(?!/)}{\$1=\"${PREFIX}/}g; s{(href|src)=\"(?![/#?]|https?:|mailto:|tel:|data:|javascript:)}{\$1=\"${PREFIX}/}g" \
       "$SRC/$bron" > "$dir/index.html"
   else
     mk_placeholder "$naam" "$path" "$kw" > "$dir/index.html"
@@ -58,6 +58,7 @@ done < "$DST/pages.tsv"
 
 mkdir -p "$BUILD/assets"
 cp "$SRC"/assets/* "$BUILD/assets/" 2>/dev/null || true
+cp "$SRC"/*.css "$BUILD/" 2>/dev/null || true
 printf 'User-agent: *\nDisallow: /\n' > "$BUILD/robots.txt"
 
 # --- overzicht bouwen, in de volgorde van pages.tsv ---
