@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectFit — Sportschool in Hoogeveen | EGYM · Fitness · Pilates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #e40615;
+      --dark: #1a1a1a;
+      --text: #3e3e3e;
+      --gray: #666;
+      --border: #e0e5ed;
+      --bg: #eef1f5;
+      --white: #fff;
+      --green: #22c55e;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--text); background: var(--white); font-size: 16px; line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: 'Urbanist', sans-serif; line-height: 1.15; }
+    a { text-decoration: none; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .section-label { font-family: 'Urbanist', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 12px; }
+
+    /* =========================================================
+       NAV
+    ========================================================= */
+    .nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 0; position: sticky; top: 0; z-index: 200; }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Urbanist', sans-serif; font-size: 22px; font-weight: 900; color: var(--dark); }
+    .nav-logo span { color: var(--red); }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-phone { font-size: 14px; color: var(--gray); }
+    .nav-cta { background: var(--red); color: var(--white); font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 14px; padding: 10px 22px; border-radius: 100px; transition: background .2s; }
+    .nav-cta:hover { background: #c20512; }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero { background: var(--bg); padding: 72px 0 96px; }
+    .hero-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    .pill { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--border); border-radius: 100px; padding: 6px 16px; font-family: 'Urbanist', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text); width: fit-content; margin-bottom: 24px; }
+    .pill-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; flex-shrink: 0; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero h1 { font-size: clamp(36px, 4.5vw, 58px); font-weight: 900; color: var(--dark); margin-bottom: 20px; }
+    .hero h1 .accent { color: var(--red); position: relative; white-space: nowrap; }
+    .hero h1 .accent::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:4px; background:var(--red); border-radius:2px; opacity:.25; }
+
+    .hero-sub { font-size: 17px; color: var(--gray); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .checklist li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text); font-weight: 500; }
+    .chk { width: 22px; height: 22px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .chk svg { width:12px; height:12px; stroke:white; stroke-width:2.5; fill:none; }
+
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-red { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: var(--white); font-family: 'Urbanist', sans-serif; font-size: 16px; font-weight: 800; padding: 15px 28px; border-radius: 100px; transition: background .2s, transform .15s; white-space: nowrap; }
+    .btn-red:hover { background: #c20512; transform: translateY(-1px); }
+    .hero-phone { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--gray); }
+    .phone-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+
+    /* Right visual */
+    .hero-right { position: relative; padding-bottom: 20px; }
+    .visual-card { background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 60%, #111 100%); border-radius: 20px; aspect-ratio: 1/1; max-height: 460px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .visual-card::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 70% 30%, rgba(228,6,21,.15) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(228,6,21,.08) 0%, transparent 50%); }
+    .vc-bg-text { font-family:'Urbanist',sans-serif; font-size:clamp(72px,10vw,110px); font-weight:900; color:rgba(255,255,255,.05); letter-spacing:-2px; position:absolute; bottom:20px; left:24px; line-height:1; user-select:none; }
+    .vc-center { position:relative; z-index:2; text-align:center; }
+    .vc-center-label { font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:8px; }
+    .vc-center-num { font-family:'Urbanist',sans-serif; font-size:clamp(64px,9vw,96px); font-weight:900; color:white; line-height:1; }
+    .vc-center-unit { font-family:'Urbanist',sans-serif; font-size:20px; font-weight:600; color:rgba(255,255,255,.5); margin-top:4px; }
+
+    .chip { position:absolute; background:white; border-radius:12px; padding:10px 14px; display:flex; align-items:center; gap:10px; box-shadow:0 8px 24px rgba(0,0,0,.14); z-index:10; white-space:nowrap; }
+    .chip .cl { font-size:10px; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:.5px; }
+    .chip .cv { font-family:'Urbanist',sans-serif; font-size:13px; font-weight:800; color:var(--dark); }
+    .chip-top-right { top:-16px; right:-16px; }
+    .chip-top-left { top:28px; left:-20px; }
+    .chip-bottom-right { bottom:40px; right:-20px; }
+    .chip-icon-red { width:32px; height:32px; background:var(--red); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .chip-icon-red span { font-family:'Urbanist',sans-serif; font-size:10px; font-weight:900; color:white; }
+    .chip-icon-green { width:28px; height:28px; background:var(--green); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .chip-icon-green svg { width:14px; height:14px; stroke:white; stroke-width:2.5; fill:none; }
+
+    .vc-tags { position:absolute; bottom:-18px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; white-space:nowrap; }
+    .tag { background:white; border-radius:100px; padding:7px 14px; font-size:12px; font-weight:700; color:var(--text); font-family:'Urbanist',sans-serif; box-shadow:0 4px 12px rgba(0,0,0,.1); display:flex; align-items:center; gap:5px; }
+    .tag-dot { width:6px; height:6px; background:var(--red); border-radius:50%; }
+
+    /* =========================================================
+       TRUST BAR
+    ========================================================= */
+    .trust-bar { background: var(--dark); padding: 20px 0; }
+    .trust-bar-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: white; }
+    .trust-icon { font-size: 20px; }
+    .trust-text { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 600; }
+
+    /* =========================================================
+       AANBOD SLIDER
+    ========================================================= */
+    .aanbod { padding: 80px 0; background: var(--bg); }
+    .aanbod-header { max-width: 1160px; margin: 0 auto 40px; padding: 0 40px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+    .aanbod-header h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; }
+    .slider-arrows { display: flex; gap: 10px; flex-shrink: 0; }
+    .slider-arrow { width: 44px; height: 44px; background: white; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 18px; color: var(--text); transition: background .2s, border-color .2s; flex-shrink: 0; user-select: none; }
+    .slider-arrow:hover { background: var(--red); border-color: var(--red); color: white; }
+
+    .slider-track-wrap { overflow: hidden; padding: 0 40px 8px; max-width: 1160px; margin: 0 auto; }
+    .slider-track { display: flex; gap: 20px; transition: transform .4s cubic-bezier(.4,0,.2,1); }
+    .aanbod-card { background: white; border-radius: 14px; overflow: hidden; flex: 0 0 calc((100% - 80px) / 4); min-width: 0; }
+    .aanbod-photo { height: 200px; position: relative; display: flex; align-items: flex-end; padding: 16px; }
+    .aanbod-photo-bg { position: absolute; inset: 0; border-radius: 0; }
+    .ap-egym { background: linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%); }
+    .ap-fitness { background: linear-gradient(160deg, #2c1a1a 0%, #4a1a1a 100%); }
+    .ap-pilates { background: linear-gradient(160deg, #1a2030 0%, #2a3050 100%); }
+    .ap-pt { background: linear-gradient(160deg, #1a2a1a 0%, #2a3a20 100%); }
+    .ap-fysio { background: linear-gradient(160deg, #201a2a 0%, #302040 100%); }
+    .aanbod-photo-label { position: relative; z-index: 2; font-family: 'Urbanist', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.6); background: rgba(0,0,0,.3); padding: 4px 10px; border-radius: 4px; }
+    .aanbod-body { padding: 24px 22px; }
+    .aanbod-body h3 { font-family: 'Urbanist', sans-serif; font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+    .aanbod-body p { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
+    .aanbod-link { font-family: 'Urbanist', sans-serif; font-size: 13px; font-weight: 700; color: var(--red); display: inline-flex; align-items: center; gap: 4px; }
+    .aanbod-link:hover { text-decoration: underline; }
+
+    /* =========================================================
+       VOORDELEN + STATISTIEKEN
+    ========================================================= */
+    .voordelen { padding: 80px 0; background: white; }
+    .voordelen-header { max-width: 1160px; margin: 0 auto 52px; padding: 0 40px; text-align: center; }
+    .voordelen-header h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; margin-bottom: 12px; }
+    .voordelen-header p { font-size: 17px; color: var(--gray); }
+    .voordelen-grid { max-width: 1160px; margin: 0 auto 64px; padding: 0 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .vcard { background: var(--bg); border-radius: 10px; padding: 32px 28px; border-top: 4px solid var(--red); }
+    .vcard-icon { font-size: 34px; margin-bottom: 14px; }
+    .vcard h3 { font-family: 'Urbanist', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .vcard p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* Stats row */
+    .stats-row { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .stat-card { background: var(--dark); border-radius: 10px; padding: 32px 24px; text-align: center; }
+    .stat-num { font-family: 'Urbanist', sans-serif; font-size: 48px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.4; }
+
+    /* =========================================================
+       LOCATIE BLOKKEN
+    ========================================================= */
+    .locatie { padding: 80px 0; background: var(--bg); }
+    .locatie-block { max-width: 1160px; margin: 0 auto 64px; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .locatie-block:last-child { margin-bottom: 0; }
+    .locatie-block.reverse { direction: rtl; }
+    .locatie-block.reverse > * { direction: ltr; }
+    .locatie-photo { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; position: relative; }
+    .photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: rgba(255,255,255,.4); font-size: 14px; font-family: 'Urbanist', sans-serif; font-weight: 600; }
+    .pp-1 { background: linear-gradient(145deg, #1e1e2e 0%, #2d2d3e 100%); }
+    .pp-2 { background: linear-gradient(145deg, #1e2a1e 0%, #2a3a2a 100%); }
+    .photo-label { position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,.6); color: white; font-size: 12px; font-weight: 600; font-family: 'Urbanist', sans-serif; padding: 5px 12px; border-radius: 4px; }
+    .locatie-text h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; margin-bottom: 16px; }
+    .locatie-text p { font-size: 16px; color: var(--gray); line-height: 1.75; margin-bottom: 20px; }
+    .locatie-meta { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .locatie-meta-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); font-weight: 500; }
+    .locatie-meta-item::before { content: '📍'; font-size: 15px; flex-shrink: 0; }
+    .locatie-meta-item.clock::before { content: '🕐'; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--dark); color: var(--dark); font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 800; padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s; }
+    .btn-outline:hover { background: var(--dark); color: white; }
+
+    /* =========================================================
+       TIJDELIJKE AANBIEDING
+    ========================================================= */
+    .tijdelijk { background: var(--red); padding: 56px 0; }
+    .tijdelijk-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .tijdelijk-left { display: flex; align-items: flex-start; gap: 20px; }
+    .tijdelijk-icon { font-size: 42px; flex-shrink: 0; }
+    .tijdelijk-text .tijdelijk-badge { font-family: 'Urbanist', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+    .tijdelijk-text h2 { font-family: 'Urbanist', sans-serif; font-size: clamp(22px, 3vw, 32px); font-weight: 900; color: white; margin-bottom: 6px; line-height: 1.2; }
+    .tijdelijk-text p { font-size: 16px; color: rgba(255,255,255,.8); }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--red); font-family: 'Urbanist', sans-serif; font-size: 16px; font-weight: 800; padding: 15px 30px; border-radius: 100px; transition: transform .15s; white-space: nowrap; flex-shrink: 0; }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* =========================================================
+       PRIJZEN
+    ========================================================= */
+    .prijzen { padding: 80px 0; background: white; }
+    .prijzen-header { max-width: 1160px; margin: 0 auto 40px; padding: 0 40px; text-align: center; }
+    .prijzen-header h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; margin-bottom: 10px; }
+    .prijzen-header p { font-size: 16px; color: var(--gray); }
+
+    .toggle-wrap { display: flex; justify-content: center; margin-bottom: 44px; }
+    .toggle { display: flex; background: var(--dark); border-radius: 6px; padding: 5px; gap: 4px; }
+    .toggle-btn { font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 1px; padding: 12px 40px; border: none; border-radius: 4px; cursor: pointer; transition: background .2s, color .2s; background: transparent; color: rgba(255,255,255,.4); }
+    .toggle-btn.active { background: var(--red); color: white; }
+    .toggle-btn:hover:not(.active) { color: rgba(255,255,255,.8); }
+
+    .panel { display: none; max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .panel.active { display: block; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pcard { background: white; border-radius: 10px; border: 2px solid var(--border); overflow: hidden; }
+    .pcard.featured { border-color: var(--red); transform: translateY(-6px); box-shadow: 0 12px 40px rgba(228,6,21,.15); }
+    .pcard-header { background: var(--dark); padding: 24px 28px 20px; position: relative; }
+    .pcard.featured .pcard-header { background: var(--red); }
+    .pcard-badge { display: inline-block; background: white; color: var(--red); font-family: 'Urbanist', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; }
+    .pcard-name { font-family: 'Urbanist', sans-serif; font-size: 26px; font-weight: 900; color: white; margin-bottom: 4px; }
+    .pcard-commit { font-size: 13px; color: rgba(255,255,255,.55); }
+    .pcard.featured .pcard-commit { color: rgba(255,255,255,.75); }
+    .pcard-body { padding: 28px 28px 24px; }
+    .pcard-price { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .pcard-amount { font-family: 'Urbanist', sans-serif; font-size: 42px; font-weight: 900; color: var(--dark); line-height: 1; }
+    .pcard.featured .pcard-amount { color: var(--red); }
+    .pcard-period { font-size: 14px; color: var(--gray); display: block; margin-top: 4px; }
+    .btn-pcard { display: block; width: 100%; background: var(--dark); color: white; font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 800; padding: 14px; border-radius: 5px; text-align: center; text-decoration: none; border: none; cursor: pointer; margin-bottom: 24px; transition: background .2s; }
+    .btn-pcard:hover { background: #333; }
+    .pcard.featured .btn-pcard { background: var(--red); }
+    .pcard.featured .btn-pcard:hover { background: #c20512; }
+    .pcard-features-label { font-family: 'Urbanist', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+    .pcard-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pcard-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.45; }
+    .pcard-features li::before { content: '✓'; color: var(--red); font-weight: 900; font-size: 14px; flex-shrink: 0; }
+
+    .free-bar { margin-top: 28px; background: var(--dark); border-radius: 10px; padding: 24px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .free-bar-left { display: flex; align-items: center; gap: 16px; }
+    .free-bar-icon { font-size: 32px; flex-shrink: 0; }
+    .free-bar-text h3 { font-family: 'Urbanist', sans-serif; font-size: 20px; font-weight: 900; color: white; margin-bottom: 2px; }
+    .free-bar-text p { font-size: 14px; color: rgba(255,255,255,.5); }
+    .btn-free { display: inline-block; background: var(--red); color: white; font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 800; padding: 14px 30px; border-radius: 5px; transition: background .2s; flex-shrink: 0; white-space: nowrap; }
+    .btn-free:hover { background: #c20512; }
+
+    /* =========================================================
+       KIJKJE BINNEN
+    ========================================================= */
+    .kijkje { padding: 80px 0; background: var(--dark); }
+    .kijkje-header { max-width: 1160px; margin: 0 auto 40px; padding: 0 40px; }
+    .kijkje-header h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; color: white; margin-bottom: 10px; }
+    .kijkje-header p { font-size: 16px; color: rgba(255,255,255,.55); }
+    .kijkje-grid { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 12px; }
+    .ki { border-radius: 10px; overflow: hidden; position: relative; display: flex; align-items: flex-end; }
+    .ki.tall { grid-row: span 2; }
+    .ki-bg { position: absolute; inset: 0; }
+    .ki-1 { background: linear-gradient(145deg, #1a1a2e 0%, #2d2d48 100%); }
+    .ki-2 { background: linear-gradient(145deg, #2a1010 0%, #401818 100%); }
+    .ki-3 { background: linear-gradient(145deg, #0f2a0f 0%, #183d18 100%); }
+    .ki-4 { background: linear-gradient(145deg, #1a2a2a 0%, #243d3d 100%); }
+    .ki-5 { background: linear-gradient(145deg, #2a1a10 0%, #3d2818 100%); }
+    .ki-ph { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 36px; opacity: .15; z-index: 1; }
+    .ki-label { position: relative; z-index: 2; padding: 12px 14px; font-family: 'Urbanist', sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.8); background: linear-gradient(transparent, rgba(0,0,0,.6)); width: 100%; }
+
+    /* =========================================================
+       TESTIMONIALS / GOOGLE REVIEWS
+    ========================================================= */
+    .testimonials { padding: 80px 0; background: var(--bg); }
+    .testimonials-header { max-width: 1160px; margin: 0 auto 48px; padding: 0 40px; text-align: center; }
+    .testimonials-header h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; margin-bottom: 12px; }
+    .testimonials-header p { font-size: 17px; color: var(--gray); }
+    .google-score { display: inline-flex; align-items: center; gap: 12px; background: white; border: 1.5px solid var(--border); border-radius: 100px; padding: 8px 20px; margin-top: 16px; }
+    .g-logo { font-size: 18px; }
+    .g-stars { color: #f5c518; font-size: 18px; letter-spacing: 1px; }
+    .g-text { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 700; color: var(--dark); }
+
+    .reviews-grid { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .review-card { background: white; border-radius: 10px; padding: 24px; }
+    .review-stars { color: #f5c518; font-size: 16px; margin-bottom: 12px; letter-spacing: 1px; }
+    .review-result { background: rgba(228,6,21,.08); color: var(--red); font-family: 'Urbanist', sans-serif; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px; }
+    .review-text { font-size: 14px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar { width: 36px; height: 36px; background: var(--red); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .review-name { font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 14px; }
+    .review-meta { font-size: 12px; color: var(--gray); margin-top: 2px; }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+    .faq { padding: 80px 0; background: white; }
+    .faq-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+    .faq-inner h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; text-align: center; margin-bottom: 48px; }
+    .faq-item { background: var(--bg); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 20px 24px; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-q::after { content: '+'; color: var(--red); font-size: 26px; font-weight: 300; flex-shrink: 0; line-height: 1; }
+    .faq-a { padding: 0 24px 20px; font-size: 15px; color: var(--gray); line-height: 1.7; }
+
+    /* =========================================================
+       FEATURED TESTIMONIAL
+    ========================================================= */
+    .featured-testimonial { padding: 80px 0; background: var(--dark); }
+    .ft-inner { max-width: 840px; margin: 0 auto; padding: 0 40px; text-align: center; }
+    .ft-result { display: inline-block; background: var(--red); color: white; font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 700; padding: 6px 18px; border-radius: 4px; margin-bottom: 28px; }
+    .ft-quote { font-family: 'Urbanist', sans-serif; font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: white; line-height: 1.4; margin-bottom: 32px; font-style: italic; }
+    .ft-quote::before { content: '"'; color: var(--red); font-size: 1.2em; }
+    .ft-quote::after { content: '"'; color: var(--red); font-size: 1.2em; }
+    .ft-author { display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .ft-avatar { width: 52px; height: 52px; background: var(--red); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 20px; }
+    .ft-name { font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 16px; color: white; text-align: left; }
+    .ft-meta { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+    /* =========================================================
+       FORM — 10 DAGEN GRATIS
+    ========================================================= */
+    .form-section { padding: 80px 0; background: var(--bg); }
+    .form-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 480px; gap: 80px; align-items: center; }
+    .form-left h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; margin-bottom: 16px; }
+    .form-left h2 em { font-style: normal; color: var(--red); }
+    .form-left p { font-size: 17px; color: var(--gray); line-height: 1.75; margin-bottom: 28px; }
+    .form-perks { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .form-perks li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text); font-weight: 500; }
+
+    .form-card { background: white; border-radius: 12px; padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,.1); }
+    .form-card-title { font-family: 'Urbanist', sans-serif; font-size: 20px; font-weight: 900; color: var(--dark); margin-bottom: 4px; }
+    .form-card-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+    .form-card-sub strong { color: var(--red); }
+    .fg { margin-bottom: 14px; }
+    .fg label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 5px; }
+    .fg input, .fg select { width: 100%; padding: 12px 14px; border: 1.5px solid #dde2ea; border-radius: 6px; font-size: 15px; font-family: inherit; color: var(--dark); transition: border-color .2s; background: white; -webkit-appearance: none; appearance: none; }
+    .fg input:focus, .fg select:focus { outline: none; border-color: var(--red); }
+    .fg select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 40px; }
+    .form-plus { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; cursor: pointer; }
+    .form-plus input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--red); cursor: pointer; flex-shrink: 0; }
+    .form-plus span { font-size: 14px; color: var(--gray); }
+    .btn-form { display: block; width: 100%; background: var(--red); color: white; font-family: 'Urbanist', sans-serif; font-size: 17px; font-weight: 800; padding: 16px; border: none; border-radius: 6px; cursor: pointer; transition: background .2s; }
+    .btn-form:hover { background: #c20512; }
+    .form-privacy { font-size: 12px; color: #aaa; text-align: center; margin-top: 12px; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer { background: var(--dark); color: rgba(255,255,255,.5); padding: 36px 0; font-size: 14px; text-align: center; }
+    .footer a { color: rgba(255,255,255,.5); }
+    .footer strong { color: rgba(255,255,255,.85); }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 960px) {
+      .hero-inner, .form-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-right { padding: 0 20px 32px; }
+      .voordelen-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .locatie-block, .locatie-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .pcard.featured { transform: none; }
+      .tijdelijk-inner { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .container, .hero-inner, .aanbod-header, .slider-track-wrap, .voordelen-header, .voordelen-grid, .stats-row, .locatie-block, .testimonials-header, .reviews-grid, .faq-inner, .ft-inner, .form-inner, .panel { padding-left: 20px; padding-right: 20px; }
+      .voordelen-grid, .stats-row, .reviews-grid { grid-template-columns: 1fr; }
+      .trust-bar-inner { gap: 16px; }
+      .aanbod-card { flex: 0 0 calc(100% - 40px); }
+      .free-bar { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Connect<span>Fit</span></span>
+    <div class="nav-right">
+      <span class="nav-phone">0528 – 449 133</span>
+      <a href="#form" class="nav-cta">Gratis kennismaking</a>
+    </div>
+  </div>
+</nav>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="pill"><span class="pill-dot"></span>Sportschool · Hoogeveen</span>
+      <h1>Sportschool in<br><span class="accent">Hoogeveen</span> —<br>fit in 30 minuten.</h1>
+      <p class="hero-sub">EGYM cirkeltraining met persoonlijke begeleiding. De apparaten stellen automatisch in op jouw lichaam. Effectief, veilig en klaar in een halfuur.</p>
+      <ul class="checklist">
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Begeleiding door coaches bij elke training</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>EGYM, fitness, pilates &amp; fysiotherapie onder één dak</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Gratis kennismaking — geen verplichtingen</li>
+      </ul>
+      <div class="hero-actions">
+        <a href="#form" class="btn-red">Plan gratis kennismaking →</a>
+        <a href="tel:0528449133" class="hero-phone"><span class="phone-dot"></span>0528 – 449 133</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="visual-card">
+        <div class="vc-bg-text">EGYM</div>
+        <div class="vc-center">
+          <div class="vc-center-label">Klaar in</div>
+          <div class="vc-center-num">30</div>
+          <div class="vc-center-unit">minuten</div>
+        </div>
+        <div class="chip chip-top-right">
+          <span style="font-size:20px">⭐</span>
+          <div><div class="cl">Google</div><div class="cv">4,9 / 5 · 200+ reviews</div></div>
+        </div>
+        <div class="chip chip-top-left">
+          <div class="chip-icon-red"><span>EGYM</span></div>
+          <div><div class="cl">Hoogeveen</div><div class="cv">16 connected machines</div></div>
+        </div>
+        <div class="chip chip-bottom-right">
+          <div class="chip-icon-green"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div>
+          <div><div class="cl">Inclusief</div><div class="cv">Gratis kennismaking</div></div>
+        </div>
+        <div class="vc-tags">
+          <span class="tag"><span class="tag-dot"></span>30 min training</span>
+          <span class="tag"><span class="tag-dot"></span>Eigen coach</span>
+          <span class="tag"><span class="tag-dot"></span>3 locaties</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TRUST BAR
+========================================================= -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">Training in 30 minuten</span></div>
+    <div class="trust-item"><span class="trust-icon">⭐</span><span class="trust-text">Google 4,9 / 5</span></div>
+    <div class="trust-item"><span class="trust-icon">🤖</span><span class="trust-text">16 EGYM machines</span></div>
+    <div class="trust-item"><span class="trust-icon">👥</span><span class="trust-text">Begeleiding bij elke training</span></div>
+    <div class="trust-item"><span class="trust-icon">📍</span><span class="trust-text">3 locaties in Drenthe</span></div>
+  </div>
+</div>
+
+<!-- =========================================================
+     AANBOD SLIDER
+========================================================= -->
+<section class="aanbod">
+  <div class="aanbod-header">
+    <div>
+      <span class="section-label">Ons aanbod</span>
+      <h2>Voor elk doel het juiste programma</h2>
+    </div>
+    <div class="slider-arrows">
+      <div class="slider-arrow" onclick="slide(-1)">←</div>
+      <div class="slider-arrow" onclick="slide(1)">→</div>
+    </div>
+  </div>
+  <div class="slider-track-wrap">
+    <div class="slider-track" id="sliderTrack">
+      <div class="aanbod-card">
+        <div class="aanbod-photo"><div class="aanbod-photo-bg ap-egym"></div><span class="aanbod-photo-label">Hoogeveen · Ruinen · Nieuwlande</span></div>
+        <div class="aanbod-body"><h3>EGYM</h3><p>Data-gestuurd trainen in 30 minuten. De machines stellen automatisch in op jouw lichaam via je polsband.</p><span class="aanbod-link">Meer informatie →</span></div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-photo"><div class="aanbod-photo-bg ap-fitness"></div><span class="aanbod-photo-label">Hoogeveen · Ruinen · Nieuwlande</span></div>
+        <div class="aanbod-body"><h3>Kracht &amp; Cardio</h3><p>Vrije fitness op jouw tempo. Kracht, cardio, dumbbells en hybride training — begeleid door onze coaches.</p><span class="aanbod-link">Meer informatie →</span></div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-photo"><div class="aanbod-photo-bg ap-pilates"></div><span class="aanbod-photo-label">Hoogeveen</span></div>
+        <div class="aanbod-body"><h3>Reformer Pilates</h3><p>Verbeter je flexibiliteit, kracht en balans. Kleine groepen, altijd met begeleiding. Enige aanbieder in de regio.</p><span class="aanbod-link">Meer informatie →</span></div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-photo"><div class="aanbod-photo-bg ap-pt"></div><span class="aanbod-photo-label">Hoogeveen · Ruinen · Nieuwlande</span></div>
+        <div class="aanbod-body"><h3>Personal Training</h3><p>Begeleid trainen met een eigen coach. 1-op-1 sessies van 50 minuten, inclusief persoonlijk trainingsplan.</p><span class="aanbod-link">Meer informatie →</span></div>
+      </div>
+      <div class="aanbod-card">
+        <div class="aanbod-photo"><div class="aanbod-photo-bg ap-fysio"></div><span class="aanbod-photo-label">Hoogeveen · Nieuwlande</span></div>
+        <div class="aanbod-body"><h3>Fysiotherapie</h3><p>Revalidatie, sportmassage, shockwave en meer. Geïntegreerd met je fitnesstraject — alles op één locatie.</p><span class="aanbod-link">Meer informatie →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     VOORDELEN + STATISTIEKEN
+========================================================= -->
+<section class="voordelen">
+  <div class="voordelen-header">
+    <span class="section-label">Reden om te kiezen</span>
+    <h2>Waarom kiezen voor ConnectFit Hoogeveen?</h2>
+    <p>Van EGYM tot fysiotherapie — ConnectFit heeft alles in huis.</p>
+  </div>
+  <div class="voordelen-grid">
+    <div class="vcard"><div class="vcard-icon">🏋️</div><h3>Aanbod voor elk doel</h3><p>Vrije fitness, EGYM, hybride training, Reformer Pilates of Personal Training — jij kiest wat bij jou past.</p></div>
+    <div class="vcard"><div class="vcard-icon">⚡</div><h3>EGYM: fit in 30 minuten</h3><p>Onze core business. De machines stellen automatisch gewicht en weerstand in via je polsband.</p></div>
+    <div class="vcard"><div class="vcard-icon">👥</div><h3>Persoonlijke begeleiding</h3><p>Onze coaches staan voor je klaar bij elke training — of je nu net begint of al jaren traint.</p></div>
+    <div class="vcard"><div class="vcard-icon">🏥</div><h3>Alles onder één dak</h3><p>Fitness, fysiotherapie, personal training, pilates en diëtetiek op één locatie. Geen doorverwijzingen.</p></div>
+    <div class="vcard"><div class="vcard-icon">🌱</div><h3>Voor iedereen toegankelijk</h3><p>Jong, oud, beginner of gevorderde — ConnectFit werkt met jouw tempo en jouw doelen.</p></div>
+    <div class="vcard"><div class="vcard-icon">📍</div><h3>3 locaties in Drenthe</h3><p>Hoogeveen, Ruinen en Nieuwlande — altijd een ConnectFit in de buurt.</p></div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">16</div><div class="stat-label">Connected EGYM machines in Hoogeveen</div></div>
+    <div class="stat-card"><div class="stat-num">30</div><div class="stat-label">Minuten voor een complete EGYM training</div></div>
+    <div class="stat-card"><div class="stat-num">4,9</div><div class="stat-label">Google sterren — 200+ reviews</div></div>
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Locaties in Drenthe</div></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     LOCATIE TEKSTBLOKKEN MET FOTO
+========================================================= -->
+<section class="locatie">
+  <div class="locatie-block">
+    <div class="locatie-photo">
+      <div class="photo-placeholder pp-1">
+        <span style="font-size:32px">📸</span>
+        <span>Foto: ConnectFit Hoogeveen</span>
+      </div>
+      <span class="photo-label">Van Echtenstraat 37, Hoogeveen</span>
+    </div>
+    <div class="locatie-text">
+      <span class="section-label">Jouw locatie</span>
+      <h2>ConnectFit Hoogeveen — boutique fitness in het hart van de stad</h2>
+      <p>Onze locatie aan de Van Echtenstraat is volledig uitgerust met 16 EGYM-machines, een vrije fitnessruimte, Reformer Pilates studio en een geïntegreerde fysiotherapiepraktijk. Klein genoeg om persoonlijk te blijven, groot genoeg om alles te bieden.</p>
+      <div class="locatie-meta">
+        <span class="locatie-meta-item">Van Echtenstraat 37, Hoogeveen</span>
+        <span class="locatie-meta-item clock">Ma–Do ochtend &amp; avond · Vr–Za ochtend</span>
+      </div>
+      <a href="#form" class="btn-outline">Plan gratis kennismaking →</a>
+    </div>
+  </div>
+  <div class="locatie-block reverse">
+    <div class="locatie-photo">
+      <div class="photo-placeholder pp-2">
+        <span style="font-size:32px">📸</span>
+        <span>Foto: EGYM training</span>
+      </div>
+      <span class="photo-label">EGYM cirkeltraining</span>
+    </div>
+    <div class="locatie-text">
+      <span class="section-label">EGYM: ons kernproduct</span>
+      <h2>Data-gestuurd trainen — de machines doen het werk</h2>
+      <p>EGYM is een internationaal erkend smart fitness platform. Via je polsband stellen de 16 machines automatisch het gewicht en de weerstand in op jouw niveau. Elke training wordt bijgehouden, je voortgang zichtbaar gemaakt en je programma aangepast zodra je sterker wordt. Inclusief bio-age test en metingen.</p>
+      <a href="#form" class="btn-outline">Probeer EGYM gratis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TIJDELIJKE AANBIEDING
+========================================================= -->
+<section class="tijdelijk">
+  <div class="tijdelijk-inner">
+    <div class="tijdelijk-left">
+      <div class="tijdelijk-icon">🎁</div>
+      <div class="tijdelijk-text">
+        <div class="tijdelijk-badge">Tijdelijke actie</div>
+        <h2>10 dagen gratis sporten — geen verplichtingen</h2>
+        <p>Probeer ConnectFit Hoogeveen volledig gratis. Geen creditcard, geen contract, geen druk.</p>
+      </div>
+    </div>
+    <a href="#form" class="btn-white">Claim jouw gratis plekje →</a>
+  </div>
+</section>
+
+<!-- =========================================================
+     PRIJZEN
+========================================================= -->
+<section class="prijzen">
+  <div class="prijzen-header">
+    <span class="section-label">Prijzen &amp; abonnementen</span>
+    <h2>Kies het abonnement dat bij jou past</h2>
+    <p>Alle prijzen per 4 weken. Hoe langer je commitment, hoe lager het tarief.</p>
+  </div>
+
+  <div class="toggle-wrap">
+    <div class="toggle">
+      <button class="toggle-btn active" onclick="switchTab('fitness',this)">FITNESS</button>
+      <button class="toggle-btn" onclick="switchTab('egym',this)">EGYM</button>
+    </div>
+  </div>
+
+  <!-- FITNESS -->
+  <div class="panel active" id="panel-fitness">
+    <div class="cards-grid">
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-name">Flex</div><div class="pcard-commit">Maandelijks opzegbaar</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt vrije fitness</li><li>Kracht, cardio &amp; dumbbells</li><li>Hybride training</li><li>Groepstraining</li><li>Begeleiding door coaches</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-name">Jaar</div><div class="pcard-commit">12 maanden, daarna maandelijks</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt vrije fitness</li><li>Kracht, cardio &amp; dumbbells</li><li>Hybride training</li><li>Groepstraining</li><li>Begeleiding door coaches</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pcard featured">
+        <div class="pcard-header"><span class="pcard-badge">Meest gekozen</span><div class="pcard-name">Traject</div><div class="pcard-commit">18 maanden, daarna maandelijks</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken — laagste tarief</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt vrije fitness</li><li>Kracht, cardio &amp; dumbbells</li><li>Hybride training</li><li>Groepstraining</li><li>Begeleiding door coaches</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="free-bar">
+      <div class="free-bar-left"><div class="free-bar-icon">🎁</div><div class="free-bar-text"><h3>10 dagen gratis sporten</h3><p>Probeer ConnectFit zonder verplichtingen — geen creditcard nodig.</p></div></div>
+      <a href="#form" class="btn-free">START GRATIS →</a>
+    </div>
+  </div>
+
+  <!-- EGYM -->
+  <div class="panel" id="panel-egym">
+    <div class="cards-grid">
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-name">Flex</div><div class="pcard-commit">Maandelijks opzegbaar</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt EGYM cirkeltraining</li><li>Automatische machineinstelling via polsband</li><li>Bio-age test &amp; metingen</li><li>Persoonlijke voortgangsregistratie</li><li>Begeleiding door coaches</li><li>Onbeperkt vrije fitness</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-name">Jaar</div><div class="pcard-commit">12 maanden, daarna maandelijks</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt EGYM cirkeltraining</li><li>Automatische machineinstelling via polsband</li><li>Bio-age test &amp; metingen</li><li>Persoonlijke voortgangsregistratie</li><li>Begeleiding door coaches</li><li>Onbeperkt vrije fitness</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pcard featured">
+        <div class="pcard-header"><span class="pcard-badge">Meest gekozen</span><div class="pcard-name">Traject</div><div class="pcard-commit">18 maanden, daarna maandelijks</div></div>
+        <div class="pcard-body">
+          <div class="pcard-price"><span class="pcard-amount">€XX,-</span><span class="pcard-period">per 4 weken — laagste tarief</span></div>
+          <a href="#form" class="btn-pcard">Word lid</a>
+          <p class="pcard-features-label">Inbegrepen</p>
+          <ul class="pcard-features">
+            <li>Onbeperkt EGYM cirkeltraining</li><li>Automatische machineinstelling via polsband</li><li>Bio-age test &amp; metingen</li><li>Persoonlijke voortgangsregistratie</li><li>Begeleiding door coaches</li><li>Onbeperkt vrije fitness</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="free-bar">
+      <div class="free-bar-left"><div class="free-bar-icon">🎁</div><div class="free-bar-text"><h3>10 dagen gratis sporten</h3><p>Probeer ConnectFit zonder verplichtingen — geen creditcard nodig.</p></div></div>
+      <a href="#form" class="btn-free">START GRATIS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     KIJKJE BINNEN
+========================================================= -->
+<section class="kijkje">
+  <div class="kijkje-header">
+    <span class="section-label" style="color:rgba(255,255,255,.5)">De locatie</span>
+    <h2>Neem een kijkje binnen</h2>
+    <p>ConnectFit Hoogeveen — Van Echtenstraat 37</p>
+  </div>
+  <div class="kijkje-grid">
+    <div class="ki tall"><div class="ki-bg ki-1"></div><span class="ki-ph">🏋️</span><span class="ki-label">EGYM cirkeltraining — 16 machines</span></div>
+    <div class="ki"><div class="ki-bg ki-2"></div><span class="ki-ph">💪</span><span class="ki-label">Kracht &amp; cardio</span></div>
+    <div class="ki"><div class="ki-bg ki-3"></div><span class="ki-ph">🧘</span><span class="ki-label">Reformer Pilates studio</span></div>
+    <div class="ki"><div class="ki-bg ki-4"></div><span class="ki-ph">🤝</span><span class="ki-label">Begeleiding door coaches</span></div>
+    <div class="ki"><div class="ki-bg ki-5"></div><span class="ki-ph">🏥</span><span class="ki-label">Fysiotherapie &amp; revalidatie</span></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TESTIMONIALS / GOOGLE REVIEWS
+========================================================= -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <span class="section-label">Ervaringen</span>
+    <h2>Wat leden zeggen</h2>
+    <p>Echte ervaringen van leden uit Hoogeveen en omgeving.</p>
+    <div class="google-score">
+      <span class="g-logo">G</span>
+      <span class="g-stars">★★★★★</span>
+      <span class="g-text">4,9 / 5 · 200+ Google reviews</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-result">-44 kg in 7 maanden</div>
+      <p class="review-text">"Ik had van alles geprobeerd. Bij ConnectFit voelde het anders — de coaches kenden mijn naam en de 30-minuten aanpak paste perfect in mijn drukke schema."</p>
+      <div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">Henri</div><div class="review-meta">Lid 7 maanden · Hoogeveen</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-result">Fitter, sterker, meer energie</div>
+      <p class="review-text">"Als beginner was ik nerveus. Maar de coaches maken je meteen op je gemak. Geen oordeel, alleen begeleiding op mijn niveau."</p>
+      <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Manon</div><div class="review-meta">Beginner · Hoogeveen</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-result">Na blessure weer actief</div>
+      <p class="review-text">"Na mijn knieblessure wilde ik veilig opbouwen. Fitness en fysiotherapie op één locatie — dat is uniek. De EGYM-machines zijn ideaal voor revalidatie."</p>
+      <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Susanne</div><div class="review-meta">Revalidatie · Hoogeveen</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-result">Heel fijn sportschool</div>
+      <p class="review-text">"Fijne kleinschalige sportschool. Goede begeleiding met instellen van de apparaten en een aangenaam klimaat om in te sporten."</p>
+      <div class="review-author"><div class="review-avatar">W</div><div><div class="review-name">Wilma</div><div class="review-meta">EGYM lid · Hoogeveen</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2>Veelgestelde vragen</h2>
+    <div class="faq-item"><div class="faq-q">Is ConnectFit geschikt voor beginners?</div><div class="faq-a">Zeker. De meeste leden beginnen als beginner. Jouw coach stelt alle apparaten in op jouw beginnersniveau en begeleidt je de eerste weken intensief. Je hoeft niets te weten van fitness.</div></div>
+    <div class="faq-item"><div class="faq-q">Wat houdt de gratis kennismaking in?</div><div class="faq-a">Je maakt kennis met de locatie en een van onze coaches. We bespreken jouw doelen en je maakt een proeftraining. Volledig vrijblijvend — geen kosten, geen verplichtingen.</div></div>
+    <div class="faq-item"><div class="faq-q">Hoe werkt EGYM precies?</div><div class="faq-a">Je krijgt een polsband. Die slaat jouw trainingsdata op en communiceert met de 16 machines. De apparaten stellen automatisch gewicht en positie in op jouw niveau. Na elke training zie je je voortgang.</div></div>
+    <div class="faq-item"><div class="faq-q">Wanneer kan ik trainen bij Hoogeveen?</div><div class="faq-a">Coach-begeleide sessies op maandag t/m donderdag (ochtend én avond) en vrijdag/zaterdag (ochtend). Exacte tijden ontvang je bij je kennismaking.</div></div>
+    <div class="faq-item"><div class="faq-q">Ik heb een blessure — kan ik toch trainen?</div><div class="faq-a">Dat bespreken we bij de kennismaking. Onze fysiotherapeuten en coaches werken samen, zodat je ook in revalidatie veilig kunt sporten. De EGYM-machines zijn uitstekend geschikt voor veilig opbouwen.</div></div>
+    <div class="faq-item"><div class="faq-q">Zijn de prijzen per maand of per 4 weken?</div><div class="faq-a">Alle abonnementen worden per 4 weken afgeschreven, niet per kalendermaand. Zo betaal je 13 keer per jaar in plaats van 12 — dat is transparanter en eerlijker gepland.</div></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FEATURED TESTIMONIAL
+========================================================= -->
+<section class="featured-testimonial">
+  <div class="ft-inner">
+    <span class="ft-result">-44 kg · 7 maanden · ConnectFit Hoogeveen</span>
+    <p class="ft-quote">Ik had van alles geprobeerd, maar bij ConnectFit voelde het anders. De coaches kenden mijn naam, pasten alles op mij aan, en de 30-minuten aanpak paste perfect in mijn drukke schema. 7 maanden later ben ik 44 kg lichter en heb ik meer energie dan ooit.</p>
+    <div class="ft-author">
+      <div class="ft-avatar">H</div>
+      <div>
+        <div class="ft-name">Henri</div>
+        <div class="ft-meta">ConnectFit Hoogeveen · lid 7 maanden</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FORM — 10 DAGEN GRATIS
+========================================================= -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <div class="form-left">
+      <span class="section-label">Gratis starten</span>
+      <h2>10 dagen gratis<br><em>sporten in Hoogeveen</em></h2>
+      <p>Maak kennis met ConnectFit — geen creditcard, geen contract, geen verplichtingen. Gewoon 10 dagen ervaren wat wij te bieden hebben.</p>
+      <ul class="form-perks">
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Toegang tot alle faciliteiten</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>EGYM proeftraining inbegrepen</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Persoonlijke intake met een coach</li>
+        <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reactie binnen 24 uur</li>
+      </ul>
+    </div>
+    <div class="form-card">
+      <p class="form-card-title">Plan je gratis proefperiode</p>
+      <p class="form-card-sub">Binnen 24 uur <strong>persoonlijk contact</strong> van ons team.</p>
+      <form>
+        <div class="fg"><label>Naam</label><input type="text" placeholder="Jouw naam"></div>
+        <div class="fg"><label>E-mailadres</label><input type="email" placeholder="jouw@email.nl"></div>
+        <div class="fg"><label>Telefoonnummer</label><input type="tel" placeholder="06 – – – – – – – –"></div>
+        <div class="fg">
+          <label>Gewenste locatie</label>
+          <select>
+            <option value="">Kies locatie…</option>
+            <option>Hoogeveen — Van Echtenstraat 37</option>
+            <option>Nieuwlande — Brugstraat 90</option>
+            <option>Ruinen</option>
+          </select>
+        </div>
+        <label class="form-plus"><input type="checkbox"><span>Ik wil een vriend(in) meenemen (+1)</span></label>
+        <button type="submit" class="btn-form">START 10 DAGEN GRATIS →</button>
+        <p class="form-privacy">Geen spam. Jouw gegevens zijn veilig en worden niet gedeeld.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <p><strong>ConnectFit Hoogeveen</strong> — Van Echtenstraat 37 · 0528 – 449 133 · <a href="mailto:info@connectfit.nl">info@connectfit.nl</a></p>
+  <p style="margin-top:8px">Ook in <strong>Nieuwlande</strong> &amp; <strong>Ruinen</strong> &nbsp;·&nbsp; <a href="#">Privacybeleid</a> &nbsp;·&nbsp; © 2026 ConnectFit</p>
+</footer>
+
+<script>
+  // Pricing toggle
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Aanbod slider
+  let sliderPos = 0;
+  function slide(dir) {
+    const track = document.getElementById('sliderTrack');
+    const card = track.querySelector('.aanbod-card');
+    const cardW = card.offsetWidth + 20;
+    const maxPos = track.children.length - 4;
+    sliderPos = Math.max(0, Math.min(sliderPos + dir, maxPos));
+    track.style.transform = 'translateX(-' + (sliderPos * cardW) + 'px)';
+  }
+</script>
+
+</body>
+</html>

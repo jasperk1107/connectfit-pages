@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectFit — Hero Sportschool Hoogeveen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #eef1f5;
+    }
+    h1, h2, h3 { font-family: 'Urbanist', sans-serif; }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: #eef1f5;
+      padding: 72px 0 80px;
+    }
+    .hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* ---- LEFT ---- */
+    .hero-left { display: flex; flex-direction: column; gap: 0; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1.5px solid #dde2ea;
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #3e3e3e;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      background: #e40615;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h1 {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    h1 .accent {
+      color: #e40615;
+      position: relative;
+      white-space: nowrap;
+    }
+    h1 .accent::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #e40615;
+      border-radius: 2px;
+      opacity: 0.3;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: #3e3e3e;
+      font-weight: 500;
+    }
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      background: #e40615;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .check-icon svg {
+      width: 12px;
+      height: 12px;
+      stroke: white;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e40615;
+      color: white;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 15px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: #c20512; transform: translateY(-1px); }
+    .btn-primary .arrow { font-size: 18px; }
+
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: #555;
+      text-decoration: none;
+    }
+    .hero-phone:hover { color: #1a1a1a; }
+    .phone-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+    }
+
+    /* ---- RIGHT VISUAL ---- */
+    .hero-right {
+      position: relative;
+    }
+
+    .visual-card {
+      background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 60%, #1a1a1a 100%);
+      border-radius: 20px;
+      aspect-ratio: 1 / 1;
+      max-height: 460px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .visual-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(228,6,21,0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 20% 80%, rgba(228,6,21,0.08) 0%, transparent 50%);
+    }
+    .visual-big-text {
+      font-family: 'Urbanist', sans-serif;
+      font-size: clamp(72px, 10vw, 110px);
+      font-weight: 900;
+      color: rgba(255,255,255,0.06);
+      letter-spacing: -2px;
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      line-height: 1;
+      user-select: none;
+    }
+    .visual-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .visual-center-label {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+    .visual-center-number {
+      font-family: 'Urbanist', sans-serif;
+      font-size: clamp(64px, 9vw, 96px);
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+    .visual-center-unit {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    /* Floating chips */
+    .chip {
+      position: absolute;
+      background: white;
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    /* Google reviews chip */
+    .chip-google {
+      top: -16px;
+      right: -16px;
+    }
+    .chip-google .chip-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .chip-google-text .chip-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chip-google-text .chip-value {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    /* Gratis chip */
+    .chip-gratis {
+      bottom: 28px;
+      right: -20px;
+    }
+    .chip-gratis-dot {
+      width: 28px;
+      height: 28px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chip-gratis-dot svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      stroke-width: 2.5;
+      fill: none;
+    }
+    .chip-gratis-text .chip-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chip-gratis-text .chip-value {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    /* EGYM chip */
+    .chip-egym {
+      top: 28px;
+      left: -20px;
+    }
+    .chip-egym-icon {
+      width: 32px;
+      height: 32px;
+      background: #e40615;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chip-egym-icon span {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 10px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+    .chip-egym-text .chip-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chip-egym-text .chip-value {
+      font-family: 'Urbanist', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    /* Tags strip */
+    .visual-tags {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+      white-space: nowrap;
+    }
+    .tag {
+      background: white;
+      border-radius: 100px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #3e3e3e;
+      font-family: 'Urbanist', sans-serif;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      background: #e40615;
+      border-radius: 50%;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-right { padding: 0 20px 32px; }
+      .visual-tags { bottom: -14px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT: TEXT -->
+    <div class="hero-left">
+
+      <span class="pill">
+        <span class="pill-dot"></span>
+        Sportschool · Hoogeveen
+      </span>
+
+      <h1>Sportschool in<br><span class="accent">Hoogeveen</span> —<br>fit in 30 minuten.</h1>
+
+      <p class="hero-sub">
+        EGYM cirkeltraining met persoonlijke begeleiding.
+        De apparaten stellen automatisch in op jouw lichaam.
+        Effectief, veilig en klaar in een halfuur.
+      </p>
+
+      <ul class="checklist">
+        <li>
+          <span class="check-icon">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Begeleiding door coaches bij elke training
+        </li>
+        <li>
+          <span class="check-icon">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          EGYM, fitness, pilates &amp; fysiotherapie onder één dak
+        </li>
+        <li>
+          <span class="check-icon">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+          </span>
+          Gratis kennismaking — geen verplichtingen
+        </li>
+      </ul>
+
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">
+          Plan gratis kennismaking <span class="arrow">→</span>
+        </a>
+        <a href="tel:0528449133" class="hero-phone">
+          <span class="phone-dot"></span>
+          0528 – 449 133
+        </a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: VISUAL CARD -->
+    <div class="hero-right">
+      <div class="visual-card">
+
+        <div class="visual-big-text">EGYM</div>
+
+        <div class="visual-center">
+          <div class="visual-center-label">Klaar in</div>
+          <div class="visual-center-number">30</div>
+          <div class="visual-center-unit">minuten</div>
+        </div>
+
+        <!-- Chip: Google reviews -->
+        <div class="chip chip-google">
+          <span class="chip-icon">⭐</span>
+          <div class="chip-google-text">
+            <div class="chip-label">Google</div>
+            <div class="chip-value">4,9 / 5 · 200+ reviews</div>
+          </div>
+        </div>
+
+        <!-- Chip: EGYM -->
+        <div class="chip chip-egym">
+          <div class="chip-egym-icon"><span>EGYM</span></div>
+          <div class="chip-egym-text">
+            <div class="chip-label">Hoogeveen</div>
+            <div class="chip-value">16 connected machines</div>
+          </div>
+        </div>
+
+        <!-- Chip: Gratis -->
+        <div class="chip chip-gratis">
+          <div class="chip-gratis-dot">
+            <svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg>
+          </div>
+          <div class="chip-gratis-text">
+            <div class="chip-label">Inclusief</div>
+            <div class="chip-value">Gratis kennismaking</div>
+          </div>
+        </div>
+
+        <!-- Tags strip -->
+        <div class="visual-tags">
+          <span class="tag"><span class="tag-dot"></span>30 min training</span>
+          <span class="tag"><span class="tag-dot"></span>Eigen coach</span>
+          <span class="tag"><span class="tag-dot"></span>3 locaties</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

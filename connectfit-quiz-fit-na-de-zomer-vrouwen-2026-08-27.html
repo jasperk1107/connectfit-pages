@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fit na de Zomer | ConnectFit</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<!--
+  ================================================================
+  ConnectFit — Fit na de Zomer. Quizfunnel, korte pagina.
+  Insteek: begeleiding met EGYM. Doelgroep: vrouwen + plaatsnaam.
+  Voorbeeld buiten Perspective. 2026-08-27.
+
+  URL-schakelaars:
+    ?h=1   Een halfuur, en er staat iemand naast je     (standaard)
+    ?h=2   Nooit meer dan acht in de zaal
+    ?h=3   Dertig minuten. Twee keer per week.
+    ?l=hoogeveen | nieuwlande | ruinen
+    ?v=vrouwen | mannen
+
+  Voorbeeld: bestand.html?h=2&l=ruinen
+  ================================================================
+-->
+
+<style>
+:root{
+  --inkt:#0e0e0e; --hero:#131C29; --papier:#fafaf8;
+  --rood:#e8192c; --rood-diep:#c2101f;
+  --grijs:#5b6068; --grijs-licht:#8a9099;
+  --lijn:#e4e2dd; --lijn-donker:rgba(255,255,255,.13);
+  --groen:#2f9e44; --radius:16px; --wrap:480px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--papier);color:var(--inkt);
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.6;padding-bottom:88px;
+}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-weight:900;line-height:1.13;letter-spacing:-.022em;margin:0}
+p{margin:0 0 16px}p:last-child{margin-bottom:0}
+strong{font-weight:700}
+
+.deadline{background:var(--rood);color:#fff;text-align:center;padding:9px 16px;font-size:12px;font-weight:700}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--hero);color:#fff;overflow:hidden}
+.hero__foto{position:absolute;inset:0}
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:62% 28%;opacity:.4}
+.hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,28,41,.5) 0%,rgba(19,28,41,.87) 54%,var(--hero) 100%)}
+.hero__in{position:relative;padding:30px 0 28px}
+.hero__voor{font-size:14px;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:9px}
+.hero h1{font-size:clamp(31px,9.2vw,42px);margin-bottom:15px}
+.hero__sub{font-size:15.5px;color:rgba(255,255,255,.84);margin-bottom:19px}
+.punten{list-style:none;margin:0 0 17px;padding:0;display:grid;gap:9px}
+.punten li{position:relative;padding-left:28px;font-size:15px;color:rgba(255,255,255,.92);line-height:1.45}
+.punten li::before{content:"";position:absolute;left:2px;top:5px;width:11px;height:6px;border:solid #7ed957;border-width:0 0 2.5px 2.5px;transform:rotate(-45deg)}
+.sterren{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.72);margin-bottom:16px}
+.sterren b{color:#fff;font-weight:700}
+
+/* ---------- knop ---------- */
+.knop{
+  display:flex;align-items:center;justify-content:center;gap:11px;
+  width:100%;max-width:420px;margin:0 auto;
+  background:var(--rood);color:#fff;text-decoration:none;border:0;border-radius:999px;
+  padding:17px 22px;font-family:inherit;font-size:16px;font-weight:700;line-height:1.2;
+  cursor:pointer;box-shadow:0 6px 18px rgba(232,25,44,.26);
+  transition:background .15s ease,transform .1s ease;
+}
+.knop:hover{background:var(--rood-diep)}
+.knop:active{transform:scale(.99)}
+.knop svg{flex:none}
+.knop__onder{text-align:center;font-size:12px;margin:9px auto 0;max-width:420px;color:rgba(255,255,255,.55)}
+.sec--licht .knop__onder,.sec--wit .knop__onder{color:var(--grijs-licht)}
+
+/* ---------- kennismakingen-strip ---------- */
+.strip{max-width:420px;margin:22px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.strip__label{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.82);margin-bottom:8px}
+.strip__spoor{height:8px;border-radius:999px;background:rgba(255,255,255,.15);overflow:hidden}
+.strip__vulling{height:100%;border-radius:999px;background:linear-gradient(90deg,#ff5a3c,var(--rood));width:0;transition:width .9s cubic-bezier(.4,0,.2,1)}
+
+/* ---------- secties ---------- */
+.sec{padding:42px 0}
+.sec--wit{background:#fff;border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn)}
+.sec--donker{background:var(--inkt);color:#fff}
+.oog{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rood);margin-bottom:10px}
+.sec--donker .oog{color:#ff8a7a}
+.sec h2{font-size:clamp(23px,6.4vw,29px);margin-bottom:15px}
+.sec__intro{color:var(--grijs);margin-bottom:22px}
+.sec--donker .sec__intro{color:rgba(255,255,255,.7)}
+
+.kaarten{display:grid;gap:11px;margin-bottom:24px}
+.kaart{background:#fff;border:1px solid var(--lijn);border-radius:var(--radius);padding:18px 19px}
+.sec--donker .kaart{background:rgba(255,255,255,.05);border-color:var(--lijn-donker)}
+.kaart h3{font-size:16px;margin-bottom:6px}
+.kaart p{font-size:14.5px;color:var(--grijs);margin:0}
+.sec--donker .kaart p{color:rgba(255,255,255,.7)}
+
+.stappen{list-style:none;counter-reset:s;margin:0 0 24px;padding:0;display:grid;gap:20px}
+.stappen li{counter-increment:s;position:relative;padding-left:47px}
+.stappen li::before{
+  content:counter(s);position:absolute;left:0;top:-2px;width:33px;height:33px;border-radius:50%;
+  background:var(--rood);color:#fff;font-size:15px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+}
+.stappen h3{font-size:16px;margin-bottom:5px}
+.stappen p{font-size:14.5px;color:var(--grijs);margin:0}
+.stapfoto{border-radius:var(--radius);overflow:hidden;border:1px solid var(--lijn);margin-bottom:22px}
+
+.review{background:#fff;border:1px solid var(--lijn);border-radius:var(--radius);padding:19px;margin-bottom:11px}
+.review__sterren{color:#f5a623;font-size:13px;letter-spacing:2px;margin-bottom:8px}
+.review p{font-size:14.5px;margin-bottom:10px}
+.review cite{font-style:normal;font-size:12.5px;color:var(--grijs-licht);font-weight:600}
+
+.faq details{border-bottom:1px solid var(--lijn)}
+.faq details:first-of-type{border-top:1px solid var(--lijn)}
+.faq summary{list-style:none;cursor:pointer;padding:17px 34px 17px 0;position:relative;font-weight:700;font-size:15.5px;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:24px;width:9px;height:9px;border:solid var(--rood);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .18s ease}
+.faq details[open] summary::after{transform:rotate(225deg);top:26px}
+.faq__antwoord{padding:0 0 18px;font-size:14.5px;color:var(--grijs)}
+
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(250,250,248,.97);backdrop-filter:blur(12px);
+  border-top:1px solid var(--lijn);padding:10px 20px calc(10px + env(safe-area-inset-bottom));
+}
+.sticky .knop{box-shadow:none}
+.sticky__regel{text-align:center;font-size:11.5px;color:var(--grijs-licht);margin-top:6px;font-weight:600}
+.voet{background:var(--inkt);color:#7c828b;font-size:12.5px;padding:26px 0 32px;text-align:center}
+
+/* ---------- quiz-overlay ---------- */
+.quiz{position:fixed;inset:0;z-index:100;background:var(--papier);display:none;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}
+.quiz.aan{display:flex}
+.quiz__balk{position:sticky;top:0;z-index:2;background:rgba(250,250,248,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--lijn)}
+.quiz__balk .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.quiz__terug,.quiz__sluit{border:0;background:none;cursor:pointer;font:inherit;color:var(--grijs-licht);padding:8px 2px}
+.quiz__terug{font-size:14px;display:flex;align-items:center;gap:6px}
+.quiz__terug:disabled{opacity:.25;cursor:default}
+.quiz__sluit{font-size:24px;line-height:1}
+.quiz__spoor{flex:1;height:6px;background:var(--lijn);border-radius:999px;overflow:hidden}
+.quiz__spoor i{display:block;height:100%;width:0;background:var(--rood);border-radius:999px;transition:width .34s cubic-bezier(.4,0,.2,1)}
+.quiz__tel{font-size:12.5px;color:var(--grijs-licht);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.quiz__body{flex:1;padding:30px 0 60px}
+.quiz__scherm{animation:op .3s cubic-bezier(.2,.7,.3,1)}
+@keyframes op{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.quiz h2{font-size:clamp(21px,5.8vw,26px);margin-bottom:8px}
+.quiz .hint{font-size:14px;color:var(--grijs);margin-bottom:22px}
+.opties{display:grid;gap:10px;margin-bottom:22px}
+.optie{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  background:#fff;border:1.5px solid var(--lijn);border-radius:13px;padding:15px 17px;
+  cursor:pointer;font:inherit;font-size:15px;color:var(--inkt);
+  transition:border-color .14s ease,background .14s ease;
+}
+.optie:hover{border-color:var(--rood)}
+.optie.aan{border-color:var(--rood);background:#fff5f5;box-shadow:inset 0 0 0 1px var(--rood)}
+.optie__vink{flex:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--lijn);background:#fff;position:relative}
+.optie.aan .optie__vink{background:var(--rood);border-color:var(--rood)}
+.optie.aan .optie__vink::after{content:"";position:absolute;left:8px;top:5px;width:5px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.opties--enkel .optie__vink{border-radius:50%}
+.veld{margin-bottom:15px}
+.veld label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px}
+.veld input{width:100%;font:inherit;font-size:16px;padding:14px 15px;border:1.5px solid var(--lijn);border-radius:11px;background:#fff;color:var(--inkt)}
+.veld input:focus{outline:0;border-color:var(--rood);box-shadow:0 0 0 3px rgba(232,25,44,.14)}
+.veld .fout{display:none;color:var(--rood);font-size:12.5px;margin-top:5px;font-weight:600}
+.veld.mis input{border-color:var(--rood)}
+.veld.mis .fout{display:block}
+.privacy{font-size:12px;color:var(--grijs-licht);margin-top:15px;line-height:1.5}
+.spiegel{background:#fff;border:1px solid var(--lijn);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.spiegel h3{font-size:15.5px;margin-bottom:6px}
+.spiegel p{font-size:14.5px;color:var(--grijs);margin:0}
+.spiegel + .spiegel{margin-top:-8px}
+.spin{width:44px;height:44px;border-radius:50%;border:3.5px solid var(--lijn);border-top-color:var(--rood);margin:0 auto 22px;animation:draai .8s linear infinite}
+@keyframes draai{to{transform:rotate(360deg)}}
+.klaar{text-align:center;padding:16px 0}
+.klaar__vink{width:60px;height:60px;border-radius:50%;background:var(--groen);margin:0 auto 20px;position:relative}
+.klaar__vink::after{content:"";position:absolute;left:20px;top:15px;width:14px;height:25px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg)}
+
+@media (min-width:640px){
+  :root{--wrap:660px}
+  .sec{padding:54px 0}
+  .hero__in{padding:46px 0 40px}
+  .kaarten{grid-template-columns:1fr 1fr}
+}
+@media (min-width:900px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+
+<div class="deadline" id="deadlineBalk"></div>
+
+<header class="hero">
+  <div class="hero__foto"><img src="assets/hoogeveen-egym-fitcoach.jpeg" alt="Fit-Coach begeleidt een lid op de vloer bij ConnectFit"></div>
+  <div class="hero__in"><div class="wrap">
+    <p class="hero__voor" id="heroVoor"></p>
+    <h1 id="heroKop"></h1>
+    <p class="hero__sub" id="heroSub"></p>
+    <ul class="punten" id="heroPunten"></ul>
+    <div class="sterren">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+      <span><b>4,9</b> op Google</span>
+    </div>
+    <button class="knop js-start" type="button">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <span class="js-cta-zacht"></span>
+    </button>
+    <p class="knop__onder js-cta-onder"></p>
+    <div class="strip">
+      <div class="strip__label" id="stripLabel"></div>
+      <div class="strip__spoor"><div class="strip__vulling" id="stripVulling"></div></div>
+    </div>
+  </div></div>
+</header>
+
+<section class="sec sec--donker">
+  <div class="wrap">
+    <div class="oog">Voor wie</div>
+    <h2 id="pijnKop"></h2>
+    <div class="kaarten" id="pijnKaarten"></div>
+    <button class="knop js-start" type="button">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <span class="js-cta-zacht"></span>
+    </button>
+    <p class="knop__onder js-cta-onder"></p>
+  </div>
+</section>
+
+<section class="sec sec--wit">
+  <div class="wrap">
+    <div class="oog">Wat er gebeurt als je komt</div>
+    <h2>Drie kwartier, en je weet waar je staat</h2>
+    <div class="stapfoto"><img src="assets/hoogeveen-bioage-scan.jpeg" alt="Bio-Age-meting bij ConnectFit"></div>
+    <ol class="stappen" id="stappen"></ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="oog">Wat leden zeggen</div>
+    <h2 id="reviewKop"></h2>
+    <div id="reviews"></div>
+  </div>
+</section>
+
+<section class="sec sec--wit">
+  <div class="wrap">
+    <div class="oog">Eerlijk antwoord</div>
+    <h2>Wat we het vaakst gevraagd krijgen</h2>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<section class="sec sec--donker">
+  <div class="wrap" style="text-align:center">
+    <h2 id="slotKop"></h2>
+    <p class="sec__intro" id="slotTekst"></p>
+    <button class="knop js-start" type="button">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <span class="js-cta-hard"></span>
+    </button>
+    <p class="knop__onder js-cta-onder"></p>
+  </div>
+</section>
+
+<footer class="voet"><div class="wrap" id="voet"></div></footer>
+
+<div class="sticky">
+  <button class="knop js-start" type="button">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <span class="js-cta-zacht"></span>
+  </button>
+  <div class="sticky__regel" id="stickyRegel"></div>
+</div>
+
+<div class="quiz" id="quiz" role="dialog" aria-modal="true" aria-label="Kijk of het bij je past">
+  <div class="quiz__balk"><div class="wrap">
+    <button class="quiz__terug" id="qTerug" type="button">&larr; Terug</button>
+    <div class="quiz__spoor"><i id="qSpoor"></i></div>
+    <div class="quiz__tel" id="qTel"></div>
+    <button class="quiz__sluit" id="qSluit" type="button" aria-label="Sluiten">&times;</button>
+  </div></div>
+  <div class="quiz__body"><div class="wrap"><div class="quiz__scherm" id="qScherm"></div></div></div>
+</div>
+
+<script>
+/* =========================================================================
+   1. VARIANTEN — het enige blok dat je aanpast
+   ========================================================================= */
+
+var HEADLINES = {
+  1: 'Een halfuur, en er staat iemand naast je',
+  2: 'Nooit meer dan acht in de zaal',
+  3: 'Dertig minuten. Twee keer per week.'
+};
+
+var ACTIE = {
+  naam:        'Fit na de Zomer',
+  maand:       'oktober',        /* de gratis maand. STAAT ALS VOORSTEL IN DE BRIEF, niet goedgekeurd */
+  deadline:    '30 september',
+  kennisTot:   20,               /* kennismakingen deze ronde, per locatie */
+  kennisWeg:   8,                /* al vergeven */
+  maxTegelijk: 8,                /* ← BEVESTIGEN BIJ BRYAN: guardrails noemen 12 per uur */
+  ctaZacht:    'Kijk of het bij je past',
+  ctaHard:     'Kies mijn moment',
+  ctaOnder:    'Vier vragen, ongeveer een minuut.'   /* er zijn er echt vier, fit20's "zes" niet blind overnemen */
+};
+
+var LOCATIES = {
+  hoogeveen:  { plaats:'Hoogeveen',  adres:'van Echtenstraat 37, Hoogeveen', whatsapp:'31528449133' },
+  nieuwlande: { plaats:'Nieuwlande', adres:'Brugstraat 90, Nieuwlande',      whatsapp:'31528449133' },
+  ruinen:     { plaats:'Ruinen',     adres:'',  /* ONBEKEND, open bij Bryan sinds 2026-07-28 */
+                whatsapp:'31528449133' }
+};
+
+var DOELGROEP = {
+  vrouwen: {
+    woord: 'vrouwen',
+    /* De behoefte-bijzin. "die weer willen beginnen" is een handeling, geen behoefte.
+       Alternatieven die wél een behoefte noemen, wissel er één in:
+         'die weer sterker willen worden'                    <- wensvorm, besluit 2026-07-25
+         'die weer makkelijk de trap op willen'
+         'die weinig tijd hebben en toch willen trainen'
+         'die niet zelf willen uitzoeken wat ze moeten doen'
+       Let op: de wensvorm is nog niet schriftelijk bevestigd bij Bryan of Sebastiaan
+       (campagne-guardrails.md sectie 2). */
+    behoefte: 'die weer sterker willen worden',
+    pijnKop: 'Herken je dit?',
+    pijn: [
+      ['Je komt er niet meer aan toe', 'Werk, huis, de kinderen, en dan is de dag om. Wat er overblijft gaat niet naar jezelf.'],
+      ['Een grote sportschool is niks voor jou', 'Wachten bij een toestel, harde muziek, en niemand die je aanspreekt. Dat houdt niemand vol.'],
+      ['Je weet niet waar je moet beginnen', 'Vijftien toestellen en geen idee wat je ermee moet. Dan doe je liever niets.'],
+      ['Je bent eerder gestopt', 'Niet omdat je niet wilde, maar omdat niemand het merkte toen je wegbleef.']
+    ],
+    slotKop: 'Kom een keer kijken en beslis daarna',
+    slotTekst: 'Je doet de Bio-Age-meting, je hoort wat er in {maand} mogelijk is en je gaat naar huis. Wat het daarna kost hoor je van de hoofdcoach.'
+  },
+  mannen: {
+    woord: 'mannen',
+    behoefte: 'die weer sterker willen worden',
+    pijnKop: 'Herken je dit?',
+    pijn: [
+      ['Je bent sterker geweest dan nu', 'Boodschappen, een zware tas, de trap met een kind op je arm. Het kost meer moeite dan een paar jaar terug.'],
+      ['Je hebt het eerder geprobeerd', 'Zes weken gaan, dan een week overslaan, en daarna niet meer. Zonder iemand die je bij naam kent gaat dat vaak zo.'],
+      ['Je weet niet of je het goed doet', 'Zwaarder tillen dan verstandig is, of jaren hetzelfde gewicht. Beide kosten je resultaat.'],
+      ['Je hebt geen uur per keer', 'Een halfuur is haalbaar naast je werk. Anderhalf uur inclusief omkleden en rijden niet.']
+    ],
+    slotKop: 'Kom een keer kijken en beslis daarna',
+    slotTekst: 'Je doet de Bio-Age-meting, je hoort wat er in {maand} mogelijk is en je gaat naar huis. Wat het daarna kost hoor je van de hoofdcoach.'
+  }
+};
+
+/* =========================================================================
+   2. Vanaf hier niets inhoudelijk aanpassen
+   ========================================================================= */
+
+var q  = new URLSearchParams(location.search);
+var L  = LOCATIES[(q.get('l') || 'hoogeveen').toLowerCase()] || LOCATIES.hoogeveen;
+var D  = DOELGROEP[(q.get('v') || 'vrouwen').toLowerCase()] || DOELGROEP.vrouwen;
+var H  = HEADLINES[q.get('h')] || HEADLINES[1];
+var vrij = ACTIE.kennisTot - ACTIE.kennisWeg;
+
+function vul(s){
+  return (s || '')
+    .replace(/{plaats}/g, L.plaats)
+    .replace(/{woord}/g, D.woord)
+    .replace(/{behoefte}/g, D.behoefte)
+    .replace(/{vrij}/g, vrij)
+    .replace(/{totaal}/g, ACTIE.kennisTot)
+    .replace(/{maand}/g, ACTIE.maand)
+    .replace(/{deadline}/g, ACTIE.deadline)
+    .replace(/{max}/g, ACTIE.maxTegelijk)
+    .replace(/{actie}/g, ACTIE.naam);
+}
+function zet(id, html){ var el = document.getElementById(id); if (el) el.innerHTML = vul(html); }
+function zetAlle(sel, tekst){ [].forEach.call(document.querySelectorAll(sel), function(el){ el.textContent = vul(tekst); }); }
+
+/* --- balk, cta's --- */
+zet('deadlineBalk', '{actie}-actie &middot; aanmelden vóór {deadline}');
+zetAlle('.js-cta-zacht', ACTIE.ctaZacht);
+zetAlle('.js-cta-hard',  ACTIE.ctaHard);
+zetAlle('.js-cta-onder', ACTIE.ctaOnder);
+zet('stickyRegel', 'Nog {vrij} kennismakingen vrij in {plaats}');
+
+/* --- hero --- */
+zet('heroVoor', 'Voor {woord} uit {plaats} en omstreken');
+document.getElementById('heroKop').textContent = H;
+zet('heroSub', 'Wij hebben deze ronde <strong>{vrij} kennismakingen vrij</strong> voor {woord} uit {plaats} {behoefte}. Je traint 30 minuten met een Fit-Coach op de vloer, en er staan nooit meer dan {max} mensen tegelijk in de zaal.');
+document.getElementById('heroPunten').innerHTML = [
+  'Train <strong>30 minuten</strong>, twee keer per week',
+  'Sport nooit met meer dan <strong>{max} mensen tegelijk</strong>',
+  '<strong>Het toestel staat al goed</strong> als je binnenkomt'
+].map(function(t){ return '<li>' + vul(t) + '</li>'; }).join('');
+
+/* Schaarste op kennismakingen, niet op programmaplekken. Coachtijd is de echte
+   bottleneck, dus dit getal is verdedigbaar. Verbergt zichzelf als er nog
+   niemand is geweest: "20 van de 20 vrij" is negatief sociaal bewijs. */
+if (ACTIE.kennisWeg > 0){
+  zet('stripLabel', 'Kennismakingen deze ronde in {plaats}: nog {vrij} van de {totaal} vrij');
+  setTimeout(function(){
+    document.getElementById('stripVulling').style.width = Math.round(ACTIE.kennisWeg / ACTIE.kennisTot * 100) + '%';
+  }, 400);
+} else {
+  document.querySelector('.strip').style.display = 'none';
+  zet('stickyRegel', 'De hoofdcoach belt je binnen 24 uur');
+}
+
+/* --- voor wie --- */
+zet('pijnKop', D.pijnKop);
+document.getElementById('pijnKaarten').innerHTML = D.pijn.map(function(k){
+  return '<div class="kaart"><h3>' + vul(k[0]) + '</h3><p>' + vul(k[1]) + '</p></div>';
+}).join('');
+
+/* --- drie stappen, EGYM landt hier --- */
+document.getElementById('stappen').innerHTML = [
+  ['Je vertelt waar je tegenaan loopt',
+   'Geen rondleiding met een praatje erbij. Tien minuten over wat je mist en wat je weer wil kunnen.'],
+  ['Je doet de Bio-Age-meting',
+   'Kracht, conditie, flexibiliteit en lichaamssamenstelling in één meting. Je gezondheidsleeftijd naast je kalenderleeftijd, op papier, zodat je over drie maanden ziet wat er is veranderd.'],
+  ['Je Fit-Coach zet je programma op',
+   'Daarna meld je je aan bij het EGYM-toestel en staat het op jouw zithoogte, jouw bereik en jouw gewicht. Je hoeft niets in te stellen en niets te bedenken. Elke 8 tot 12 weken meet je opnieuw en gaat je programma mee.']
+].map(function(s){
+  return '<li><h3>' + vul(s[0]) + '</h3><p>' + vul(s[1]) + '</p></li>';
+}).join('');
+
+/* --- reviews ---
+   LET OP: dit zijn de drie echte reviewteksten van Hoogeveen. De voornamen op de
+   live pagina's zijn VERZONNEN (locaties.md). Vervangen door de echte Google-namen
+   voordat dit live gaat, en niet doorkopiëren naar Nieuwlande of Ruinen. */
+zet('reviewKop', 'Leden uit {plaats} en omgeving');
+document.getElementById('reviews').innerHTML = [
+  'Er staat altijd iemand die je bij naam kent en die meekijkt of je het goed doet. Dat mis ik bij een grote sportschool.',
+  'Een halfuur, en ik ben weer weg. Dat past naast mijn werk, en daarom ga ik er nu ook echt heen.',
+  'De toestellen staan al goed als ik inlog, dus ik hoef niets in te stellen of te bedenken. Ik train en ik ga.'
+].map(function(t){
+  return '<div class="review"><div class="review__sterren">&#9733;&#9733;&#9733;&#9733;&#9733;</div>' +
+         '<p>&ldquo;' + vul(t) + '&rdquo;</p><cite>Voornaam nog invullen &middot; via Google</cite></div>';
+}).join('');
+
+/* --- faq, vier vragen waarvan één over de prijs --- */
+document.getElementById('faq').innerHTML = [
+  ['Ik heb jaren niets gedaan. Is dit iets voor mij?',
+   'Dat is de groep die hier het meeste komt. De toestellen gaan tot heel lage gewichten en je Fit-Coach bepaalt waar je start. Bij de Bio-Age-meting zie je precies wat je beginpunt is.'],
+  ['Train ik samen met anderen?',
+   'Je traint op je eigen programma en op je eigen tempo. Er staan nooit meer dan {max} mensen tegelijk in de zaal, en je Fit-Coach loopt daar rond tijdens de 40+ bemande uren per week.'],
+  ['Wat kost het na {maand}?',
+   'Dat hangt af van hoe vaak je komt en wat je erbij wil. Je hoort het exacte bedrag van de hoofdcoach en je beslist daarna, niet ervoor. Je bepaalt zelf hoe lang je doorgaat, vanaf één maand.'],
+  ['Wat gebeurt er nadat ik dit heb ingevuld?',
+   'De hoofdcoach van {plaats} belt je binnen 24 uur, vaak dezelfde dag. Bellen doen we tussen 8:00 en 12:00 of tussen 17:30 en 20:30, en je geeft zelf aan wat jou uitkomt.']
+].map(function(f){
+  return '<details><summary>' + vul(f[0]) + '</summary><div class="faq__antwoord">' + vul(f[1]) + '</div></details>';
+}).join('');
+
+/* --- slot --- */
+zet('slotKop', D.slotKop);
+zet('slotTekst', D.slotTekst);
+zet('voet', 'ConnectFit ' + L.plaats + (L.adres ? ' &middot; ' + L.adres : '') + '<br>Elke dag open van 6:00 tot 22:00');
+
+/* =========================================================================
+   3. De quiz
+   ========================================================================= */
+
+var STAPPEN = [
+  { id:'doel', multi:true, minEen:true,
+    vraag:'Wat wil je over een halfjaar weer makkelijk kunnen?',
+    hint:'Je mag er meerdere aanklikken. Er is geen fout antwoord.',
+    opties:[
+      ['trap',     'De trap op zonder buiten adem te raken'],
+      ['tillen',   'Een zware tas of de boodschappen tillen'],
+      ['kracht',   'Sterker worden en het houden'],
+      ['energie',  'De dag doorkomen zonder in te storten'],
+      ['klachten', 'Minder last van mijn rug, nek of knieën']
+    ]},
+  { id:'drempel', multi:true, minEen:true,
+    vraag:'Wat houdt je tegen?',
+    hint:'Meestal is het er meer dan één. Klik aan wat klopt.',
+    opties:[
+      ['tijd',        'Ik heb er de tijd niet voor'],
+      ['sportschool', 'Een grote sportschool is niks voor mij'],
+      ['beginnen',    'Ik weet niet waar ik moet beginnen'],
+      ['gestopt',     'Ik ben eerder begonnen en weer gestopt'],
+      ['lijf',        'Ik twijfel of mijn lijf het aankan']
+    ]},
+  { id:'lichaam', multi:true,
+    vraag:'Is er iets waar je Fit-Coach rekening mee moet houden?',
+    hint:'Dit gaat mee naar de coach, zodat je het niet opnieuw hoeft uit te leggen.',
+    opties:[
+      ['rug','Rug of nek'],['knie','Knie of heup'],['schouder','Schouder'],
+      ['hart','Hart of bloeddruk'],['operatie','Ik ben geopereerd'],['niets','Nee, niets bijzonders']
+    ]},
+  { id:'naam' },
+  { id:'rekenen' },
+  { id:'uitslag' },
+  { id:'gegevens' }
+];
+
+/* Zes stappen die de bezoeker als vraag ervaart: doel, drempel, lichaam, naam,
+   uitslag, gegevens. De rekenbeat telt niet mee in de teller, die duurt 1,4 seconde
+   en zorgt dat "je uitslag staat klaar" iets betekent. */
+var TELBAAR = STAPPEN.filter(function(s){ return s.id !== 'rekenen'; }).length;
+
+/* Het antwoord op elk bezwaar uit stap 2. Dit is de motor van de fit20-funnel:
+   de bezoeker klikt zijn eigen bezwaar aan en krijgt daar het antwoord op.
+   Geen resultaat- of gezondheidsclaims, alleen wat er in de zaak gebeurt. */
+var SPIEGEL = {
+  tijd:        ['Tijd is je grootste bezwaar', 'Dertig minuten, twee keer per week. Inclusief aankomen en weer weglopen ben je er drie kwartier mee kwijt, en je hoeft niet op een toestel te wachten.'],
+  sportschool: ['Je moet niets hebben van een grote sportschool', 'Dan zit je hier goed. Er staan nooit meer dan {max} mensen tegelijk in de zaal, dus je hoeft nergens tussen te wringen.'],
+  beginnen:    ['Je weet niet waar je moet beginnen', 'Dat hoeft ook niet. Je Fit-Coach zet je programma op en het toestel staat al op jouw instellingen als je inlogt.'],
+  gestopt:     ['Je bent eerder gestopt', 'Daarom werkt het hier anders dan met een pasje. Je Fit-Coach kent je bij naam en ziet het als je een week wegblijft.'],
+  lijf:        ['Je twijfelt of je lijf het aankan', 'De toestellen gaan tot heel lage gewichten en je Fit-Coach bepaalt de belasting. Bij de Bio-Age-meting zie je waar je startpunt ligt.'],
+  trap:        ['Je wilt de trap weer op zonder buiten adem te raken', 'Beenkracht is een van de dingen die bij de Bio-Age-meting gemeten wordt, dus je hebt er een startgetal van om over drie maanden naast te leggen.'],
+  tillen:      ['Je wilt makkelijker kunnen tillen', 'De toestellen werken op bewegingen die je thuis ook maakt. Wat je tilt wordt elke keer geregistreerd, dus je ziet zelf wat er verandert.'],
+  kracht:      ['Je wilt sterker worden en het houden', 'Daar houdt het systeem cijfers van bij. Elke 8 tot 12 weken meet je opnieuw en past je Fit-Coach je programma aan.'],
+  energie:     ['Je wilt de dag doorkomen zonder in te storten', 'Twee keer een halfuur past naast een volle week. Dat is de reden dat mensen het hier volhouden en niet dat het zwaarder is dan elders.'],
+  klachten:    ['Je hebt last van je rug, nek of knieën', 'Vertel het bij de kennismaking, dan stelt je Fit-Coach het programma daarop in. Twijfel je, overleg dan eerst met je huisarts of fysiotherapeut. Die beslissing nemen wij niet voor je.']
+};
+
+var stap = 0, antw = {};
+var elQuiz   = document.getElementById('quiz'),
+    elScherm = document.getElementById('qScherm'),
+    elSpoor  = document.getElementById('qSpoor'),
+    elTel    = document.getElementById('qTel'),
+    elTerug  = document.getElementById('qTerug');
+
+[].forEach.call(document.querySelectorAll('.js-start'), function(b){
+  b.addEventListener('click', function(){
+    stap = 0; elQuiz.classList.add('aan'); document.body.style.overflow = 'hidden'; render();
+  });
+});
+document.getElementById('qSluit').addEventListener('click', function(){
+  elQuiz.classList.remove('aan'); document.body.style.overflow = '';
+});
+elTerug.addEventListener('click', function(){ if (stap > 0){ stap--; render(); } });
+
+function render(){
+  var s = STAPPEN[stap];
+  var telbaar = STAPPEN.slice(0, stap + 1).filter(function(x){ return x.id !== 'rekenen'; }).length;
+  elTel.textContent = s.id === 'rekenen' ? '' : telbaar + ' van ' + TELBAAR;
+  elSpoor.style.width = (telbaar / TELBAAR * 100) + '%';
+  elTerug.disabled = stap === 0 || s.id === 'rekenen';
+
+  if (s.id === 'naam')     return naam();
+  if (s.id === 'rekenen')  return rekenen();
+  if (s.id === 'uitslag')  return uitslag();
+  if (s.id === 'gegevens') return gegevens();
+
+  var gekozen = antw[s.id] || [];
+  elScherm.innerHTML =
+    '<h2>' + vul(s.vraag) + '</h2><p class="hint">' + vul(s.hint) + '</p>' +
+    '<div class="opties ' + (s.multi ? 'opties--multi' : 'opties--enkel') + '">' +
+      s.opties.map(function(o, i){
+        return '<button class="optie' + (gekozen.indexOf(o[0]) > -1 ? ' aan' : '') +
+               '" type="button" data-i="' + i + '"><span class="optie__vink"></span><span>' + o[1] + '</span></button>';
+      }).join('') +
+    '</div>' +
+    '<button class="knop" id="verder" type="button">Verder</button>' +
+    (s.minEen ? '<p class="privacy" id="minEen" style="display:none;color:var(--rood);font-weight:600">Kies er minstens één.</p>' : '');
+
+  [].forEach.call(elScherm.querySelectorAll('.optie'), function(b){
+    b.addEventListener('click', function(){
+      var w = s.opties[+b.dataset.i][0], huidig = antw[s.id] || [];
+      if (s.multi){
+        var i = huidig.indexOf(w);
+        if (i > -1) huidig.splice(i, 1); else huidig.push(w);
+        antw[s.id] = huidig;
+        b.classList.toggle('aan');
+      } else {
+        antw[s.id] = [w];
+        [].forEach.call(elScherm.querySelectorAll('.optie'), function(x){ x.classList.remove('aan'); });
+        b.classList.add('aan');
+        setTimeout(function(){ stap++; render(); }, 220);
+      }
+    });
+  });
+  document.getElementById('verder').addEventListener('click', function(){
+    if (s.minEen && !(antw[s.id] || []).length){ document.getElementById('minEen').style.display = 'block'; return; }
+    stap++; render();
+  });
+}
+
+function naam(){
+  elScherm.innerHTML =
+    '<h2>' + vul('Hoe mag ik je noemen?') + '</h2>' +
+    '<p class="hint">' + vul('Dan zet ik je uitslag op jouw naam.') + '</p>' +
+    '<div class="veld"><label for="vnaam">Voornaam</label>' +
+    '<input id="vnaam" type="text" autocomplete="given-name" value="' + (antw.voornaam || '') + '">' +
+    '<span class="fout">Vul je voornaam in.</span></div>' +
+    '<button class="knop" id="verder" type="button">Bekijk mijn uitslag</button>';
+
+  var input = document.getElementById('vnaam');
+  input.focus();
+  function door(){
+    if (input.value.trim().length < 2){ input.closest('.veld').classList.add('mis'); return; }
+    antw.voornaam = input.value.trim().replace(/^./, function(c){ return c.toUpperCase(); });
+    stap++; render();
+  }
+  document.getElementById('verder').addEventListener('click', door);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') door(); });
+}
+
+function rekenen(){
+  elScherm.innerHTML =
+    '<div class="klaar"><div class="spin"></div>' +
+    '<h2>' + vul('Even kijken, ' + (antw.voornaam || '') + '') + '</h2>' +
+    '<p class="hint">' + vul('Je antwoorden gaan langs wat we in {plaats} kunnen bieden.') + '</p></div>';
+  setTimeout(function(){ if (STAPPEN[stap] && STAPPEN[stap].id === 'rekenen'){ stap++; render(); } }, 1400);
+}
+
+function uitslag(){
+  /* Maximaal drie spiegels: eerst het bezwaar, dan het doel. Meer leest als een brochure. */
+  var sleutels = (antw.drempel || []).concat(antw.doel || []).slice(0, 3);
+  elScherm.innerHTML =
+    '<h2>' + vul('Je uitslag staat klaar' + (antw.voornaam ? ', ' + antw.voornaam : '')) + '</h2>' +
+    '<p class="hint">' + vul('Dit zou het voor je betekenen bij ConnectFit {plaats}.') + '</p>' +
+    sleutels.map(function(k){
+      var s = SPIEGEL[k]; if (!s) return '';
+      return '<div class="spiegel"><h3>' + vul(s[0]) + '</h3><p>' + vul(s[1]) + '</p></div>';
+    }).join('') +
+    '<button class="knop" id="verder" type="button">' + ACTIE.ctaHard + '</button>' +
+    '<p class="privacy" style="text-align:center">' + vul('Nog {vrij} van de {totaal} kennismakingen vrij in {plaats}.') + '</p>';
+  document.getElementById('verder').addEventListener('click', function(){ stap++; render(); });
+}
+
+function gegevens(){
+  elScherm.innerHTML =
+    '<h2>' + vul('Waar mag de hoofdcoach je bereiken?') + '</h2>' +
+    '<p class="hint">' + vul('Je hoort binnen 24 uur wat er in {maand} nog mogelijk is in {plaats}.') + '</p>' +
+    '<div class="veld"><label for="naam">Achternaam</label><input id="naam" type="text" autocomplete="family-name"><span class="fout">Vul je achternaam in.</span></div>' +
+    '<div class="veld"><label for="tel">Telefoonnummer</label><input id="tel" type="tel" inputmode="tel" autocomplete="tel"><span class="fout">Vul een geldig telefoonnummer in.</span></div>' +
+    '<div class="veld"><label for="mail">E-mailadres</label><input id="mail" type="email" inputmode="email" autocomplete="email"><span class="fout">Vul een geldig e-mailadres in.</span></div>' +
+    '<div class="veld"><label>Wanneer mag de hoofdcoach je bellen?</label>' +
+      '<div class="opties opties--enkel" id="belmoment">' +
+      [['ochtend','Tussen 8:00 en 12:00'],['avond','Tussen 17:30 en 20:30'],['egaal','Maakt me niet uit']]
+        .map(function(o, i){ return '<button class="optie" type="button" data-w="' + o[0] + '">' +
+          '<span class="optie__vink"></span><span>' + o[1] + '</span></button>'; }).join('') +
+      '</div></div>' +
+    '<button class="knop" id="verstuur" type="button">' + ACTIE.ctaHard + '</button>' +
+    '<p class="privacy">' + vul('Je gegevens gaan naar de hoofdcoach van {plaats} en verder nergens heen.') + '</p>';
+
+  [].forEach.call(elScherm.querySelectorAll('#belmoment .optie'), function(b){
+    b.addEventListener('click', function(){
+      antw.moment = [b.dataset.w];
+      [].forEach.call(elScherm.querySelectorAll('#belmoment .optie'), function(x){ x.classList.remove('aan'); });
+      b.classList.add('aan');
+    });
+  });
+
+  document.getElementById('verstuur').addEventListener('click', function(){
+    var ok = true;
+    [['naam', function(v){ return v.trim().length > 1; }],
+     ['tel',  function(v){ return v.replace(/\D/g, '').length >= 9; }],
+     ['mail', function(v){ return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim()); }]
+    ].forEach(function(p){
+      var input = document.getElementById(p[0]), veld = input.closest('.veld');
+      if (p[1](input.value)) veld.classList.remove('mis');
+      else { veld.classList.add('mis'); ok = false; }
+    });
+    if (!ok) return;
+
+    antw.naam      = (antw.voornaam || '') + ' ' + document.getElementById('naam').value.trim();
+    antw.telefoon  = document.getElementById('tel').value.trim();
+    antw.email     = document.getElementById('mail').value.trim();
+    antw.locatie   = L.plaats;
+    antw.doelgroep = D.woord;
+    antw.headline  = H;
+    antw.utm       = location.search;
+
+    /* Hier komt de POST naar Zapier of het CRM. Vuur op dit punt ook de
+       Meta-pixel als los Lead-event, zodat Meta op leads kan optimaliseren
+       in plaats van op paginabezoeken. */
+    console.log('LEAD →', antw);
+    klaar();
+  });
+}
+
+function klaar(){
+  elSpoor.style.width = '100%';
+  elTel.textContent = '';
+  elTerug.disabled = true;
+  elScherm.innerHTML =
+    '<div class="klaar"><div class="klaar__vink"></div>' +
+    '<h2>' + vul('Het staat vast' + (antw.voornaam ? ', ' + antw.voornaam : '')) + '</h2>' +
+    '<p class="hint">' + vul('De hoofdcoach van ConnectFit {plaats} belt je binnen 24 uur, vaak dezelfde dag. Je krijgt zo een bevestiging op ') + (antw.email || 'je mail') + '.</p>' +
+    '<a class="knop" href="https://wa.me/' + L.whatsapp + '?text=' +
+      encodeURIComponent('Ik heb me aangemeld voor de ' + ACTIE.naam + '-actie bij ConnectFit ' + L.plaats + '.') +
+      '">Stel je vraag via WhatsApp</a>' +
+    '<p class="privacy" style="text-align:center">Of bel zelf: 0528 44 91 33</p></div>';
+}
+</script>
+</body>
+</html>

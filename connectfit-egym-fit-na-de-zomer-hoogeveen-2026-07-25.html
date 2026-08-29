@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectFit Hoogeveen · Fit na de Zomer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!--
+    MASTERTEMPLATE — Fit na de Zomer, Open Maand september 2026
+    Afgeleiden: Nieuwlande en Ruinen.
+    Zoek op LOCATIE om alles te vinden wat per vestiging wijzigt.
+    Foto's staan in ./assets/ — per vestiging vervangen.
+  -->
+  <style>
+    :root {
+      --ink:      #0e0e0e;
+      --ink-soft: #4a4a4a;
+      --ink-mute: #8b8b8b;
+      --paper:    #ffffff;
+      --paper-2:  #fafaf8;
+      --red:      #e8192c;
+      --red-dark: #c0101f;
+      --line:     rgba(14,14,14,0.08);
+      --maxw:     480px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #e9e9e6;
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      background: var(--paper);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ── TYPOGRAFIE ─────────────────────────────── */
+    .eyebrow {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .eyebrow-light { color: rgba(255,255,255,0.5); }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.022em;
+      line-height: 1.12;
+    }
+    h1 { font-size: 33px; }
+    h2 { font-size: 23px; }
+
+    .lede {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .lede-light { color: rgba(255,255,255,0.72); }
+
+    /* ── SECTIES ────────────────────────────────── */
+    .s      { padding: 42px 22px; }
+    .s-tight{ padding: 30px 22px; }
+    .s-dark { background: var(--ink); color: #fff; }
+    .s-alt  { background: var(--paper-2); }
+
+    /* ── TOPBALK ────────────────────────────────── */
+    .topbar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── HERO ───────────────────────────────────── */
+    /* Compact gehouden zodat de CTA op een telefoon boven de fold valt. */
+    .hero { background: var(--ink); }
+    .hero-media { position: relative; aspect-ratio: 16 / 10; }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+    }
+    .hero-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(14,14,14,0) 46%,
+        rgba(14,14,14,0.6) 78%,
+        var(--ink) 100%);
+    }
+    .hero-inner {
+      position: relative;
+      margin-top: -34px;
+      padding: 0 22px 30px;
+      color: #fff;
+    }
+    .hero-inner h1 {
+      font-size: 24px;
+      line-height: 1.18;
+      margin-bottom: 18px;
+    }
+    .h1-lead {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.045em;
+      line-height: 1.35;
+      margin-bottom: 7px;
+    }
+    .h1-campaign { display: block; margin-top: 2px; }
+
+    /* ── CHECKLIJST (geen kaders) ───────────────── */
+    .checks { display: flex; flex-direction: column; gap: 13px; }
+    .check { display: flex; gap: 12px; align-items: flex-start; }
+    .check svg { flex-shrink: 0; margin-top: 2px; }
+    .check-txt { font-size: 14px; line-height: 1.5; }
+    .check-txt strong { font-weight: 700; }
+    .checks-light .check-txt { color: rgba(255,255,255,0.9); }
+    /* vraag-en-antwoord variant: vraag vet, antwoord rustiger */
+    .checks-qa { gap: 20px; }
+    .checks-qa .check-txt { color: var(--ink-soft); }
+    .checks-qa .check-txt strong { color: var(--ink); display: block; margin-bottom: 3px; }
+
+    /* ── KNOP ───────────────────────────────────── */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 56px;
+      background: var(--red);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.25;
+      transition: background 0.16s ease;
+    }
+    .btn:hover, .btn:focus-visible { background: var(--red-dark); }
+    .btn svg { flex-shrink: 0; }
+
+    .sub {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      margin-top: 11px;
+      letter-spacing: 0.01em;
+    }
+    .sub-light { color: rgba(255,255,255,0.45); }
+
+    /* ── AANBOD ─────────────────────────────────── */
+    .offer-media {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: var(--ink);
+      margin-bottom: 26px;
+    }
+    .offer-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+    .offer-media .ph {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.28);
+      font-size: 11px; letter-spacing: 0.05em;
+    }
+    .fineprint {
+      font-size: 11px;
+      color: var(--ink-mute);
+      line-height: 1.7;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── IS DIT IETS VOOR JOU ───────────────────── */
+    .fit-close {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── SCARCITY REGEL ─────────────────────────── */
+    .alert {
+      background: var(--ink);
+      color: #fff;
+      padding: 20px 22px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 7px;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .alert-main { font-size: 13.5px; font-weight: 700; line-height: 1.45; }
+    .alert-meta { font-size: 11px; color: rgba(255,255,255,0.42); margin-top: 5px; }
+
+    /* ── COUNTDOWN ──────────────────────────────── */
+    .cd {
+      background: #161616;
+      padding: 20px 22px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .cd-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 13px;
+    }
+    .cd-row { display: flex; justify-content: center; align-items: baseline; gap: 6px; }
+    .cd-u { min-width: 46px; }
+    .cd-n {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .cd-l {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.3);
+      margin-top: 6px;
+    }
+    .cd-s { font-size: 20px; color: rgba(255,255,255,0.18); font-weight: 300; }
+
+    /* ── SOCIAL PROOF ───────────────────────────── */
+    .score { display: flex; align-items: center; gap: 13px; margin-bottom: 6px; }
+    .score-n { font-size: 42px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .stars { display: flex; gap: 2px; margin-bottom: 4px; }
+    .score-sub { font-size: 11.5px; color: var(--ink-mute); font-weight: 600; letter-spacing: 0.02em; }
+    .score-line { font-size: 14px; color: var(--ink-soft); margin-bottom: 26px; }
+
+    .rev { display: flex; flex-direction: column; gap: 12px; }
+    .rev-card {
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .rev-card .stars { margin-bottom: 13px; }
+    .rev-quote {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.018em;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 9px;
+    }
+    .rev-body { font-size: 13.5px; color: var(--ink-soft); line-height: 1.65; }
+    .rev-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      margin-top: 11px;
+    }
+
+    /* ── FAQ ────────────────────────────────────── */
+    .faq { border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 17px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: -0.012em;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary svg { flex-shrink: 0; transition: transform 0.2s ease; }
+    .faq details[open] summary svg { transform: rotate(45deg); }
+    .faq-a { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; padding: 0 0 19px; max-width: 92%; }
+
+    /* ── FORMULIER ──────────────────────────────── */
+    .form-head { text-align: center; margin-bottom: 30px; }
+    .form-head h2 { margin-bottom: 9px; }
+
+    .fld-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .fld {
+      width: 100%;
+      min-height: 54px;
+      background: #fff;
+      border: 1px solid rgba(14,14,14,0.14);
+      border-radius: 10px;
+      padding: 15px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      transition: border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+    .fld:focus {
+      outline: none;
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(14,14,14,0.06);
+    }
+    .fld::placeholder { color: #b0b0b0; }
+    .fld-row { margin-bottom: 18px; }
+
+    /* dropdown met eigen pijltje */
+    .sel-wrap { position: relative; }
+    .sel-wrap svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    select.fld {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 42px;
+      cursor: pointer;
+    }
+    /* de hulptekst "Kies een moment" lichter, net als een placeholder */
+    select.fld:has(option[value=""]:checked) { color: #b0b0b0; }
+
+    /* ── VERTROUWENSREGEL ───────────────────────── */
+    .trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 14px;
+    }
+    .trust svg { flex-shrink: 0; }
+
+    /* ── STICKY CTA ─────────────────────────────── */
+    .sticky {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 40;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 11px 22px 13px;
+      transform: translateY(115%);
+      transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sticky.on { transform: translateY(0); }
+    .sticky-in { max-width: var(--maxw); margin: 0 auto; }
+    .sticky .btn { min-height: 50px; padding: 13px 18px; font-size: 14.5px; }
+    .sticky .sub { margin-top: 7px; font-size: 10.5px; }
+
+    /* ── FOOTER ─────────────────────────────────── */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      padding: 30px 22px calc(30px + env(safe-area-inset-bottom));
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+    .footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,0.75); }
+    .footer-sep { color: rgba(255,255,255,0.2); padding: 0 7px; }
+
+    /* ══════════════════════════════════════════════════════════════
+       TABLET — vanaf 640px. Nog één kolom, maar breder en ruimer.
+       ══════════════════════════════════════════════════════════════ */
+    @media (min-width: 640px) {
+      body { background: var(--paper); }
+      .page { max-width: 100%; }
+
+      /* elke sectie wordt volle breedte, de inhoud blijft gecentreerd */
+      .s, .s-tight, .alert, .cd, .footer, .topbar { padding-left: 32px; padding-right: 32px; }
+      .s      { padding-top: 60px; padding-bottom: 60px; }
+      .s-tight{ padding-top: 48px; padding-bottom: 48px; }
+
+      .s > *, .s-tight > *, .cd > *, .footer > * { max-width: 660px; margin-left: auto; margin-right: auto; }
+      .alert { justify-content: center; }
+
+      .hero-inner { max-width: 660px; margin-left: auto; margin-right: auto; }
+      /* foto afkappen zodat de knop op een tablet niet wegzakt */
+      .hero-media { aspect-ratio: 21 / 9; max-height: 280px; }
+
+      .topbar { font-size: 12.5px; padding-top: 13px; padding-bottom: 13px; }
+      h1 { font-size: 33px; }
+      h2 { font-size: 28px; }
+      .lede, .check-txt { font-size: 15px; }
+      .hero-inner h1 { font-size: 32px; }
+      .h1-lead { font-size: 14px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DESKTOP — vanaf 1000px. Echte tweekolomsindeling, geen
+       uitvergrote telefoon. Content op 1080px, hero en aanbod naast
+       elkaar, kaarten in een raster.
+       ══════════════════════════════════════════════════════════════ */
+    @media (min-width: 1000px) {
+      .s, .s-tight, .alert, .cd, .footer, .topbar { padding-left: 48px; padding-right: 48px; }
+      .s       { padding-top: 88px; padding-bottom: 88px; }
+      .s-tight { padding-top: 72px; padding-bottom: 72px; }
+
+      h1 { font-size: 44px; }
+      h2 { font-size: 34px; }
+      .lede { font-size: 16px; }
+      .check-txt { font-size: 15.5px; }
+      .eyebrow { font-size: 12.5px; margin-bottom: 14px; }
+
+      /* ── HERO: tekst links, foto rechts, allebei volledige hoogte ── */
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: stretch;
+        max-width: 1180px;
+        margin: 0 auto;
+        /* donkere achtergrond doorlopen tot beide schermranden */
+        box-shadow: 0 0 0 100vmax var(--ink);
+        clip-path: inset(0 -100vmax);
+      }
+      .hero-media {
+        aspect-ratio: auto;
+        max-height: none;
+        grid-column: 2;
+        grid-row: 1;
+        min-height: 560px;
+        /* op brede schermen de foto laten doorlopen tot de rechterrand */
+        margin-right: calc(-1 * max(0px, (100vw - 1180px) / 2));
+      }
+      .hero-img { object-position: center 32%; }
+      /* geen verloop naar beneden meer, wel een zachte overgang naar links */
+      .hero-fade {
+        background: linear-gradient(90deg,
+          var(--ink) 0%,
+          rgba(14,14,14,0.45) 22%,
+          rgba(14,14,14,0) 55%);
+      }
+      .hero-inner {
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 0;
+        max-width: none;
+        padding: 76px 56px 76px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .hero-inner h1 { font-size: 42px; margin-bottom: 22px; }
+      .h1-lead { font-size: 14px; margin-bottom: 10px; }
+      .hero-inner .checks { gap: 15px; }
+      .hero-inner .cta-block { margin-top: 32px !important; max-width: 420px; }
+      .hero-inner .sub { text-align: left; }
+
+      /* ── AANBOD: bullets links, foto rechts ── */
+      .s-offer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+        grid-column-gap: 56px;
+        align-items: start;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding-left: 48px;
+        padding-right: 48px;
+      }
+      .s-offer > * { max-width: none; margin-left: 0; margin-right: 0; }
+      .s-offer > .eyebrow,
+      .s-offer > h2,
+      .s-offer > .lede { grid-column: 1 / -1; }
+      .s-offer > .checks    { grid-column: 1; }
+      .s-offer > .offer-media {
+        grid-column: 2;
+        grid-row: 4 / span 3;
+        margin-top: 0 !important;
+        position: sticky;
+        top: 40px;
+      }
+      .s-offer > .cta-block { grid-column: 1; margin-top: 36px !important; max-width: 420px; }
+      .s-offer > .cta-block .sub { text-align: left; }
+      .s-offer > .fineprint { grid-column: 1 / -1; }
+
+      /* ── HERKEN JE DIT: 2 x 2 raster ── */
+      .checks-qa {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 32px 48px;
+        max-width: 1080px;
+      }
+      .s-alt > .eyebrow, .s-alt > h2, .s-alt > .fit-close { max-width: 1080px; }
+      .fit-close { font-size: 18px; margin-top: 44px; padding-top: 32px; }
+
+      /* ── SCHAARSTE + COUNTDOWN naast elkaar op één donkere band ── */
+      .band {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        background: var(--ink);
+      }
+      .band .alert { padding: 40px 48px; justify-content: flex-start; border: 0; }
+      .band .cd {
+        background: transparent;
+        border-top: 0;
+        border-left: 1px solid rgba(255,255,255,0.10);
+        padding: 40px 48px;
+      }
+      .cd-n { font-size: 38px; }
+      .cd-u { min-width: 64px; }
+      .alert-main { font-size: 17px; }
+
+      /* ── REVIEWS: drie naast elkaar ── */
+      .rev {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 24px;
+        align-items: stretch;
+        max-width: 1080px;
+      }
+      .rev-card { padding: 28px 26px; height: 100%; }
+      .s-proof > .eyebrow, .s-proof > .score, .s-proof > .score-line { max-width: 1080px; }
+      .score-n { font-size: 56px; }
+
+      /* ── FORMULIER: smal en gecentreerd ── */
+      #aanmelden > * { max-width: 540px; }
+      .form-head h2 { font-size: 30px; }
+
+      /* ── FAQ: rustige leeskolom ── */
+      .faq, .s-tight > .eyebrow, .s-tight > h2 { max-width: 760px; }
+      .faq summary { font-size: 16px; padding: 20px 0; }
+      .faq-a { font-size: 15px; }
+
+      /* ── FOOTER ── */
+      .footer { padding-top: 44px; padding-bottom: 44px; font-size: 12px; }
+
+      /* ── STICKY: niet nodig op desktop, er is altijd een CTA in beeld ── */
+      .sticky { display: none; }
+    }
+
+    /* Kleine telefoons: hero verder inkorten zodat de CTA boven de fold blijft */
+    @media (max-width: 380px) {
+      .hero-media { aspect-ratio: 16 / 9; }
+      .hero-inner h1 { font-size: 22px; margin-bottom: 15px; }
+      .h1-lead { font-size: 12px; }
+      .checks { gap: 11px; }
+      .check-txt { font-size: 13.5px; }
+      .hero-inner { padding-bottom: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ TOPBALK ══ LOCATIE — moet schaarste en urgentie opwekken -->
+  <div class="topbar">Tijdelijk bij ConnectFit Hoogeveen · Nog 12 plekken vrij</div>
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <!-- LOCATIE — vervang de foto per vestiging -->
+    <div class="hero-media">
+      <img class="hero-img" src="assets/hoogeveen-egym-fitcoach.jpeg" alt="Vrouw traint op een EGYM-toestel bij ConnectFit Hoogeveen terwijl een Fit-Coach meekijkt">
+      <div class="hero-fade"></div>
+    </div>
+    <div class="hero-inner">
+      <!-- LOCATIE -->
+      <h1>
+        <span class="h1-lead">🙋‍♀️ WIJ HEBBEN WEER PLAATS VOOR:</span>
+        12 Vrouwen in Hoogeveen voor het Unieke Programma:
+        <span class="h1-campaign">'Fit na de Zomer'</span>
+      </h1>
+
+      <div class="checks checks-light">
+        <div class="check">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="check-txt">Train <strong>je hele lichaam in 30 minuten</strong></span>
+        </div>
+        <div class="check">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="check-txt">Voel je in korte tijd <strong>fitter, sterker en energieker</strong></span>
+        </div>
+        <div class="check">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="check-txt">Krijg <strong>persoonlijke aandacht</strong> in een kleinschalige studio</span>
+        </div>
+      </div>
+
+      <div class="cta-block" style="margin-top:22px;">
+        <a href="#aanmelden" class="btn">
+          Ja, stuur mij alle (start)informatie
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="sub sub-light">4,9 uit 127+ reviews</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ AANBOD ══ -->
+  <section class="s s-offer">
+    <div class="eyebrow">Het aanbod</div>
+    <h2 style="margin-bottom:10px;">De Open Maand in het kort</h2>
+    <!-- LOCATIE — regionale exclusiviteit, geldt voor alle drie de vestigingen -->
+    <p class="lede" style="margin-bottom:22px;">ConnectFit is de enige EGYM-aanbieder in Hoogeveen, Nieuwlande en Ruinen.</p>
+
+    <div class="checks">
+      <!-- LOCATIE -->
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt"><strong>Gratis* trainen</strong> in september met EGYM bij ConnectFit Hoogeveen</span>
+      </div>
+      <!-- LOCATIE -->
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt">Speciaal voor <strong>12 vrouwen</strong> uit Hoogeveen en omgeving</span>
+      </div>
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt">Word <strong>fitter en energieker</strong> in slechts 30 minuten per training</span>
+      </div>
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt">Inclusief <strong>Bio-Age meting</strong>: ontdek hoe fit je lichaam echt is</span>
+      </div>
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt">Gratis <strong>startpakket en ConnectFit-bidon</strong> bij aanmelding</span>
+      </div>
+      <!-- LOCATIE — USP van de vestiging -->
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt">Nooit wachten op een toestel: <strong>16 EGYM-toestellen</strong>, plus fysiotherapie en diëtetiek onder hetzelfde dak</span>
+      </div>
+    </div>
+
+    <!-- LOCATIE — vervang de foto per vestiging -->
+    <div class="offer-media" style="margin-top:26px;margin-bottom:0;">
+      <img src="assets/hoogeveen-bioage-scan.jpeg" alt="Twee vrouwen bekijken samen de uitslag van de Bio-Age meting op de scanner bij ConnectFit Hoogeveen">
+    </div>
+
+    <div class="cta-block" style="margin-top:30px;">
+      <a href="#aanmelden" class="btn">
+        Ja, stuur mij alle (start)informatie
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="sub">Je zit nergens aan vast.</p>
+    </div>
+
+    <p class="fineprint">
+      *Je meldt je aan en sport heel september gratis. Je lidmaatschap gaat in op 1 oktober en je kiest zelf de looptijd, vanaf 1 maand flexibel. Geen jaarcontract vereist.
+    </p>
+  </section>
+
+  <!-- ══ IS DIT IETS VOOR JOU ══ -->
+  <section class="s s-alt">
+    <div class="eyebrow">Voor wie</div>
+    <h2 style="margin-bottom:24px;">Herken je dit?</h2>
+
+    <div class="checks checks-qa">
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt"><strong>Heb je weinig tijd om te sporten?</strong> Op de EGYM train je je hele lichaam in ongeveer 30 minuten, en de toestellen stellen zich automatisch voor je in.</span>
+      </div>
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt"><strong>Voelt de stap naar een grote, drukke sportschool ongemakkelijk?</strong> Bij ConnectFit train je kleinschalig en op je gemak, met een Fit-Coach op de vloer tijdens de 40+ bemande uren per week.</span>
+      </div>
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt"><strong>Weet je niet waar je moet beginnen?</strong> Je Fit-Coach stelt alles voor je in en legt uit hoe EGYM werkt. Ervaring heb je niet nodig.</span>
+      </div>
+      <!-- LOCATIE — de laatste bijzin verwijst naar wat er per vestiging onder hetzelfde dak zit -->
+      <div class="check">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="8.5" fill="#e8192c"/><path d="M5 8.8l2.4 2.4L12 6.5" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="check-txt"><strong>Zei je huisarts of fysio dat meer bewegen goed voor je zou zijn?</strong> De EGYM stelt zich in op jouw kracht en houding, en fysiotherapie zit bij ConnectFit Hoogeveen onder hetzelfde dak.</span>
+      </div>
+    </div>
+
+    <p class="fit-close">Herken je jezelf hierin? Dan is de Open Maand precies wat je zoekt.</p>
+  </section>
+
+  <!-- ══ SCARCITY + COUNTDOWN ══ op desktop naast elkaar in één band -->
+  <div class="band">
+  <div class="alert">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <div class="alert-main">Deze ronde is beperkt tot 12 plekken. Zodra ze vol zijn, sluit de aanmelding.</div>
+      <!-- handmatig wekelijks bijwerken -->
+      <div class="alert-meta">Bijgewerkt op 15 augustus 2026</div>
+    </div>
+  </div>
+
+  <!-- ══ COUNTDOWN ══ -->
+  <div class="cd">
+    <div class="cd-label">Let op! Aanmelden voor de Open Maand kan nog:</div>
+    <div class="cd-row">
+      <div class="cd-u"><div class="cd-n" id="cd-d">00</div><div class="cd-l">Dagen</div></div>
+      <span class="cd-s">:</span>
+      <div class="cd-u"><div class="cd-n" id="cd-h">00</div><div class="cd-l">Uren</div></div>
+      <span class="cd-s">:</span>
+      <div class="cd-u"><div class="cd-n" id="cd-m">00</div><div class="cd-l">Minuten</div></div>
+      <span class="cd-s">:</span>
+      <div class="cd-u"><div class="cd-n" id="cd-s">00</div><div class="cd-l">Seconden</div></div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ══ SOCIAL PROOF ══ -->
+  <section class="s s-alt s-proof">
+    <div class="eyebrow">Wat sporters zeggen</div>
+
+    <div class="score">
+      <div class="score-n">4,9</div>
+      <div>
+        <div class="stars" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+        </div>
+        <div class="score-sub">uit 127+ reviews</div>
+      </div>
+    </div>
+    <p class="score-line">Meer dan 1.350 sporters in de regio gingen je voor</p>
+
+    <!-- LOCATIE — 3 echte Google-reviews per vestiging invullen -->
+    <div class="rev">
+      <div class="rev-card">
+        <div class="stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+        </div>
+        <p class="rev-quote">"Nooit gedacht dat ik nog eens 2 keer per week met plezier zou trainen."</p>
+        <p class="rev-body">Bij ConnectFit hoef je zelf niets in te stellen, de apparaten staan altijd goed. Geen wachttijd, geen gedoe. Kleinschalig, altijd een apparaat vrij. Ik blijf hier zeker sporten.</p>
+        <p class="rev-name">Annemarie, Hoogeveen</p>
+      </div>
+      <div class="rev-card">
+        <div class="stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+        </div>
+        <p class="rev-quote">"3 maanden bezig en mijn rugspieren ontspannen veel beter dan voorheen."</p>
+        <p class="rev-body">Elke paar weken een meting: kracht, conditie, flexibiliteit. Je ziet precies waar je staat. Simpel maar het werkt. Voor iedereen met rugklachten: gewoon doen.</p>
+        <p class="rev-name">Ingrid, Hoogeveen</p>
+      </div>
+      <div class="rev-card">
+        <div class="stars" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.3 6.8L12 17.5 5.9 20.7l1.3-6.8-5-4.8 6.9-.8z"/></svg>
+        </div>
+        <p class="rev-quote">"Kleinschalig, altijd een apparaat vrij, en je hoeft zelf niets in te stellen."</p>
+        <p class="rev-body">Fijne sportschool met goede begeleiding op bemande en onbemande uren. De Bio-Age wordt elke zoveel weken bijgehouden. Ik blijf hier zeker sporten.</p>
+        <p class="rev-name">Jolanda, Hoogeveen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AANMELDEN ══ -->
+  <section class="s" id="aanmelden" style="border-top:1px solid var(--line);">
+    <div class="form-head">
+      <div class="eyebrow">Aanmelden</div>
+      <h2>Laatste stap: vul in en ontvang direct alle informatie</h2>
+      <p class="lede">Binnen 30 seconden klaar.</p>
+    </div>
+
+    <form id="lead-form" novalidate>
+
+      <div class="fld-row">
+        <label class="fld-label" for="naam">Naam</label>
+        <input class="fld" type="text" id="naam" name="naam" autocomplete="name" placeholder="Bijv. Sanne" required>
+      </div>
+      <div class="fld-row">
+        <label class="fld-label" for="email">E-mailadres</label>
+        <input class="fld" type="email" id="email" name="email" autocomplete="email" placeholder="jij@voorbeeld.nl" required>
+      </div>
+      <div class="fld-row">
+        <label class="fld-label" for="telefoon">Telefoonnummer</label>
+        <input class="fld" type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78" required>
+      </div>
+      <div class="fld-row">
+        <label class="fld-label" for="voorkeur_dag">Dagvoorkeur kennismaking</label>
+        <div class="sel-wrap">
+          <select class="fld" id="voorkeur_dag" name="voorkeur_dag">
+            <option value="" selected>Kies een dag</option>
+            <option value="Maandag">Maandag</option>
+            <option value="Dinsdag">Dinsdag</option>
+            <option value="Woensdag">Woensdag</option>
+            <option value="Donderdag">Donderdag</option>
+            <option value="Vrijdag">Vrijdag</option>
+            <option value="Zaterdag">Zaterdag</option>
+            <option value="Maakt niet uit">Maakt niet uit</option>
+          </select>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M3 5l3.5 3.5L10 5" stroke="#8b8b8b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="fld-row" style="margin-bottom:26px;">
+        <label class="fld-label" for="voorkeur_tijd">Tijdvoorkeur kennismaking</label>
+        <div class="sel-wrap">
+          <select class="fld" id="voorkeur_tijd" name="voorkeur_tijd">
+            <option value="" selected>Kies een moment</option>
+            <option value="Ochtend (07:00 - 12:00)">Ochtend (07:00 - 12:00)</option>
+            <option value="Middag (12:00 - 17:00)">Middag (12:00 - 17:00)</option>
+            <option value="Avond (17:00 - 21:00)">Avond (17:00 - 21:00)</option>
+            <option value="Maakt niet uit">Maakt niet uit</option>
+          </select>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M3 5l3.5 3.5L10 5" stroke="#8b8b8b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">
+        Ja, stuur mij alle (start)informatie
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="trust">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.4" stroke="#8b8b8b" stroke-width="1.3"/><path d="M4.6 6V4.4a2.4 2.4 0 014.8 0V6" stroke="#8b8b8b" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Jouw gegevens zijn veilig. Geen spam.
+      </p>
+      <p class="sub" style="margin-top:7px;">De hoofdcoach belt je binnen 24 uur.</p>
+    </form>
+  </section>
+
+  <!-- ══ FAQ ══ staat onder het formulier -->
+  <section class="s-tight s-alt" style="padding-left:22px;padding-right:22px;">
+    <div class="eyebrow">Vragen</div>
+    <h2 style="margin-bottom:20px;">Veelgestelde vragen</h2>
+
+    <div class="faq">
+      <details>
+        <summary>
+          Wat is EGYM precies?
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 2v11M2 7.5h11" stroke="#e8192c" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="faq-a">Een cirkeltraining op slimme krachttoestellen. De toestellen herkennen je via een polsband en stellen zich automatisch in op jouw kracht en houding. Zo train je je hele lichaam in ongeveer 30 minuten.</p>
+      </details>
+      <details>
+        <summary>
+          Heb ik ervaring nodig?
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 2v11M2 7.5h11" stroke="#e8192c" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="faq-a">Nee. Juist beginners voelen zich bij ConnectFit thuis. Je Fit-Coach stelt alles voor je in en legt uit hoe de cirkel werkt.</p>
+      </details>
+      <details>
+        <summary>
+          Hoe werkt de gratis maand?
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 2v11M2 7.5h11" stroke="#e8192c" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="faq-a">Je meldt je aan vóór 31 augustus en sport heel september zonder te betalen. Je lidmaatschap start op 1 oktober.</p>
+      </details>
+      <details>
+        <summary>
+          Zit ik ergens aan vast?
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 2v11M2 7.5h11" stroke="#e8192c" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="faq-a">Je kiest zelf de looptijd, vanaf 1 maand flexibel. Geen jaarcontract.</p>
+      </details>
+      <!-- LOCATIE -->
+      <details>
+        <summary>
+          Wat gebeurt er nadat ik me aanmeld?
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M7.5 2v11M2 7.5h11" stroke="#e8192c" stroke-width="1.9" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="faq-a">De hoofdcoach van Hoogeveen belt je binnen 24 uur om alles rustig door te nemen en een kennismaking in te plannen.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ LOCATIE -->
+  <footer class="footer">
+    ConnectFit Hoogeveen, Van Echtenstraat 37<br>
+    <a href="#">Privacybeleid</a><span class="footer-sep">·</span><a href="#">Algemene voorwaarden</a>
+  </footer>
+
+</div>
+
+<!-- ══ STICKY CTA ══ -->
+<div class="sticky" id="sticky">
+  <div class="sticky-in">
+    <a href="#aanmelden" class="btn">
+      Ja, stuur mij alle (start)informatie
+      <svg width="14" height="14" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="sub">Nog 12 plekken vrij</p>
+  </div>
+</div>
+
+<script>
+  /* ── Countdown: rollende week, telt af naar komende zondag 23:59:59 ──
+     De teller loopt dus nooit leeg en staat altijd op maximaal 7 dagen.
+     Wil je in plaats hiervan één vaste einddatum, vervang deadline()
+     door: return new Date(2026, 7, 31, 23, 59, 59);                    */
+  function deadline() {
+    var now = new Date();
+    var d = new Date(now);
+    var daysToSunday = (7 - now.getDay()) % 7;
+    d.setDate(now.getDate() + daysToSunday);
+    d.setHours(23, 59, 59, 999);
+    if (d - now <= 0) d.setDate(d.getDate() + 7);
+    return d;
+  }
+
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+
+  function tick() {
+    var diff = Math.max(0, deadline() - new Date());
+    document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-h').textContent = pad(Math.floor(diff % 86400000 / 3600000));
+    document.getElementById('cd-m').textContent = pad(Math.floor(diff % 3600000 / 60000));
+    document.getElementById('cd-s').textContent = pad(Math.floor(diff % 60000 / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ── Sticky CTA: aan na de hero, uit bij het formulier ── */
+  var sticky = document.getElementById('sticky');
+  var hero = document.querySelector('.hero');
+  var form = document.getElementById('aanmelden');
+
+  if ('IntersectionObserver' in window) {
+    var pastHero = false, atForm = false;
+    var sync = function () { sticky.classList.toggle('on', pastHero && !atForm); };
+
+    new IntersectionObserver(function (es) {
+      pastHero = !es[0].isIntersecting;
+      sync();
+    }, { threshold: 0 }).observe(hero);
+
+    new IntersectionObserver(function (es) {
+      atForm = es[0].isIntersecting;
+      sync();
+    }, { threshold: 0.12 }).observe(form);
+  }
+</script>
+
+</body>
+</html>

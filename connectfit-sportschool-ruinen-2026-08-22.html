@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportschool Ruinen | Fitness, EGYM &amp; Hyrox | ConnectFit</title>
+  <meta name="description" content="De grootste sportschool van Ruinen: 500+ m2 met EGYM, Hyrox, krachttraining en cardio. Begeleiding van je Fit-Coach. 10 dagen gratis sporten.">
+  <link rel="canonical" href="https://www.connectfit.nl/locaties/sportschool-ruinen/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sportschool Ruinen | Fitness, EGYM &amp; Hyrox | ConnectFit">
+  <meta property="og:description" content="De grootste sportschool van Ruinen: 500+ m2 met EGYM, Hyrox, kracht en cardio, en begeleiding van je Fit-Coach. 10 dagen gratis sporten.">
+  <meta property="og:image" content="https://www.connectfit.nl/og/connectfit-ruinen-hyrox.jpg">
+  <meta property="og:locale" content="nl_NL">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #e8192c;
+      --red-dark: #c30f20;
+      --ink: #1b1b26;
+      --navy: #12121c;
+      --text: #56565f;
+      --muted: #8a8a92;
+      --cream: #f1efec;
+      --cream-2: #eae7e2;
+      --white: #ffffff;
+      --border: #e3e0da;
+      --green: #16a34a;
+      --shadow: 0 18px 40px rgba(20,20,30,.07);
+      --shadow-sm: 0 6px 18px rgba(20,20,30,.06);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: var(--cream); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; color: var(--ink); line-height: 1.12; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    strong { font-weight: 700; color: var(--ink); }
+    .why strong, .cta strong, .tst strong { color: #fff; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .label { display: inline-block; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 16px; padding: 15px 30px; border-radius: 100px; transition: transform .15s ease, background .2s ease, box-shadow .2s ease; cursor: pointer; border: none; }
+    .btn-red { background: var(--red); color: #fff; box-shadow: 0 10px 22px rgba(232,25,44,.28); }
+    .btn-red:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .btn-white { background: #fff; color: var(--red); box-shadow: 0 10px 24px rgba(0,0,0,.15); }
+    .btn-white:hover { background: #fff; transform: translateY(-2px); }
+    .btn .arrow { font-size: 18px; }
+    .btn-full { width: 100%; }
+
+    /* ============ NAV ============ */
+    .nav { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 23px; color: #fff; letter-spacing: -.3px; }
+    .logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,.82); font-size: 15px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 22px; }
+    .nav-phone { color: rgba(255,255,255,.82); font-size: 15px; font-weight: 500; }
+    .nav-cta { background: var(--red); color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; padding: 10px 20px; border-radius: 100px; }
+    .nav-cta:hover { background: var(--red-dark); }
+    .nav-burger { display: none; font-size: 26px; color: #fff; background: none; border: none; cursor: pointer; }
+
+    /* ============ HERO ============ */
+    .hero { background: var(--cream); padding: 74px 0 84px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 9px; background: #fff; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+    .pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+    .hero h1 { font-size: clamp(34px, 4.6vw, 54px); font-weight: 600; letter-spacing: -.5px; margin-bottom: 22px; }
+    .hero-sub { font-size: 18px; line-height: 1.7; color: var(--text); max-width: 500px; margin-bottom: 28px; }
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 34px; }
+    .checklist li { display: flex; align-items: center; gap: 13px; font-size: 16px; color: var(--ink); font-weight: 500; }
+    .chk { width: 24px; height: 24px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .chk svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 3; fill: none; }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-note { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
+    .hero-note .g { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+
+    .hero-visual { position: relative; }
+    .visual-main { aspect-ratio: 4/5; border-radius: 22px; background: linear-gradient(155deg, #1f1f2c 0%, #2b2b3c 55%, #15151f 100%); position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; }
+    .visual-main::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 72% 26%, rgba(232,25,44,.22), transparent 55%), radial-gradient(circle at 20% 82%, rgba(232,25,44,.10), transparent 50%); }
+    .visual-photo-note { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,.35); font-size: 13px; font-weight: 500; letter-spacing: .5px; padding: 0 30px; }
+    .visual-photo-note strong { display:block; font-family:'Fredoka',sans-serif; font-size:20px; color:rgba(255,255,255,.55); margin-bottom:6px; }
+    .stat-badge { position: absolute; background: #fff; border-radius: 16px; padding: 14px 18px; box-shadow: var(--shadow); z-index: 5; }
+    .stat-badge .n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; color: var(--ink); line-height: 1; }
+    .stat-badge .t { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 3px; }
+    .badge-tl { top: 24px; left: -18px; }
+    .badge-br { bottom: 28px; right: -18px; }
+    .badge-br .n { color: var(--red); }
+
+    /* ============ TRUST BAR ============ */
+    .trust { background: var(--navy); padding: 64px 0; border-top: 3px solid var(--red); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .trust-col h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 21px; color: #fff; text-transform: uppercase; letter-spacing: .5px; line-height: 1.15; margin-bottom: 14px; }
+    .trust-col p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,.62); }
+    .trust-col p strong { color: #fff; }
+
+    /* ============ SECTION SHELL ============ */
+    section { scroll-margin-top: 80px; }
+    .sec { padding: 92px 0; }
+    .sec-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .sec-head h2 { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -.5px; margin-bottom: 16px; }
+    .sec-head p { font-size: 18px; color: var(--text); }
+    .sec-alt { background: var(--white); }
+
+    /* ============ ANCHOR NAV STRIP ============ */
+    .anchor-strip { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 68px; z-index: 90; }
+    .anchor-row { display: flex; gap: 30px; overflow-x: auto; padding: 16px 0; }
+    .anchor-row a { font-size: 14.5px; font-weight: 600; color: var(--text); white-space: nowrap; transition: color .2s; }
+    .anchor-row a:hover { color: var(--red); }
+
+    /* ============ DIENSTEN OVERZICHT ============ */
+    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .service-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .service-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .service-card p { font-size: 14.5px; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+    .service-card a { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--red); font-size: 14.5px; }
+
+    /* ============ BENEFITS + STATS ============ */
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 56px; }
+    .benefit-card { display: flex; gap: 16px; align-items: flex-start; }
+    .benefit-ico { width: 46px; height: 46px; border-radius: 12px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .benefit-card h3 { font-size: 17.5px; margin-bottom: 6px; }
+    .benefit-card p { font-size: 14.5px; color: var(--text); line-height: 1.6; }
+    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; background: var(--navy); border-radius: 20px; padding: 40px 30px; }
+    .stat-item { text-align: center; }
+    .stat-item .n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 40px; color: #fff; line-height: 1; margin-bottom: 8px; }
+    .stat-item .t { font-size: 13px; color: rgba(255,255,255,.55); font-weight: 600; letter-spacing: .3px; }
+
+    /* ============ FEATURE (2-koloms: tekst + foto) herbruikt voor locatie & diensten ============ */
+    .feature { background: var(--white); }
+    .feature.alt-bg { background: var(--cream); }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .feature-grid.rev .feature-photo { order: -1; }
+    .feature h2 { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -.5px; margin-bottom: 18px; }
+    .feature p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 16px; }
+    .feature-photo { aspect-ratio: 4/3; border-radius: 20px; background: linear-gradient(155deg, #1f1f2c 0%, #2b2b3c 55%, #15151f 100%); position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; }
+    .feature-photo::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(232,25,44,.20), transparent 55%); }
+    .feature-photo .pn { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,.4); font-size: 13px; font-weight: 500; padding: 0 24px; }
+    .feature-photo .pn strong { display: block; font-family: 'Fredoka', sans-serif; font-size: 19px; color: rgba(255,255,255,.6); margin-bottom: 6px; }
+
+    /* ============ URGENCY BANNER ============ */
+    .urgency { background: var(--red); color: #fff; text-align: center; padding: 64px 0; }
+    .urgency h2 { color: #fff; font-size: clamp(26px, 3.4vw, 38px); letter-spacing: -.5px; margin-bottom: 12px; }
+    .urgency p { font-size: 16.5px; color: rgba(255,255,255,.9); max-width: 520px; margin: 0 auto 28px; }
+
+    /* ============ ABONNEMENTEN ============ */
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
+    .price-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 34px 28px; display: flex; flex-direction: column; }
+    .price-card.featured { background: var(--navy); border-color: var(--navy); position: relative; }
+    .price-card .ribbon { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; }
+    .price-card h3 { font-size: 21px; margin-bottom: 6px; }
+    .price-card.featured h3 { color: #fff; }
+    .price-card .price { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); margin-bottom: 20px; }
+    .price-card.featured .price { color: #fff; }
+    .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; flex: 1; }
+    .price-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: var(--text); }
+    .price-card.featured li { color: rgba(255,255,255,.75); }
+    .price-card li .chk { flex-shrink: 0; margin-top: 1px; }
+    .price-foot { text-align: center; margin-top: 40px; }
+    .price-foot p { font-size: 15px; color: var(--text); margin-bottom: 14px; }
+
+    /* ============ SOCIAL PROOF ============ */
+    .proof { background: var(--cream); }
+    .score-row { display: flex; align-items: center; gap: 16px; margin-bottom: 34px; justify-content: center; }
+    .score-n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 44px; color: var(--ink); line-height: 1; }
+    .score-meta .rstars { color: #ffc531; font-size: 15px; letter-spacing: 1px; }
+    .score-meta .sub { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .reviews { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .review { background: #fff; border-radius: 16px; padding: 26px 24px; box-shadow: var(--shadow-sm); }
+    .review .rstars { color: #ffc531; font-size: 16px; letter-spacing: 1px; margin-bottom: 14px; }
+    .review p { font-size: 14.5px; color: var(--text); line-height: 1.65; margin-bottom: 16px; }
+    .review .who { display: flex; align-items: center; gap: 12px; }
+    .review .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cream-2); display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink); font-size: 14px; }
+    .review .who .nm { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink); font-size: 14.5px; }
+    .review .who .loc { font-size: 12.5px; color: var(--muted); }
+
+    /* ============ FAQ ============ */
+    .faq { background: var(--white); }
+    .faq-wrap { max-width: 780px; margin: 0 auto; }
+    .faq-item { background: var(--cream); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 26px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .faq-q .plus { font-size: 26px; color: var(--red); flex-shrink: 0; transition: transform .25s ease; line-height: 1; }
+    .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 26px 24px; font-size: 15.5px; color: var(--text); line-height: 1.7; }
+
+    /* ============ HERO-TESTIMONIAL (donker) ============ */
+    .tst { background: var(--navy); color: #fff; }
+    .tst-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .tst-quote { font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: clamp(22px, 3vw, 30px); line-height: 1.4; color: #fff; margin-bottom: 26px; }
+    .tst-name { font-size: 15px; color: rgba(255,255,255,.6); font-weight: 600; }
+    .tst-name strong { color: var(--red); }
+
+    /* ============ FORMULIER / AFSLUITENDE CTA ============ */
+    .lead { background: var(--cream); }
+    .lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .lead h2 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -.5px; margin-bottom: 18px; }
+    .lead .checklist { margin-bottom: 0; }
+    .lead-form { background: #fff; border-radius: 20px; padding: 38px 34px; box-shadow: var(--shadow); }
+    .fld-row { margin-bottom: 18px; }
+    .fld-label { display: block; font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+    .fld { width: 100%; min-height: 50px; background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 13px 15px; font-family: inherit; font-size: 15px; color: var(--ink); }
+    .fld:focus { outline: none; border-color: var(--ink); }
+    .fld::placeholder { color: #a9a6a0; }
+    .lead-form .trust-note { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); margin-top: 14px; justify-content: center; }
+    .lead-form .sub-note { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+
+    /* ============ FOOTER ============ */
+    .foot { background: var(--navy); color: rgba(255,255,255,.62); padding: 60px 0 30px; }
+    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
+    .foot .logo { margin-bottom: 16px; }
+    .foot p { font-size: 14.5px; line-height: 1.7; max-width: 280px; }
+    .foot h4 { color: #fff; font-size: 16px; margin-bottom: 16px; }
+    .foot ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot ul a, .foot ul li { font-size: 14.5px; color: rgba(255,255,255,.62); }
+    .foot ul a:hover { color: #fff; }
+    .foot-bot { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13.5px; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 980px) {
+      .nav-links, .nav-phone { display: none; }
+      .nav-burger { display: block; }
+      .hero-grid, .feature-grid, .lead-grid { grid-template-columns: 1fr; gap: 44px; }
+      .hero-visual, .feature-grid .feature-photo { order: -1; max-width: 440px; margin: 0 auto; width: 100%; }
+      .service-grid, .benefit-grid, .reviews, .loc-grid, .trust-grid { grid-template-columns: 1fr 1fr; }
+      .stats-strip, .price-grid { grid-template-columns: 1fr 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .anchor-row { padding-left: 4px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 20px; }
+      .sec { padding: 60px 0; }
+      .service-grid, .benefit-grid, .reviews, .loc-grid, .trust-grid, .stats-strip, .price-grid { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+    }
+
+    /* ============ FACILITEITEN SLIDER ============ */
+    .slider-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
+    .slider-head .sh-copy { max-width: 640px; }
+    .slider-head h2 { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -.5px; margin-bottom: 14px; }
+    .slider-head p { font-size: 17px; color: var(--text); }
+    .slider-nav { display: flex; gap: 10px; flex-shrink: 0; padding-bottom: 6px; }
+    .sl-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border); background: #fff; color: var(--ink); font-size: 19px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s ease, transform .15s ease; }
+    .sl-btn:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .sl-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 3); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 6px; }
+    .sl-track::-webkit-scrollbar { display: none; }
+    .slide { scroll-snap-align: start; background: #fff; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+    .slide-photo { aspect-ratio: 4/3; background: linear-gradient(155deg, #1f1f2c 0%, #2b2b3c 55%, #15151f 100%); position: relative; display: flex; align-items: center; justify-content: center; }
+    .slide-photo::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 35% 28%, rgba(232,25,44,.20), transparent 58%); }
+    .slide-photo .pn { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,.4); font-size: 12.5px; font-weight: 500; padding: 0 22px; line-height: 1.5; }
+    .slide-photo .pn strong { display: block; font-family: 'Fredoka', sans-serif; font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 5px; }
+    .slide-body { padding: 26px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+    .slide-body h3 { font-size: 19.5px; margin-bottom: 10px; }
+    .slide-body p { font-size: 14.5px; color: var(--text); line-height: 1.68; margin-bottom: 18px; flex: 1; }
+    .slide-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; font-weight: 600; color: var(--ink); background: var(--cream); border: 1px solid var(--border); border-radius: 100px; padding: 5px 12px; }
+    .fac-extra { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 28px 32px; box-shadow: var(--shadow-sm); }
+    .fac-extra div { display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 600; color: var(--ink); }
+    .fac-extra .ico { font-size: 22px; }
+    .slider-foot { text-align: center; margin-top: 38px; }
+
+    /* ============ BEGELEIDING / OPENINGSTIJDEN ============ */
+    .hours { list-style: none; background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 8px 0 16px; box-shadow: var(--shadow-sm); }
+    .hours li { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 15px 22px; font-size: 15px; border-bottom: 1px solid var(--border); }
+    .hours li:last-child { border-bottom: none; }
+    .hours li .day { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink); }
+    .hours li .val { color: var(--text); text-align: right; }
+    .hours li.off .val { color: var(--muted); }
+    .hours-note { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+    .addr { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px 26px; margin-bottom: 26px; box-shadow: var(--shadow-sm); }
+    .addr strong { display: block; font-family: 'Fredoka', sans-serif; font-size: 17px; color: var(--ink); margin-bottom: 8px; }
+    .addr p { font-size: 14.5px; line-height: 1.75; margin-bottom: 0; }
+    .todo { display: inline-block; background: #fff6d6; border: 1px dashed #d9b942; border-radius: 6px; padding: 1px 7px; font-size: 13px; font-weight: 700; color: #8a6d10; }
+    .feature h3 { font-size: 21px; margin: 26px 0 4px; }
+
+    @media (max-width: 980px) {
+      .sl-track { grid-auto-columns: calc((100% - 24px) / 2); }
+      .slider-head { flex-direction: column; align-items: flex-start; gap: 22px; }
+      .fac-extra { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 560px) {
+      .sl-track { grid-auto-columns: 86%; }
+      .slider-nav { display: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthClub",
+    "name": "ConnectFit Ruinen",
+    "description": "De grootste sportschool van Ruinen, 500+ m2 met EGYM, Hyrox, krachttraining en cardio, met begeleiding van een Fit-Coach op de vloer.",
+    "url": "https://www.connectfit.nl/locaties/sportschool-ruinen/",
+    "telephone": "+31528449133",
+    "email": "info@connectfit.nl",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "STRAAT + HUISNUMMER INVULLEN",
+      "postalCode": "POSTCODE INVULLEN",
+      "addressLocality": "Ruinen",
+      "addressRegion": "Drenthe",
+      "addressCountry": "NL"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "06:00",
+      "closes": "22:00"
+    }],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "200"
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "EGYM, 8 volautomatische toestellen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Hyrox en functionele training", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Plate loaded toestellen Matrix", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pin loaded toestellen Matrix", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Cardioapparatuur", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Kleedkamers met douches", "value": true }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Hoe groot is ConnectFit Ruinen?", "acceptedAnswer": { "@type": "Answer", "text": "Met 500+ m2 trainingsvloer is dit de grootste sportschool van Ruinen. Die ruimte is verdeeld over de EGYM-toestellen, een krachthoek met pin loaded en plate loaded toestellen, een cardioplein en een aparte hoek voor Hyrox en functionele training. Je hoeft dus zelden te wachten op een toestel." } },
+      { "@type": "Question", "name": "Is ConnectFit Ruinen geschikt voor beginners?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, en juist beginners voelen zich hier snel thuis. Je start altijd met een intake waarin je coach kijkt wat bij je past, en de EGYM-toestellen stellen zich zelf op jouw lichaam in. Je hoeft geen ervaring te hebben en niets uit te zoeken." } },
+      { "@type": "Question", "name": "Wat is het verschil tussen EGYM en vrije fitness?", "acceptedAnswer": { "@type": "Answer", "text": "Bij EGYM volg je een vaste route van acht toestellen die zich automatisch instellen, in ongeveer 30 minuten en in een vast ritme met de anderen. Bij vrije fitness bepaal je zelf je oefeningen en tempo, met pin loaded en plate loaded toestellen, dumbells en cardio. Veel leden combineren beide." } },
+      { "@type": "Question", "name": "Wanneer is er begeleiding aanwezig in Ruinen?", "acceptedAnswer": { "@type": "Answer", "text": "Doorgaans van 08.00 tot 12.00 uur en van 17.30 tot 20.30 uur. Op vrijdagavond, zaterdagavond en de hele zondag is er geen begeleiding en train je zelfstandig. De zaal is dan wel gewoon open, elke dag van 06.00 tot 22.00 uur." } },
+      { "@type": "Question", "name": "Kan ik hier trainen voor een Hyrox?", "acceptedAnswer": { "@type": "Answer", "text": "Dat kan. De slee met sprintrack, wallballs, zandzakken, kettlebells en de ski- en roeimachine staan er allemaal. Je Fit-Coach helpt je een opbouw maken richting je wedstrijd, en je hoeft er niet voor naar de stad." } },
+      { "@type": "Question", "name": "Wat kost een lidmaatschap bij ConnectFit Ruinen?", "acceptedAnswer": { "@type": "Answer", "text": "Dat hangt af van de looptijd en of je alleen wil sporten of ook coaching wil. Tijdens de gratis kennismaking rekenen we het samen door, zodat je precies weet waar je aan toe bent voordat je iets kiest." } },
+      { "@type": "Question", "name": "Kan ik eerst gratis proberen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Je sport 10 dagen gratis en vrijblijvend, zonder lidmaatschap en zonder opzegtermijn. Zo merk je zelf of EGYM, vrije fitness of Hyrox bij je past." } },
+      { "@type": "Question", "name": "Wat als ik een blessure heb of net hersteld ben?", "acceptedAnswer": { "@type": "Answer", "text": "Geef het aan bij je intake, dan past je Fit-Coach de oefeningen en de belasting daarop aan. Binnen ConnectFit werken we samen met fysiotherapie, dus als er meer nodig is dan trainen, kan je coach je doorverwijzen." } },
+      { "@type": "Question", "name": "Kan ik ook in Hoogeveen en Nieuwlande terecht?", "acceptedAnswer": { "@type": "Answer", "text": "Met een Jaar- of Traject-abonnement train je op alle drie de locaties. Handig als je in Ruinen woont maar in Hoogeveen werkt, of omgekeerd." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">Connect<span>Fit</span></a>
+      <div class="nav-links">
+        <a href="/egym/">EGYM</a>
+        <a href="/fitness/">Fitness</a>
+        <a href="/reformer-pilates/">Reformer Pilates</a>
+        <a href="/personal-training/">Personal Training</a>
+        <a href="/locaties/" class="active">Locaties</a>
+      </div>
+      <div class="nav-right">
+        <a href="tel:+31528449133" class="nav-phone">0528 - 449133</a>
+        <a href="#aanmelden" class="nav-cta">Gratis kennismaking</a>
+      </div>
+      <button class="nav-burger" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- ============ 1. HERO ============ -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="pill"><span class="pill-dot"></span>De grootste sportschool van Ruinen</span>
+        <h1>Sportschool in Ruinen — fit in 30 minuten.</h1>
+        <p class="hero-sub">Op de grootste trainingsvloer van Ruinen bepaal jij hoe je traint: een complete workout van 30 minuten op de EGYM-toestellen, zwaar met plate loaded gewichten, of alles eruit halen in een Hyrox-training. Je Fit-Coach helpt je kiezen wat bij jouw doel past.</p>
+        <ul class="checklist">
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>De grootste sportschool van Ruinen, 500+ m&sup2; trainingsvloer</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Begeleiding van je Fit-Coach op de vloer, op vaste momenten per dag</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>8 volautomatische EGYM-toestellen, een complete workout in 30 minuten</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Hyrox, kracht en cardio in dezelfde ruimte, jij kiest je vorm</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="#aanmelden" class="btn btn-red">Plan gratis kennismaking <span class="arrow">→</span></a>
+          <span class="hero-note"><span class="g"></span>4,9 / 5 uit 200+ beoordelingen</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-main">
+          <div class="visual-photo-note">
+            <strong>Foto plaatsen</strong>
+            Trainingsvloer in Ruinen met in één beeld de EGYM-toestellen én de vrije-gewichtenhoek. Daglicht, echte leden, geen lege zaal.
+          </div>
+        </div>
+        <div class="stat-badge badge-tl">
+          <div class="n">500+ m&sup2;</div>
+          <div class="t">trainingsvloer</div>
+        </div>
+        <div class="stat-badge badge-br">
+          <div class="n">8</div>
+          <div class="t">EGYM-toestellen</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 2. ANKERNAVIGATIE ============ -->
+  <div class="anchor-strip">
+    <div class="wrap anchor-row">
+      <a href="#diensten">Trainingen &amp; diensten</a>
+      <a href="#faciliteiten">Faciliteiten</a>
+      <a href="#egym">EGYM</a>
+      <a href="#hyrox">Hyrox</a>
+      <a href="#begeleiding">Begeleiding</a>
+      <a href="#faq">Veelgestelde vragen</a>
+    </div>
+  </div>
+
+  <!-- ============ 3. TRUST-BAR ============ -->
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div class="trust-col">
+        <h3>Grootste van Ruinen</h3>
+        <p><strong>500+ m&sup2;</strong> trainingsvloer, dus ruimte om te trainen zonder over elkaar heen te staan.</p>
+      </div>
+      <div class="trust-col">
+        <h3>Alles onder één dak</h3>
+        <p><strong>EGYM, Hyrox, kracht en cardio</strong> in dezelfde ruimte. Geen tweede abonnement nodig.</p>
+      </div>
+      <div class="trust-col">
+        <h3>Coaches op de vloer</h3>
+        <p>Op vaste momenten per dag staat er <strong>een Fit-Coach naast je</strong>, ook als je zelfstandig traint.</p>
+      </div>
+      <div class="trust-col">
+        <h3>4,9 uit 200+ reviews</h3>
+        <p>Leden waarderen ConnectFit met een <strong>4,9</strong> op Google, uit meer dan <strong>200 beoordelingen</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. TRAININGEN & DIENSTEN ============ -->
+  <section class="sec sec-alt" id="diensten">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Trainingen &amp; diensten</span>
+        <h2>Fitness in Ruinen, alle ruimte voor elk doel</h2>
+        <p>Of je met een vast programma wil starten of liever zelf je training bepaalt, in Ruinen vind je beide onder één dak. Je begint altijd met een intake, zodat je weet waar je aan toe bent.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>EGYM Fitness</h3>
+          <p>Acht volautomatische toestellen die zich via je polsband op jou instellen. Een complete workout in 30 minuten, zonder wachttijd en zonder twijfel wat je moet doen.</p>
+          <a href="#egym">Meer over EGYM →</a>
+        </div>
+        <div class="service-card">
+          <h3>Hyrox &amp; functionele training</h3>
+          <p>Slee duwen op de sprintrack, wallballs, kettlebells en zandzakken. Trainen op kracht en conditie tegelijk, of gericht toewerken naar een Hyrox-wedstrijd.</p>
+          <a href="#hyrox">Meer over Hyrox →</a>
+        </div>
+        <div class="service-card">
+          <h3>Vrije fitness &amp; cardio</h3>
+          <p>Pin loaded en plate loaded toestellen van Matrix, dumbells, multistations en een compleet cardioplein. Train in je eigen tempo, zonder wachten op een apparaat.</p>
+          <a href="#faciliteiten">Meer over vrije fitness →</a>
+        </div>
+        <div class="service-card">
+          <h3>Personal Training</h3>
+          <p>Eén op één met je coach, inclusief voedingsadvies en begeleiding via de app. Voor als je een specifiek doel hebt en er niet alleen voor wil staan.</p>
+          <a href="/personal-training/">Meer informatie →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. BENEFITS + STATS ============ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Waarom ConnectFit Ruinen</span>
+        <h2>Aanbod voor elk doel, begeleiding bij elke stap</h2>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico">📐</div>
+          <div><h3>De grootste sportschool van Ruinen</h3><p>500+ m&sup2; trainingsvloer, dus altijd ruimte en geen rij voor het toestel dat je nodig hebt.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">⏱️</div>
+          <div><h3>Een complete workout in 30 minuten</h3><p>De EGYM-toestellen stellen zichzelf via je polsband op jou in. Jij traint je hele lichaam in een vast ritme, zonder na te denken over series of gewicht.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">🎯</div>
+          <div><h3>Van rustig starten tot Hyrox</h3><p>Beginners en ervaren sporters trainen hier naast elkaar, ieder op eigen niveau.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">🤝</div>
+          <div><h3>Coaches met een echte opleiding</h3><p>Het team bestaat uit Fit-Coaches met verschillende opleidingsachtergronden en jaren werkervaring.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">⭐</div>
+          <div><h3>Enige EGYM-aanbieder in de regio</h3><p>In Ruinen, Hoogeveen, Nieuwlande en de dorpen ertussen vind je EGYM alleen bij ConnectFit.</p></div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico">📍</div>
+          <div><h3>Groot van formaat, klein van sfeer</h3><p>Ruimte als in de stad, maar met een coach die je naam kent en je begroet als je binnenkomt.</p></div>
+        </div>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-item"><div class="n">500+ m&sup2;</div><div class="t">Trainingsvloer, grootste van Ruinen</div></div>
+        <div class="stat-item"><div class="n">8</div><div class="t">Volautomatische EGYM-toestellen</div></div>
+        <div class="stat-item"><div class="n">30</div><div class="t">Minuten per training</div></div>
+        <div class="stat-item"><div class="n">4,9</div><div class="t">Gemiddelde beoordeling</div></div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FACILITEITEN-SLIDER ============ -->
+  <section class="sec sec-alt" id="faciliteiten">
+    <div class="wrap">
+      <div class="slider-head">
+        <div class="sh-copy">
+          <span class="label">Faciliteiten</span>
+          <h2>Dit staat er voor je klaar in Ruinen</h2>
+          <p>Van volautomatische toestellen tot een slee op de sprintrack. Schuif door de faciliteiten en kijk wat bij jouw training past.</p>
+        </div>
+        <div class="slider-nav">
+          <button class="sl-btn" data-dir="-1" aria-label="Vorige faciliteit">←</button>
+          <button class="sl-btn" data-dir="1" aria-label="Volgende faciliteit">→</button>
+        </div>
+      </div>
+
+      <div class="sl-track" id="facTrack">
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>Actiefoto: slee duwen op de sprintrack. Alt: "Hyrox training in Ruinen, slee duwen op de sprintrack bij ConnectFit"</div></div>
+          <div class="slide-body">
+            <h3>Hyrox training</h3>
+            <p>Alles voor hybride training staat klaar: een slee met sprintrack, wallballs, kettlebells, zandzakken en dumbells. Train op kracht en conditie in dezelfde sessie, of werk gericht toe naar een Hyrox-wedstrijd.</p>
+            <div class="slide-tags"><span class="tag">Slee met sprintrack</span><span class="tag">Wallballs</span><span class="tag">Kettlebells</span><span class="tag">Zandzakken</span><span class="tag">Dumbells</span><span class="tag">Pulley- en multistations</span></div>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>Matrix plate loaded toestel met schijven erop. Alt: "Matrix plate loaded krachttoestel in sportschool ConnectFit Ruinen"</div></div>
+          <div class="slide-body">
+            <h3>Plate loaded toestellen van Matrix</h3>
+            <p>Verzwaren met losse schijven, zoals je gewend bent bij serieuze krachttraining. Het gevoel van vrij gewicht, met de stabiliteit en veiligheid van een toestel.</p>
+            <div class="slide-tags"><span class="tag">Matrix Fitness</span><span class="tag">Zelf verzwaren met schijven</span><span class="tag">Voor gevorderde krachttraining</span></div>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>Rij pin loaded toestellen. Alt: "Pin loaded krachttoestellen bij fitness in Ruinen"</div></div>
+          <div class="slide-body">
+            <h3>Pin loaded toestellen</h3>
+            <p>Gewicht instellen met één pin, dus je bent binnen een paar seconden klaar om te beginnen. Ideaal om techniek en kracht op te bouwen zonder dat je een spotter nodig hebt.</p>
+            <div class="slide-tags"><span class="tag">Matrix Fitness</span><span class="tag">Steekgewichten</span><span class="tag">Multistations</span><span class="tag">Pulley stations</span></div>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>Cardioplein met loopbanden en crosstrainers. Alt: "Cardioapparatuur van Matrix Fitness bij ConnectFit Ruinen"</div></div>
+          <div class="slide-body">
+            <h3>Cardioplein</h3>
+            <p>Een compleet cardio-aanbod van Matrix Fitness, zodat je altijd kan afwisselen. Ook als je knieën of rug wat sparen nodig hebben, is er een variant die werkt.</p>
+            <div class="slide-tags"><span class="tag">Loopbanden</span><span class="tag">Crosstrainers</span><span class="tag">Hometrainers</span><span class="tag">Ski-machine</span><span class="tag">Roeimachines</span></div>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>EGYM-toestellen in gebruik, polsband zichtbaar. Alt: "EGYM-toestellen in Ruinen, training van 30 minuten bij ConnectFit"</div></div>
+          <div class="slide-body">
+            <h3>EGYM, 8 volautomatische toestellen</h3>
+            <p>Acht toestellen die je training zo eenvoudig en effectief mogelijk maken. Je traint in een vast ritme waarbij iedereen gelijktijdig wisselt, dus je doorloopt in 30 minuten een complete workout zonder wachttijd en zonder te twijfelen wat je moet doen. Ideaal als je weinig tijd hebt, maar wel resultaat wil zien.</p>
+            <div class="slide-tags"><span class="tag">8 toestellen</span><span class="tag">30 minuten</span><span class="tag">Stelt zich in op jouw lichaam</span><span class="tag">Vast ritme, geen wachttijd</span></div>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-photo"><div class="pn"><strong>Foto plaatsen</strong>Fit-Coach die een lid begeleidt bij een oefening. Alt: "Fit-Coach begeleidt een lid op de trainingsvloer van ConnectFit Ruinen"</div></div>
+          <div class="slide-body">
+            <h3>Begeleiding op de vloer</h3>
+            <p>Op vaste momenten per dag staat er een Fit-Coach in de zaal. Je kan altijd iets vragen, je oefening laten checken of je programma laten aanpassen. Doorgaans is dat van 08.00 tot 12.00 uur en van 17.30 tot 20.30 uur. Op vrijdagavond, zaterdagavond en de hele zondag train je zelfstandig.</p>
+            <div class="slide-tags"><span class="tag">08.00 - 12.00 uur</span><span class="tag">17.30 - 20.30 uur</span><span class="tag">Opgeleide Fit-Coaches</span><span class="tag">Geen begeleiding vr- en za-avond en zondag</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="fac-extra">
+        <div><span class="ico">🚿</span>Kleedkamers met douches</div>
+        <div><span class="ico">☕</span>Gratis koffie en thee</div>
+        <div><span class="ico">💬</span>Een club waar mensen elkaar kennen</div>
+      </div>
+
+      <div class="slider-foot">
+        <a href="#aanmelden" class="btn btn-ghost">Kom langs en bekijk het zelf →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. LOCATIE ============ -->
+  <section class="sec feature" id="locatie">
+    <div class="wrap feature-grid">
+      <div>
+        <span class="label">Locatie</span>
+        <h2>De grootste sportschool van Ruinen, in het hart van het dorp</h2>
+        <p>Sinds begin dit jaar train je ook in Ruinen bij ConnectFit, op 500+ m&sup2; trainingsvloer. Dat is de grootste van het dorp, en dat merk je: ruimte tussen de toestellen, een eigen hoek voor kracht en een eigen hoek voor Hyrox. Toch geen anonieme hal, want de coach kent je bij naam en ziet of het lekker gaat.</p>
+        <p>Je vindt ons midden in Ruinen, op loop- of fietsafstand voor de meeste inwoners. Kom je uit Ansen, Echten, Pesse of Dwingeloo, dan sta je binnen een kwartier op de vloer. Parkeren kan voor de deur.</p>
+        <div class="addr">
+          <strong>ConnectFit Ruinen</strong>
+          <p>
+            <span class="todo">STRAAT + HUISNUMMER</span> <span class="todo">POSTCODE</span> Ruinen<br>
+            <a href="tel:+31528449133">0528 - 449133</a><br>
+            Dagelijks open van 06.00 tot 22.00 uur
+          </p>
+        </div>
+        <a href="#aanmelden" class="btn btn-ghost">Plan gratis kennismaking</a>
+      </div>
+      <div class="feature-photo">
+        <div class="pn"><strong>Foto plaatsen</strong>Gevel met logo in daglicht, ingang duidelijk zichtbaar, mensen die naar binnen lopen. Eronder een lazy loaded Google Maps-kaart.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. EGYM ============ -->
+  <section class="sec feature alt-bg" id="egym">
+    <div class="wrap feature-grid rev">
+      <div>
+        <span class="label">EGYM</span>
+        <h2>Acht toestellen die zich op jou instellen, in 30 minuten klaar</h2>
+        <p>Bij de intake maakt je Fit-Coach een profiel van je aan. Vanaf dat moment weten de acht EGYM-toestellen wie je bent: je houdt je polsband tegen het toestel en zithoogte, weerstand en bewegingsbereik staan goed. Jij hoeft alleen nog te trainen.</p>
+        <p>Je traint in een vast ritme waarbij iedereen op hetzelfde moment doorschuift. Zo doorloop je in ongeveer 30 minuten je hele lichaam, zonder wachttijd, zonder twijfel wat je moet doen en zonder dat het eentonig wordt. Je voortgang wordt automatisch bijgehouden, dus bij elke evaluatie zie je zwart op wit wat er is veranderd.</p>
+        <p>Er zijn meer geautomatiseerde circuits in Nederland. Het verschil zit erin dat EGYM wereldwijd wordt gebruikt en de programma's continu op basis van data worden verbeterd, en dat er bij ons een coach op de vloer staat die meekijkt.</p>
+        <a href="#aanmelden" class="btn btn-red">Probeer EGYM 10 dagen gratis <span class="arrow">→</span></a>
+      </div>
+      <div class="feature-photo">
+        <div class="pn"><strong>Foto plaatsen</strong>Close-up van een polsband tegen de sensor, scherm zichtbaar, met een mens in beeld. Donkere sfeer met rood accent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. HYROX ============ -->
+  <section class="sec feature" id="hyrox">
+    <div class="wrap feature-grid">
+      <div>
+        <span class="label">Hyrox</span>
+        <h2>Hyrox training in Ruinen, kracht en conditie in één sessie</h2>
+        <p>Hyrox combineert hardlopen met acht krachtonderdelen, en dat vraagt een ander soort training dan alleen gewichten of alleen cardio. In Ruinen staat alles klaar om die combinatie te maken: een slee op de sprintrack, wallballs, zandzakken, kettlebells en de roei- en ski-machine.</p>
+        <p>Je hoeft geen wedstrijd op de planning te hebben staan om hier te trainen. Veel leden gebruiken deze hoek gewoon omdat het de snelste manier is om sterker én fitter te worden in een korte sessie. Wil je wel richting een Hyrox, dan helpt je Fit-Coach je een opbouw maken.</p>
+        <p>Dit is de enige plek in de omgeving waar je deze onderdelen bij elkaar vindt, dus je hoeft niet naar Zwolle of Groningen voor je training.</p>
+        <a href="#aanmelden" class="btn btn-red">Kom een keer meetrainen <span class="arrow">→</span></a>
+      </div>
+      <div class="feature-photo">
+        <div class="pn"><strong>Foto plaatsen</strong>Actiefoto, iemand die de slee duwt op de sprintrack, laag camerastandpunt. Gebruik deze foto ook als OG-image van de pagina.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. BEGELEIDING & TEAM ============ -->
+  <section class="sec feature alt-bg" id="begeleiding">
+    <div class="wrap feature-grid rev">
+      <div>
+        <span class="label">Begeleiding</span>
+        <h2>Een coach op de vloer, geen apparaat dat je aan je lot overlaat</h2>
+        <p>Het team van ConnectFit bestaat uit goed opgeleide Fit-Coaches met verschillende opleidingsachtergronden en jaren werkervaring. De een is sterk in krachttraining, de ander in herstel na een blessure. Samen zorgen ze dat je niet zelf hoeft uit te zoeken wat werkt.</p>
+        <p>Een coach op de vloer is geen persoonlijke trainer die het hele uur naast je staat. Wil je dat wel, dan kan je een personal training boeken. Wat je hier krijgt, is iemand die je begroet, je oefening checkt en meteen bijstuurt als iets niet goed voelt.</p>
+        <h3>Wanneer staat er een coach in de zaal?</h3>
+        <ul class="hours">
+          <li><span class="day">Maandag t/m donderdag</span><span class="val">08.00 - 12.00 en 17.30 - 20.30</span></li>
+          <li><span class="day">Vrijdag</span><span class="val">08.00 - 12.00, 's avonds zelfstandig</span></li>
+          <li><span class="day">Zaterdag</span><span class="val">'s ochtends, 's avonds zelfstandig</span></li>
+          <li class="off"><span class="day">Zondag</span><span class="val">Zelfstandig trainen</span></li>
+        </ul>
+        <p class="hours-note">Dit is de gebruikelijke bezetting. Buiten deze tijden ben je gewoon welkom, dan train je zelfstandig. De zaal is elke dag open van 06.00 tot 22.00 uur.</p>
+      </div>
+      <div class="feature-photo">
+        <div class="pn"><strong>Foto plaatsen</strong>Groepsfoto van het team in Ruinen, in clubkleding, op de vloer. Zet de voornamen erbij, dat verlaagt de drempel om iets te vragen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. URGENCY ============ -->
+  <section class="urgency">
+    <div class="wrap">
+      <h2>10 dagen gratis sporten, geen verplichtingen</h2>
+      <p>Probeer ConnectFit Ruinen gratis, zonder lidmaatschap en zonder verplichting. EGYM, Hyrox of vrije fitness, jij kiest waar je begint.</p>
+      <a href="#aanmelden" class="btn btn-white">Claim jouw gratis dag <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ 12. ABONNEMENTEN ============ -->
+  <section class="sec sec-alt" id="abonnementen">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Abonnementen</span>
+        <h2>Kies het abonnement dat bij jou past</h2>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>Flex</h3>
+          <div class="price">XX,- <span style="font-size:15px;font-weight:500;color:var(--muted)">/maand</span></div>
+          <ul>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Maandelijks opzegbaar</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toegang tot EGYM, kracht, cardio en Hyrox</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Persoonlijke intake en fittest</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Evaluatie elke 10 weken</li>
+          </ul>
+          <a href="#aanmelden" class="btn btn-ghost btn-full">Word lid</a>
+        </div>
+        <div class="price-card">
+          <h3>Jaar</h3>
+          <div class="price">XX,- <span style="font-size:15px;font-weight:500;color:var(--muted)">/maand</span></div>
+          <ul>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Laagste maandprijs</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Alle voordelen van Flex</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toegang tot alle 3 locaties</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Evaluatie elke 10 weken</li>
+          </ul>
+          <a href="#aanmelden" class="btn btn-ghost btn-full">Word lid</a>
+        </div>
+        <div class="price-card featured">
+          <span class="ribbon">Aanbevolen</span>
+          <h3>Traject</h3>
+          <div class="price">XX,- <span style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5)">/maand</span></div>
+          <ul>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>3 maanden intensief traject</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Wekelijkse personal coaching</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Voedingsbegeleiding inbegrepen</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toegang tot alle 3 locaties</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Begeleiding via de app</li>
+          </ul>
+          <a href="#aanmelden" class="btn btn-red btn-full">Word lid</a>
+        </div>
+      </div>
+      <div class="price-foot">
+        <p>Liever eerst ervaren of het bij je past? Je sport 10 dagen gratis, zonder abonnement.</p>
+        <a href="#aanmelden" class="btn btn-ghost">Claim je gratis dag</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13. SOCIAL PROOF ============ -->
+  <section class="sec proof" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Wat leden zeggen</span>
+        <h2>200+ mensen gingen je voor</h2>
+      </div>
+      <div class="score-row">
+        <div class="score-n">4,9</div>
+        <div class="score-meta">
+          <div class="rstars">★★★★★</div>
+          <div class="sub">uit 200+ beoordelingen</div>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <div class="rstars">★★★★★</div>
+          <p>"Ik train het liefst zwaar en zelfstandig, maar het is fijn dat er een coach in de buurt is als ik iets wil vragen over mijn techniek."</p>
+          <div class="who"><div class="avatar">I</div><div><div class="nm">Ingrid</div><div class="loc">Lid in Ruinen</div></div></div>
+        </div>
+        <div class="review">
+          <div class="rstars">★★★★★</div>
+          <p>"Nooit gedacht dat ik nog eens met plezier zou trainen. Geen wachttijd, geen gedoe, en de toestellen staan altijd goed ingesteld."</p>
+          <div class="who"><div class="avatar">A</div><div><div class="nm">Annemarie</div><div class="loc">Lid in Ruinen</div></div></div>
+        </div>
+        <div class="review">
+          <div class="rstars">★★★★★</div>
+          <p>"De slee en de wallballs waren precies wat ik zocht. Hiervoor reed ik naar Zwolle, nu sta ik binnen vijf minuten op de vloer."</p>
+          <div class="who"><div class="avatar">R</div><div><div class="nm">Rick</div><div class="loc">Lid in Ruinen</div></div></div>
+        </div>
+        <div class="review">
+          <div class="rstars">★★★★★</div>
+          <p>"Ik had geen ervaring en zag op tegen een grote sportschool. Hier stellen ze alles voor je in en train je op je eigen tempo."</p>
+          <div class="who"><div class="avatar">S</div><div><div class="nm">Susanne</div><div class="loc">Lid in Ruinen</div></div></div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)"><span class="todo">TE DOEN</span> vervang deze vier door echte Google-reviews van Ruinen-leden voor je live gaat, dan mag je ze ook met Review-schema markeren.</p>
+    </div>
+  </section>
+
+  <!-- ============ 14. FAQ ============ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Goed om te weten</span>
+        <h2>Veelgestelde vragen over sporten in Ruinen</h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q">Hoe groot is ConnectFit Ruinen?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Met 500+ m&sup2; trainingsvloer is dit de grootste sportschool van Ruinen. Die ruimte is verdeeld over de EGYM-toestellen, een krachthoek met pin loaded en plate loaded toestellen, een cardioplein en een aparte hoek voor Hyrox en functionele training. Je hoeft dus zelden te wachten op een toestel.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is ConnectFit Ruinen geschikt voor beginners?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Ja, en juist beginners voelen zich hier snel thuis. Je start altijd met een intake waarin je coach kijkt wat bij je past, en de EGYM-toestellen stellen zich zelf op jouw lichaam in. Je hoeft geen ervaring te hebben en niets uit te zoeken.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Wat is het verschil tussen EGYM en vrije fitness?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Bij EGYM volg je een vaste route van acht toestellen die zich automatisch instellen, in ongeveer 30 minuten en in een vast ritme met de anderen. Bij vrije fitness bepaal je zelf je oefeningen en tempo, met pin loaded en plate loaded toestellen, dumbells en cardio. Veel leden combineren beide.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Wanneer is er begeleiding aanwezig in Ruinen?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Doorgaans van 08.00 tot 12.00 uur en van 17.30 tot 20.30 uur. Op vrijdagavond, zaterdagavond en de hele zondag is er geen begeleiding en train je zelfstandig. De zaal is dan wel gewoon open, elke dag van 06.00 tot 22.00 uur.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Kan ik hier trainen voor een Hyrox?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Dat kan. De slee met sprintrack, wallballs, zandzakken, kettlebells en de ski- en roeimachine staan er allemaal. Je Fit-Coach helpt je een opbouw maken richting je wedstrijd, en je hoeft er niet voor naar de stad.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Wat kost een lidmaatschap bij ConnectFit Ruinen?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Dat hangt af van de looptijd en of je alleen wil sporten of ook coaching wil. Tijdens de gratis kennismaking rekenen we het samen door, zodat je precies weet waar je aan toe bent voordat je iets kiest.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Kan ik eerst gratis proberen?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Ja. Je sport 10 dagen gratis en vrijblijvend, zonder lidmaatschap en zonder opzegtermijn. Zo merk je zelf of EGYM, vrije fitness of Hyrox bij je past.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Wat als ik een blessure heb of net hersteld ben?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Geef het aan bij je intake, dan past je Fit-Coach de oefeningen en de belasting daarop aan. Binnen ConnectFit werken we samen met fysiotherapie, dus als er meer nodig is dan trainen, kan je coach je doorverwijzen.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Kan ik ook in Hoogeveen en Nieuwlande terecht?<span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Met een Jaar- of Traject-abonnement train je op alle drie de locaties. Handig als je in Ruinen woont maar in Hoogeveen werkt, of omgekeerd.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 15. HERO-TESTIMONIAL ============ -->
+  <section class="sec tst">
+    <div class="wrap tst-inner">
+      <p class="tst-quote">"Ik had van alles geprobeerd, maar bij ConnectFit voelde het anders. De coaches kenden mij bij naam, pasten alles op mij aan, en de 30-minuten aanpak paste perfect in mijn drukke schema. 7 maanden later ben ik 44 kg lichter en heb ik meer energie dan ooit."</p>
+      <div class="tst-name">— Henri, <strong>44 kg lichter in 7 maanden</strong></div>
+    </div>
+  </section>
+
+  <!-- ============ 16. FORMULIER ============ -->
+  <section class="sec lead" id="aanmelden">
+    <div class="wrap lead-grid">
+      <div>
+        <span class="label">Aanmelden</span>
+        <h2>10 dagen gratis sporten in Ruinen</h2>
+        <p style="font-size:17px;line-height:1.75;margin-bottom:26px">Laat je gegevens achter, dan bellen we je om een moment te plannen dat jou uitkomt. Bij de kennismaking loop je de zaal door, doe je een fittest en bepaal je samen met je coach waar je begint.</p>
+        <ul class="checklist">
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Trainen op 500+ m&sup2;, de grootste vloer van Ruinen</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Geen lidmaatschap nodig</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Gratis intake en fittest</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>EGYM, kracht, cardio en Hyrox inbegrepen</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Begeleiding van je Fit-Coach op de vloer</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Geen verplichtingen achteraf</li>
+        </ul>
+      </div>
+      <div class="lead-form">
+        <form>
+          <div class="fld-row">
+            <label class="fld-label" for="vn">Voornaam</label>
+            <input class="fld" id="vn" name="voornaam" type="text" placeholder="Jouw voornaam" autocomplete="given-name">
+          </div>
+          <div class="fld-row">
+            <label class="fld-label" for="an">Achternaam</label>
+            <input class="fld" id="an" name="achternaam" type="text" placeholder="Jouw achternaam" autocomplete="family-name">
+          </div>
+          <div class="fld-row">
+            <label class="fld-label" for="tel">Telefoonnummer</label>
+            <input class="fld" id="tel" name="telefoon" type="tel" placeholder="06 12 34 56 78" autocomplete="tel">
+          </div>
+          <div class="fld-row">
+            <label class="fld-label" for="em">E-mailadres</label>
+            <input class="fld" id="em" name="email" type="email" placeholder="jij@voorbeeld.nl" autocomplete="email">
+          </div>
+          <button type="submit" class="btn btn-red btn-full">Meld je gratis aan <span class="arrow">→</span></button>
+          <div class="trust-note">Jouw gegevens zijn veilig, geen spam.</div>
+          <div class="sub-note">Wij nemen binnen 24 uur contact met je op.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="/" class="logo">Connect<span>Fit</span></a>
+          <p>Jouw fitnesscentrum met persoonlijke aandacht. In Ruinen de grootste sportschool van het dorp, met EGYM, Hyrox, vrije fitness, personal training en fysiotherapie in Hoogeveen, Nieuwlande en Ruinen.</p>
+        </div>
+        <div>
+          <h4>Aanbod</h4>
+          <ul>
+            <li><a href="/egym/">EGYM</a></li>
+            <li><a href="#hyrox">Hyrox &amp; functionele training</a></li>
+            <li><a href="/fitness/">Vrije fitness</a></li>
+            <li><a href="/personal-training/">Personal Training</a></li>
+            <li><a href="/fysiotherapie/">Fysiotherapie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Locaties</h4>
+          <ul>
+            <li><a href="/locaties/sportschool-hoogeveen/">Hoogeveen</a></li>
+            <li><a href="/locaties/sportschool-nieuwlande/">Nieuwlande</a></li>
+            <li><a href="/locaties/sportschool-ruinen/">Ruinen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+31528449133">0528 - 449133</a></li>
+            <li><a href="mailto:info@connectfit.nl">info@connectfit.nl</a></li>
+            <li>ConnectFit Ruinen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 ConnectFit. Alle rechten voorbehouden.</span>
+        <span><a href="/privacybeleid/">Privacybeleid</a> &nbsp;·&nbsp; <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* FAQ accordeon, antwoorden blijven in de DOM staan voor SEO */
+    document.querySelectorAll('.faq-q').forEach(function (q) {
+      q.addEventListener('click', function () {
+        var item = q.parentElement;
+        var a = item.querySelector('.faq-a');
+        var open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!open) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* Faciliteiten-slider, native scroll-snap zonder library */
+    (function () {
+      var track = document.getElementById('facTrack');
+      if (!track) return;
+      document.querySelectorAll('.sl-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var slide = track.querySelector('.slide');
+          if (!slide) return;
+          var step = slide.getBoundingClientRect().width + 24;
+          track.scrollBy({ left: step * parseInt(btn.dataset.dir, 10), behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
