@@ -72,14 +72,19 @@ printf 'User-agent: *\nDisallow: /\n' > "$BUILD/robots.txt"
   echo '<h1>ConnectFit sitestructuur</h1>'
   echo '<p class="sub">Previews in de volgorde van de spreadsheet. Het pad is gelijk aan dat van de echte site, dus de preview-URL is de basis plus het pad. Elke pagina opent in een nieuw tabblad.</p>'
   echo '<p class="auto">Dit overzicht werkt zichzelf bij. Zodra een pagina in de werkmap verandert, staat hij binnen een minuut hier.</p>'
-  echo '<table><tr><th>#</th><th>Pagina</th><th>Pad</th><th>Status</th><th>Hoofdzoekwoord</th></tr>'
+  echo '<table><tr><th>#</th><th>Pagina</th><th>Pad</th><th>Status</th><th>Hoofdzoekwoord</th><th>Meta title</th><th>Meta description</th></tr>'
   i=0
   while IFS=$'\t' read -r path naam kw bron; do
     [ -z "${path:-}" ] && continue
     i=$((i+1))
     if [ -n "${bron:-}" ] && [ -f "$SRC/$bron" ]; then s='<span class="s live">gebouwd</span>'; else s='<span class="s todo">nog te bouwen</span>'; fi
-    printf '<tr><td class="n">%s</td><td class="n"><a href="%s%s" target="_blank" rel="noopener">%s</a></td><td><code>%s</code></td><td>%s</td><td class="kw">%s</td></tr>\n' \
-      "$i" "$PREFIX" "$path" "$naam" "$path" "$s" "${kw:-—}"
+    f="$BUILD${path}index.html"
+    mt=$(perl -0ne 'print $1 if m{<title>(.*?)</title>}s' "$f" 2>/dev/null)
+    md=$(perl -0ne 'print $1 if m{<meta\s+name="description"\s+content="(.*?)"}s' "$f" 2>/dev/null)
+    if [ -n "$mt" ]; then mtc="$mt <span class=\"len\">${#mt}</span>"; else mtc='<span class="s todo">ontbreekt</span>'; fi
+    if [ -n "$md" ]; then mdc="$md <span class=\"len\">${#md}</span>"; else mdc='<span class="s todo">ontbreekt</span>'; fi
+    printf '<tr><td class="n">%s</td><td class="n"><a href="%s%s" target="_blank" rel="noopener">%s</a></td><td><code>%s</code></td><td>%s</td><td class="kw">%s</td><td class="meta">%s</td><td class="meta">%s</td></tr>\n' \
+      "$i" "$PREFIX" "$path" "$naam" "$path" "$s" "${kw:-—}" "$mtc" "$mdc"
   done < "$DST/pages.tsv"
   echo '</table>'
   printf '<p class="sub" style="margin-top:24px">Basis: <code>%s</code> &middot; bijgewerkt %s</p>\n' "$BASE" "$(date '+%d-%m-%Y %H:%M')"
