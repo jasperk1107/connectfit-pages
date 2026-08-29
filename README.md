@@ -26,6 +26,11 @@ De volgorde van de regels is de volgorde van het overzicht.
 
 ## Bijwerken
 
+Gaat automatisch. Twee hooks in `clients/connectfit/.claude/settings.local.json`
+draaien `sync.sh`: één zodra Claude een bestand in `created/landing-pages/`
+schrijft of bewerkt, en één aan het eind van elke beurt, zodat ook wijzigingen
+via de shell meegaan. Handmatig kan ook:
+
 ```bash
 "/Users/jasperkoekoek/PPC OS/connectfit-pages/sync.sh"
 ```
