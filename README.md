@@ -1,10 +1,28 @@
-# ConnectFit landingspagina's
+# ConnectFit sitestructuur — previews
 
-Publieke previews van de landingspagina's uit de PPC OS workspace, zodat elke
-pagina een URL heeft die in de campagne-spreadsheet kan.
+Previews van de ConnectFit-pagina's, met dezelfde paden als de echte site.
+De preview-URL is de basis plus het pad uit de spreadsheet:
 
-- Overzicht: https://jasperk1107.github.io/connectfit-pages/
-- Losse pagina: `https://jasperk1107.github.io/connectfit-pages/<bestandsnaam>.html`
+```
+https://jasperk1107.github.io/connectfit-pages  +  /hoogeveen/egym/
+```
+
+Overzicht van alle 25 pagina's in spreadsheetvolgorde:
+https://jasperk1107.github.io/connectfit-pages/overzicht/
+
+## Pagina's toevoegen of de volgorde wijzigen
+
+Pas `pages.tsv` aan. Vier kolommen, gescheiden door een tab:
+
+```
+pad<TAB>naam<TAB>hoofdzoekwoord<TAB>bronbestand
+```
+
+Het bronbestand is de naam van een html-bestand in
+`clients/connectfit/created/landing-pages/`. Laat de kolom leeg en de pagina
+krijgt een placeholder met de vastgelegde URL.
+
+De volgorde van de regels is de volgorde van het overzicht.
 
 ## Bijwerken
 
@@ -12,8 +30,11 @@ pagina een URL heeft die in de campagne-spreadsheet kan.
 "/Users/jasperkoekoek/PPC OS/connectfit-pages/sync.sh"
 ```
 
-Kopieert alles uit `clients/connectfit/created/landing-pages/`, bouwt het
-overzicht opnieuw en pusht. Live na ongeveer een minuut.
+Bouwt alles opnieuw uit `pages.tsv`, verwijdert wat er niet meer in staat en
+pusht. Live na ongeveer een minuut.
 
-De repo staat op noindex via `robots.txt`. Zet er geen klantdata of
-accountgegevens in — dit is een publieke repo.
+Root-absolute links in de bronbestanden worden bij het bouwen omgezet naar
+`/connectfit-pages/...`, zodat je tussen de previews kunt doorklikken.
+
+De repo staat op noindex via `robots.txt`. Publieke repo: alleen pagina-html
+erin, geen accountdata.
