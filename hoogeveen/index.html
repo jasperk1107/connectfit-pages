@@ -1,684 +1,872 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sportschool Hoogeveen | Fitness Hoogeveen - ConnectFit</title>
-  <meta name="description" content="Sportschool in Hoogeveen met persoonlijke begeleiding: EGYM, Reformer Pilates, personal training en fysiotherapie onder één dak. Plan je gratis kennismaking.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --red: #e8192c;
-      --red-dark: #c30f20;
-      --ink: #1b1b26;
-      --navy: #12121c;
-      --text: #56565f;
-      --muted: #8a8a92;
-      --cream: #f1efec;
-      --cream-2: #eae7e2;
-      --white: #ffffff;
-      --border: #e3e0da;
-      --green: #16a34a;
-      --shadow: 0 18px 40px rgba(20,20,30,.07);
-      --shadow-sm: 0 6px 18px rgba(20,20,30,.06);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: var(--cream); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; color: var(--ink); line-height: 1.12; font-weight: 600; }
-    a { text-decoration: none; color: inherit; }
-    strong { font-weight: 700; color: var(--ink); }
-    .why strong, .cta strong, .tst strong { color: #fff; }
-    img { max-width: 100%; display: block; }
-    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-    .label { display: inline-block; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
-
-    /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 16px; padding: 15px 30px; border-radius: 100px; transition: transform .15s ease, background .2s ease, box-shadow .2s ease; cursor: pointer; border: none; }
-    .btn-red { background: var(--red); color: #fff; box-shadow: 0 10px 22px rgba(232,25,44,.28); }
-    .btn-red:hover { background: var(--red-dark); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--border); }
-    .btn-ghost:hover { border-color: var(--ink); }
-    .btn-white { background: #fff; color: var(--red); box-shadow: 0 10px 24px rgba(0,0,0,.15); }
-    .btn-white:hover { background: #fff; transform: translateY(-2px); }
-    .btn .arrow { font-size: 18px; }
-    .btn-full { width: 100%; }
-
-    /* ============ NAV ============ */
-    .nav { background: var(--navy); position: sticky; top: 0; z-index: 100; }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .logo { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 23px; color: #fff; letter-spacing: -.3px; }
-    .logo span { color: var(--red); }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,.82); font-size: 15px; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover, .nav-links a.active { color: #fff; }
-    .nav-right { display: flex; align-items: center; gap: 22px; }
-    .nav-phone { color: rgba(255,255,255,.82); font-size: 15px; font-weight: 500; }
-    .nav-cta { background: var(--red); color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 14px; padding: 10px 20px; border-radius: 100px; }
-    .nav-cta:hover { background: var(--red-dark); }
-    .nav-burger { display: none; font-size: 26px; color: #fff; background: none; border: none; cursor: pointer; }
-
-    /* ============ HERO ============ */
-    .hero { background: var(--cream); padding: 74px 0 84px; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
-    .pill { display: inline-flex; align-items: center; gap: 9px; background: #fff; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 24px; box-shadow: var(--shadow-sm); }
-    .pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
-    .hero h1 { font-size: clamp(34px, 4.6vw, 54px); font-weight: 600; letter-spacing: -.5px; margin-bottom: 22px; }
-    .hero-sub { font-size: 18px; line-height: 1.7; color: var(--text); max-width: 500px; margin-bottom: 28px; }
-    .checklist { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 34px; }
-    .checklist li { display: flex; align-items: center; gap: 13px; font-size: 16px; color: var(--ink); font-weight: 500; }
-    .chk { width: 24px; height: 24px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .chk svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 3; fill: none; }
-    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .hero-note { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
-    .hero-note .g { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
-
-    .hero-visual { position: relative; }
-    .visual-main { aspect-ratio: 4/5; border-radius: 22px; background: linear-gradient(155deg, #1f1f2c 0%, #2b2b3c 55%, #15151f 100%); position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; }
-    .visual-main::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 72% 26%, rgba(232,25,44,.22), transparent 55%), radial-gradient(circle at 20% 82%, rgba(232,25,44,.10), transparent 50%); }
-    .visual-photo-note { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,.35); font-size: 13px; font-weight: 500; letter-spacing: .5px; padding: 0 30px; }
-    .visual-photo-note strong { display:block; font-family:'Fredoka',sans-serif; font-size:20px; color:rgba(255,255,255,.55); margin-bottom:6px; }
-    .stat-badge { position: absolute; background: #fff; border-radius: 16px; padding: 14px 18px; box-shadow: var(--shadow); z-index: 5; }
-    .stat-badge .n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; color: var(--ink); line-height: 1; }
-    .stat-badge .t { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 3px; }
-    .badge-tl { top: 24px; left: -18px; }
-    .badge-br { bottom: 28px; right: -18px; }
-    .badge-br .n { color: var(--red); }
-
-    /* ============ TRUST BAR ============ */
-    .trust { background: var(--navy); padding: 64px 0; border-top: 3px solid var(--red); }
-    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-    .trust-col h3 { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 21px; color: #fff; text-transform: uppercase; letter-spacing: .5px; line-height: 1.15; margin-bottom: 14px; }
-    .trust-col p { font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,.62); }
-    .trust-col p strong { color: #fff; }
-
-    /* ============ SECTION SHELL ============ */
-    section { scroll-margin-top: 80px; }
-    .sec { padding: 92px 0; }
-    .sec-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
-    .sec-head h2 { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -.5px; margin-bottom: 16px; }
-    .sec-head p { font-size: 18px; color: var(--text); }
-    .sec-alt { background: var(--white); }
-
-    /* ============ ANCHOR NAV STRIP ============ */
-    .anchor-strip { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 68px; z-index: 90; }
-    .anchor-row { display: flex; gap: 30px; overflow-x: auto; padding: 16px 0; }
-    .anchor-row a { font-size: 14.5px; font-weight: 600; color: var(--text); white-space: nowrap; transition: color .2s; }
-    .anchor-row a:hover { color: var(--red); }
-
-    /* ============ DIENSTEN OVERZICHT ============ */
-    .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-    .service-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease; }
-    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .service-card h3 { font-size: 20px; margin-bottom: 10px; }
-    .service-card p { font-size: 14.5px; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
-    .service-card a { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--red); font-size: 14.5px; }
-
-    /* ============ BENEFITS + STATS ============ */
-    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 56px; }
-    .benefit-card { display: flex; gap: 16px; align-items: flex-start; }
-    .benefit-ico { width: 46px; height: 46px; border-radius: 12px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-    .benefit-card h3 { font-size: 17.5px; margin-bottom: 6px; }
-    .benefit-card p { font-size: 14.5px; color: var(--text); line-height: 1.6; }
-    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; background: var(--navy); border-radius: 20px; padding: 40px 30px; }
-    .stat-item { text-align: center; }
-    .stat-item .n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 40px; color: #fff; line-height: 1; margin-bottom: 8px; }
-    .stat-item .t { font-size: 13px; color: rgba(255,255,255,.55); font-weight: 600; letter-spacing: .3px; }
-
-    /* ============ FEATURE (2-koloms: tekst + foto) herbruikt voor locatie & egym ============ */
-    .feature { background: var(--white); }
-    .feature.alt-bg { background: var(--cream); }
-    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .feature-grid.rev .feature-photo { order: -1; }
-    .feature h2 { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -.5px; margin-bottom: 18px; }
-    .feature p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 16px; }
-    .feature-photo { aspect-ratio: 4/3; border-radius: 20px; background: linear-gradient(155deg, #1f1f2c 0%, #2b2b3c 55%, #15151f 100%); position: relative; overflow: hidden; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; }
-    .feature-photo::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(232,25,44,.20), transparent 55%); }
-    .feature-photo .pn { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,.4); font-size: 13px; font-weight: 500; padding: 0 24px; }
-    .feature-photo .pn strong { display: block; font-family: 'Fredoka', sans-serif; font-size: 19px; color: rgba(255,255,255,.6); margin-bottom: 6px; }
-
-    /* ============ URGENCY BANNER ============ */
-    .urgency { background: var(--red); color: #fff; text-align: center; padding: 64px 0; }
-    .urgency h2 { color: #fff; font-size: clamp(26px, 3.4vw, 38px); letter-spacing: -.5px; margin-bottom: 12px; }
-    .urgency p { font-size: 16.5px; color: rgba(255,255,255,.9); max-width: 520px; margin: 0 auto 28px; }
-
-    /* ============ ABONNEMENTEN ============ */
-    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
-    .price-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 34px 28px; display: flex; flex-direction: column; }
-    .price-card.featured { background: var(--navy); border-color: var(--navy); position: relative; }
-    .price-card .ribbon { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; }
-    .price-card h3 { font-size: 21px; margin-bottom: 6px; }
-    .price-card.featured h3 { color: #fff; }
-    .price-card .price { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); margin-bottom: 20px; }
-    .price-card.featured .price { color: #fff; }
-    .price-card ul { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; flex: 1; }
-    .price-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: var(--text); }
-    .price-card.featured li { color: rgba(255,255,255,.75); }
-    .price-card li .chk { flex-shrink: 0; margin-top: 1px; }
-    .price-foot { text-align: center; margin-top: 40px; }
-    .price-foot p { font-size: 15px; color: var(--text); margin-bottom: 14px; }
-
-    /* ============ SOCIAL PROOF ============ */
-    .proof { background: var(--cream); }
-    .score-row { display: flex; align-items: center; gap: 16px; margin-bottom: 34px; justify-content: center; }
-    .score-n { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 44px; color: var(--ink); line-height: 1; }
-    .score-meta .rstars { color: #ffc531; font-size: 15px; letter-spacing: 1px; }
-    .score-meta .sub { font-size: 13px; color: var(--muted); font-weight: 600; }
-    .reviews { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-    .review { background: #fff; border-radius: 16px; padding: 26px 24px; box-shadow: var(--shadow-sm); }
-    .review .rstars { color: #ffc531; font-size: 16px; letter-spacing: 1px; margin-bottom: 14px; }
-    .review p { font-size: 14.5px; color: var(--text); line-height: 1.65; margin-bottom: 16px; }
-    .review .who { display: flex; align-items: center; gap: 12px; }
-    .review .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cream-2); display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink); font-size: 14px; }
-    .review .who .nm { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--ink); font-size: 14.5px; }
-    .review .who .loc { font-size: 12.5px; color: var(--muted); }
-
-    /* ============ FAQ ============ */
-    .faq { background: var(--white); }
-    .faq-wrap { max-width: 780px; margin: 0 auto; }
-    .faq-item { background: var(--cream); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
-    .faq-q { width: 100%; text-align: left; background: none; border: none; padding: 22px 26px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .faq-q .plus { font-size: 26px; color: var(--red); flex-shrink: 0; transition: transform .25s ease; line-height: 1; }
-    .faq-item.open .faq-q .plus { transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-    .faq-a-inner { padding: 0 26px 24px; font-size: 15.5px; color: var(--text); line-height: 1.7; }
-
-    /* ============ HERO-TESTIMONIAL (donker) ============ */
-    .tst { background: var(--navy); color: #fff; }
-    .tst-inner { max-width: 820px; margin: 0 auto; text-align: center; }
-    .tst-quote { font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: clamp(22px, 3vw, 30px); line-height: 1.4; color: #fff; margin-bottom: 26px; }
-    .tst-name { font-size: 15px; color: rgba(255,255,255,.6); font-weight: 600; }
-    .tst-name strong { color: var(--red); }
-
-    /* ============ FORMULIER / AFSLUITENDE CTA ============ */
-    .lead { background: var(--cream); }
-    .lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .lead h2 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -.5px; margin-bottom: 18px; }
-    .lead .checklist { margin-bottom: 0; }
-    .lead-form { background: #fff; border-radius: 20px; padding: 38px 34px; box-shadow: var(--shadow); }
-    .fld-row { margin-bottom: 18px; }
-    .fld-label { display: block; font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
-    .fld { width: 100%; min-height: 50px; background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 13px 15px; font-family: inherit; font-size: 15px; color: var(--ink); }
-    .fld:focus { outline: none; border-color: var(--ink); }
-    .fld::placeholder { color: #a9a6a0; }
-    .lead-form .trust-note { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); margin-top: 14px; justify-content: center; }
-    .lead-form .sub-note { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 6px; }
-
-    /* ============ FOOTER ============ */
-    .foot { background: var(--navy); color: rgba(255,255,255,.62); padding: 60px 0 30px; }
-    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 44px; }
-    .foot .logo { margin-bottom: 16px; }
-    .foot p { font-size: 14.5px; line-height: 1.7; max-width: 280px; }
-    .foot h4 { color: #fff; font-size: 16px; margin-bottom: 16px; }
-    .foot ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .foot ul a, .foot ul li { font-size: 14.5px; color: rgba(255,255,255,.62); }
-    .foot ul a:hover { color: #fff; }
-    .foot-bot { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13.5px; }
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width: 980px) {
-      .nav-links, .nav-phone { display: none; }
-      .nav-burger { display: block; }
-      .hero-grid, .feature-grid, .lead-grid { grid-template-columns: 1fr; gap: 44px; }
-      .hero-visual, .feature-grid .feature-photo { order: -1; max-width: 440px; margin: 0 auto; width: 100%; }
-      .service-grid, .benefit-grid, .reviews, .loc-grid, .trust-grid { grid-template-columns: 1fr 1fr; }
-      .stats-strip, .price-grid { grid-template-columns: 1fr 1fr; }
-      .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .anchor-row { padding-left: 4px; }
-    }
-    @media (max-width: 560px) {
-      .wrap { padding: 0 20px; }
-      .sec { padding: 60px 0; }
-      .service-grid, .benefit-grid, .reviews, .loc-grid, .trust-grid, .stats-strip, .price-grid { grid-template-columns: 1fr; }
-      .foot-grid { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .btn { width: 100%; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sportschool in Hoogeveen - ConnectFit Boutique Fitness</title>
+<meta name="description" content="Sportschool in Hoogeveen aan de van Echtenstraat 37. Boutique fitness met 16 EGYM-toestellen, een vrije fitnessvloer en een Fit-Coach op de vloer. Elke dag open van 6:00 tot 22:00. Plan je gratis proeftraining.">
+<link rel="canonical" href="https://www.connectfit.nl/hoogeveen">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,600;1,700;1,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/connectfit-pages/connectfit-webflow.css">
 </head>
 <body>
 
-  <!-- ============ NAV ============ -->
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a href="/connectfit-pages/" class="logo">Connect<span>Fit</span></a>
+<!-- ====================== NAV ====================== -->
+<header class="navbar">
+  <div class="wrap">
+    <nav class="nav-inner">
       <div class="nav-links">
-        <a href="/connectfit-pages/egym/">EGYM</a>
-        <a href="/connectfit-pages/fitness/" class="active">Fitness</a>
-        <a href="/connectfit-pages/reformer-pilates/">Reformer Pilates</a>
-        <a href="/connectfit-pages/personal-training/">Personal Training</a>
-        <a href="/connectfit-pages/locaties/">Locaties</a>
+        <a href="/connectfit-pages/aanbod">Aanbod</a>
+        <a href="/connectfit-pages/locaties">Locaties</a>
+        <a href="/connectfit-pages/reformer-pilates">Reformer Pilates</a>
       </div>
-      <div class="nav-right">
-        <span class="nav-phone">0528 - 449133</span>
-        <a href="/connectfit-pages/proeftraining/" class="nav-cta">Gratis kennismaking</a>
+      <a class="nav-logo" href="/connectfit-pages/" aria-label="ConnectFit, naar de homepage">
+        <img src="https://cdn.prod.website-files.com/6a467060f9183037088cd08e/6a50a15d28437afb09192089_connectfit-logo-wit.png" alt="ConnectFit">
+      </a>
+      <div class="nav-links">
+        <a href="/connectfit-pages/prijzen">Prijzen</a>
+        <a href="/connectfit-pages/faq">Veelgestelde vragen</a>
       </div>
-      <button class="nav-burger" aria-label="Menu">☰</button>
-    </div>
-  </nav>
+      <div class="nav-cta">
+        <button class="nav-toggle" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <a class="btn btn--white btn--sm" href="/connectfit-pages/contact">Contact</a>
+        <a class="btn btn--red btn--sm" href="#kennismaking">Gratis proefles</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <!-- ============ HERO ============ -->
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="pill"><span class="pill-dot"></span>Enige EGYM- en Reformer Pilates-aanbieder van Hoogeveen</span>
-        <h1>Sportschool in Hoogeveen, fit in 30 minuten</h1>
-        <p class="hero-sub">Fitness in Hoogeveen zoals het hoort: persoonlijke begeleiding, een Fit-Coach op de vloer en trainingen die aansluiten op jouw lichaam en doelen.</p>
+<!-- ====================== 1. HERO ====================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="crumbs"><a href="/connectfit-pages/">Home</a><span>&rsaquo;</span><a href="/connectfit-pages/locaties">Locaties</a><span>&rsaquo;</span><span>Hoogeveen</span></div>
+
+        <p class="eyebrow eyebrow--hero">Fitness Hoogeveen &middot; van Echtenstraat 37</p>
+
+        <h1>Sportschool in Hoogeveen - ConnectFit Boutique Fitness</h1>
+
+        <p class="hero-lead">Kleinschalig trainen aan de <strong>van Echtenstraat 37</strong>, met <strong>16 EGYM-toestellen</strong> die zich instellen op jouw lichaam en een vrije fitnessvloer ernaast. Een <strong>Fit-Coach</strong> loopt met je mee en zet je programma op. Je traint 2 tot 3 keer per week, 30 minuten per keer.</p>
+
         <ul class="checklist">
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Persoonlijke begeleiding van je eigen Fit-Coach, elke training</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>EGYM: je hele lichaam getraind in 30 minuten</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Start gratis en vrijblijvend, zonder verplichtingen</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Train <strong>je hele lichaam in 30 minuten</strong> op toestellen die je polsband herkent</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Krijg begeleiding van je Fit-Coach tijdens de <strong>40+ bemande uren per week</strong></span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Vind <strong>fysiotherapie, Personal Training en Reformer Pilates</strong> in hetzelfde pand</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Sport <strong>elke dag tussen 6:00 en 22:00</strong>, voor je werk of 's avonds</span></li>
         </ul>
-        <div class="hero-actions">
-          <a href="#aanmelden" class="btn btn-red">Plan gratis kennismaking <span class="arrow">→</span></a>
-          <span class="hero-note"><span class="g"></span>4,9/5 uit 91+ beoordelingen</span>
+
+        <div class="btn-row">
+          <a class="btn btn--red" href="#kennismaking">Plan je gratis proeftraining</a>
+          <a class="btn btn--navy" href="#prijzen">Bekijk prijzen</a>
+        </div>
+
+        <div class="rating">
+          <span class="g-mark">G</span>
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg>
+          </span>
+          <span>4,9 op Google</span>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="visual-main">
-          <div class="visual-photo-note">
-            <strong>Foto plaatsen</strong>
-            Fit-Coach begeleidt een lid op de vloer bij ConnectFit Hoogeveen
+
+      <!-- Beeldslider -->
+      <div class="shot" id="heroShot">
+        <figure class="is-on">
+          <img src="/connectfit-pages/assets/hoogeveen-egym-fitcoach.jpeg" alt="Een Fit-Coach begeleidt een lid op een EGYM-toestel in de sportschool van ConnectFit Hoogeveen">
+          <figcaption>EGYM Hoogeveen</figcaption>
+        </figure>
+        <figure>
+          <img src="/connectfit-pages/assets/hoogeveen-bioage-scan.jpeg" alt="Bio-Age-meting tijdens de gratis proeftraining bij ConnectFit Hoogeveen">
+          <figcaption>Bio-Age-meting</figcaption>
+        </figure>
+        <div class="dots" id="heroDots" role="tablist" aria-label="Foto's"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 2. VIER-BLOK ====================== -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="quad">
+      <div>
+        <h3>4,9 op Google</h3>
+        <p>Sporters waarderen ConnectFit met een <strong>4,9</strong>. Wat ze het vaakst noemen: de begeleiding en het feit dat je niet staat te wachten op een toestel.</p>
+      </div>
+      <div>
+        <h3>600+ leden in Hoogeveen</h3>
+        <p>Onze <strong>grootste locatie</strong>, met 16 EGYM-toestellen naast de vrije fitnessvloer. Beginners en gevorderden trainen naast elkaar, ieder op eigen niveau.</p>
+      </div>
+      <div>
+        <h3>Alles in één pand</h3>
+        <p>Fitness, <strong>fysiotherapie, Personal Training en Reformer Pilates</strong> zitten samen aan de van Echtenstraat 37. Je hoeft voor je herstel of je plan nergens anders heen.</p>
+      </div>
+      <div>
+        <h3>Open van 6:00 tot 22:00</h3>
+        <p><strong>Elke dag van de week.</strong> Je traint voor je werk, in de pauze of 's avonds, zonder dat je je dag eromheen hoeft te bouwen.</p>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--red" href="#kennismaking">Plan je gratis proeftraining</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 3. BOUTIQUE FITNESS IN HOOGEVEEN ====================== -->
+<section class="section" id="boutique">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <p class="eyebrow">Boutique fitness in Hoogeveen</p>
+        <h2 style="margin-bottom:20px">Een sportschool in Hoogeveen waar jij jezelf kunt zijn</h2>
+        <p style="color:var(--muted-dark);max-width:34em">Op zoek naar een sportschool in Hoogeveen waar je niet verdwijnt in de massa? Bij ConnectFit train je in een kleinschalige studio waar je doel het uitgangspunt is. Je krijgt een programma dat bij je past en een Fit-Coach die meekijkt of het werkt, hoeveel of hoe weinig ervaring je ook meebrengt.</p>
+        <p style="color:var(--muted-dark);max-width:34em;margin-top:18px">Er hangt geen spiegelwand in de zaal. Je let op je techniek en op je programma, niet op wie er meekijkt. Iedereen traint op zijn of haar eigen niveau, in een zaal met rust en ruimte.</p>
+
+        <ul class="checklist">
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Begin op <strong>jouw niveau</strong>, met een programma dat je Fit-Coach voor je opzet</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Reserveer je plek voor EGYM, dus je <strong>weet vooraf dat er een toestel vrij is</strong></span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Bouw <strong>stap voor stap op</strong>, met een evaluatie zodra je programma te licht wordt</span></li>
+        </ul>
+
+        <div class="btn-row">
+          <a class="btn btn--red" href="#kennismaking">Kom een keer meetrainen</a>
+        </div>
+      </div>
+
+      <div class="faq-img">
+        <img src="/connectfit-pages/assets/hoogeveen-egym-fitcoach.jpeg" alt="De trainingsvloer van sportschool ConnectFit in Hoogeveen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 4. EGYM FITNESS IN HOOGEVEEN ====================== -->
+<section class="section section--dark" id="egym">
+  <div class="wrap">
+    <div style="max-width:44em;margin-bottom:40px">
+      <p class="eyebrow">Fit in 30 minuten</p>
+      <h2 style="margin-bottom:20px">EGYM Fitness in Hoogeveen</h2>
+      <p style="color:var(--muted)">Bij ConnectFit Hoogeveen train je op EGYM: krachttoestellen die zich instellen op jouw lichaam en jouw doel. Je meldt je met een polsband en de toestellen herkennen je direct. Zithoogte, weerstand en het aantal herhalingen staan al goed voordat je gaat zitten.</p>
+    </div>
+
+    <div class="quad">
+      <div>
+        <h3>16 connected toestellen</h3>
+        <p>De grootste EGYM-opstelling van de drie locaties. Je loopt een vaste ronde langs de toestellen en traint <strong>je hele lichaam in 30 minuten</strong>.</p>
+      </div>
+      <div>
+        <h3>De EGYM Hub</h3>
+        <p>Op de Hub zie je je programma, je voortgang en je volgende doel. Je hoeft zelf <strong>geen gewichten bij te houden</strong> in een boekje of een app.</p>
+      </div>
+      <div>
+        <h3>Cardio in de ronde</h3>
+        <p>Een cardiotoestel zit in de ronde verwerkt, zodat je <strong>kracht en conditie in dezelfde 30 minuten</strong> traint.</p>
+      </div>
+      <div>
+        <h3>Doortrainen zonder wachttijd</h3>
+        <p>De toestellen wisselen tegelijk door. Je staat dus <strong>niet te wachten</strong> tot iemand anders klaar is met de bank die jij nodig hebt.</p>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn--red" href="#kennismaking">Probeer EGYM gratis uit</a>
+      <a class="btn btn--ghost" href="/connectfit-pages/egym">Meer over EGYM</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 5. FIT-COACH ====================== -->
+<section class="section section--dark" style="padding-top:0" id="begeleiding">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-img">
+        <img src="/connectfit-pages/assets/hoogeveen-bioage-scan.jpeg" alt="Een Fit-Coach neemt een Bio-Age-meting af bij ConnectFit Hoogeveen">
+      </div>
+      <div>
+        <p class="eyebrow">Begeleiding op de vloer</p>
+        <h2 style="margin-bottom:20px">Je Fit-Coach loopt met je mee</h2>
+        <p style="color:var(--muted)">Je staat er niet alleen voor. Tijdens de bemande uren loopt er een Fit-Coach op de vloer die je techniek corrigeert, je programma bijstelt en je eruit haalt als je te makkelijk of te zwaar traint.</p>
+
+        <ul class="checklist">
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span><strong>Maandag tot en met donderdag</strong> begeleiding in de ochtend en in de avond</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span><strong>Vrijdag en zaterdag</strong> begeleiding in de ochtend</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+            <span>Samen <strong>40+ bemande uren per week</strong>, meestal tussen 8:00 en 12:00 en tussen 17:30 en 20:30</span></li>
+        </ul>
+
+        <p style="color:var(--muted);margin-top:26px"><strong style="color:#fff;font-weight:500">Train je op een onbemand uur?</strong> Dan werkt het systeem gewoon door. Je programma staat klaar op de Hub, elke oefening heeft een instructie op het scherm en de toestellen stellen zich in op de standen die je Fit-Coach heeft vastgelegd.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 6. SPECIALISTEN ONDER ÉÉN DAK ====================== -->
+<section class="section" id="specialisten">
+  <div class="wrap">
+    <div style="max-width:44em">
+      <p class="eyebrow">Specialisten aan de van Echtenstraat 37</p>
+      <h2 style="margin-bottom:20px">Eén plan voor je training, je herstel en je voeding</h2>
+      <p style="color:var(--muted-dark)">Resultaat ontstaat door samenwerking. Daarom zitten de mensen die aan jouw plan werken in hetzelfde pand en stemmen ze onderling af. Loop je vast op een schouder, dan hoef je niet naar de andere kant van Hoogeveen voor je fysiotherapie.</p>
+    </div>
+
+    <div class="tags" style="margin:28px 0 0">
+      <span class="tag">Fitnesstrainers</span>
+      <span class="tag">Fit-Coaches</span>
+      <span class="tag">Personal trainers</span>
+      <span class="tag">Fysiotherapeuten</span>
+      <span class="tag">Diëtisten</span>
+      <span class="tag">Lifestylecoaches</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 7. AANBOD ====================== -->
+<section class="section" style="padding-top:44px" id="aanbod">
+  <div class="wrap">
+    <p class="eyebrow">Compleet aanbod in Hoogeveen</p>
+    <h2 style="margin-bottom:38px">Kies hoe jij wilt trainen</h2>
+
+    <div class="grid-3">
+      <a class="svc" href="/connectfit-pages/hoogeveen/egym">
+        <div class="tags"><span class="tag">16 toestellen</span><span class="tag">30 minuten</span></div>
+        <h3>EGYM Fitness</h3>
+        <p>De toestellen herkennen je via je polsband en stellen zich in op jouw kracht en zithouding. Je loopt een vaste ronde en bent in 30 minuten klaar.</p>
+        <span class="svc-link svc-note">Meer over EGYM <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="svc" href="/connectfit-pages/hoogeveen/fitness">
+        <div class="tags"><span class="tag">Vrije vloer</span></div>
+        <h3>Vrije fitness</h3>
+        <p>Kracht, cardio, dumbbells en halterstangen. Train je eigen programma op je eigen tempo, met een Fit-Coach op de vloer als je iets wilt vragen.</p>
+        <span class="svc-link svc-note">Bekijk de vloer <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="svc" href="/connectfit-pages/hoogeveen/fitness">
+        <div class="tags"><span class="tag">Met schema</span></div>
+        <h3>Functionele fitness</h3>
+        <p>Werken aan kracht, stabiliteit en beweeglijkheid met kettlebells, ballen, elastieken en steps. Je krijgt er een schema en begeleiding bij.</p>
+        <span class="svc-link svc-note">Bekijk het schema <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="svc" href="/connectfit-pages/reformer-pilates">
+        <div class="tags"><span class="tag">Alleen in Hoogeveen</span></div>
+        <h3>Reformer Pilates</h3>
+        <p>De enige aanbieder in Hoogeveen. Meer dan 10 lesuren per week, maandag tot en met zaterdag, met maximaal 10 mensen per les.</p>
+        <span class="svc-link svc-note">Bekijk het rooster <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="svc" href="/connectfit-pages/hoogeveen/personal-training">
+        <div class="tags"><span class="tag">1-op-1</span></div>
+        <h3>Personal Training</h3>
+        <p>Sessies van ongeveer 50 minuten, 1-op-1 met je trainer. Uitgebreide intake, een plan op maat, voedingsadvies en coaching via de app.</p>
+        <span class="svc-link svc-note">Meer over Personal Training <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="svc" href="/connectfit-pages/hoogeveen/fysiotherapie">
+        <div class="tags"><span class="tag">Zelfde pand</span></div>
+        <h3>Fysiotherapie</h3>
+        <p>Fysiotherapie Hoogeveen-Nieuwlande, met echografie, shockwave, medical taping en hardloopanalyse. In hetzelfde pand als de sportschool.</p>
+        <span class="svc-link svc-note">Meer over fysiotherapie <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 8. FACILITEITEN ====================== -->
+<section class="section" style="padding-top:0" id="faciliteiten">
+  <div class="wrap">
+    <p class="eyebrow">Wat er op de vloer staat</p>
+    <h2 style="margin-bottom:38px">De faciliteiten in Hoogeveen</h2>
+
+    <div class="grid-3">
+      <div class="svc">
+        <h3>Cardio</h3>
+        <p>Loopbanden, roeimachines en crosstrainers om je conditie op te bouwen of los te draaien voor je aan de kracht begint.</p>
+      </div>
+      <div class="svc">
+        <h3>Kracht en vrije gewichten</h3>
+        <p>16 EGYM-toestellen, dumbbells, kettlebells en halterstangen. Van geleide oefeningen tot vrij trainen met je eigen schema.</p>
+      </div>
+      <div class="svc">
+        <h3>Functioneel en stabiliteit</h3>
+        <p>Ballen, elastieken en steps voor stabiliteit, mobiliteit en de oefeningen die je fysiotherapeut meegeeft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 9. ZO START JE ====================== -->
+<section class="section section--dark" id="starten">
+  <div class="wrap">
+    <p class="eyebrow">Zo begin je</p>
+    <h2 style="margin-bottom:38px">In drie stappen op de vloer</h2>
+
+    <div class="grid-3">
+      <div class="svc">
+        <div class="tags"><span class="tag">Stap 1</span></div>
+        <h3>Je plant je proeftraining</h3>
+        <p>Je laat je gegevens achter en de hoofdcoach belt je binnen 24 uur, vaak nog dezelfde dag. Samen zoeken jullie een moment dat past.</p>
+      </div>
+      <div class="svc">
+        <div class="tags"><span class="tag">Stap 2</span></div>
+        <h3>Je doet de Bio-Age-meting</h3>
+        <p>Je ziet zwart op wit hoe je er nu voor staat: kracht, conditie en lichaamssamenstelling. Dat is het startpunt van je programma.</p>
+      </div>
+      <div class="svc">
+        <div class="tags"><span class="tag">Stap 3</span></div>
+        <h3>Je Fit-Coach zet je programma op</h3>
+        <p>De toestellen kennen daarna jouw instellingen. Je meldt je met je polsband en begint, zonder eerst uit te zoeken wat je moet doen.</p>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn--red" href="#kennismaking">Zet stap 1</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 10. PRIJZEN ====================== -->
+<section class="section section--dark" style="padding-top:0" id="prijzen">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:34px">
+      <p class="eyebrow">Prijzen &amp; programma's</p>
+      <h2>Kies het programma dat bij jou past</h2>
+    </div>
+
+    <div class="plans">
+      <article class="plan">
+        <h3>Basic Fitness</h3>
+        <div class="price">XX,-</div>
+        <div class="per">per maand</div>
+        <p>Vrij fitnessen op je eigen tempo, op de tijden die jou uitkomen.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Onbeperkt trainen, elke dag van 6:00 tot 22:00</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Kracht, cardio, dumbbells en halterstangen</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Fit-Coach op de vloer tijdens de bemande uren</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Maandelijks opzegbaar</li>
+        </ul>
+        <a class="btn btn--white" href="#kennismaking">Aanmelden</a>
+      </article>
+
+      <article class="plan plan--hi">
+        <span class="badge">Meest gekozen</span>
+        <h3>Premium Fitness (EGYM)</h3>
+        <div class="price">XX,-</div>
+        <div class="per">per maand</div>
+        <p>Je hele lichaam in 30 minuten, op toestellen die zich instellen op jouw lichaam.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Alles uit Basic Fitness</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Toegang tot de 16 EGYM-toestellen</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Je programma wordt ingesteld door je Fit-Coach</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Je voortgang wordt automatisch bijgehouden</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Je reserveert je plek, dus je wacht nooit op een toestel</li>
+        </ul>
+        <a class="btn btn--white" href="#kennismaking">Aanmelden</a>
+      </article>
+
+      <article class="plan">
+        <span class="badge">Alleen in Hoogeveen</span>
+        <h3>Reformer Pilates</h3>
+        <div class="price">+ XX,-</div>
+        <div class="per">bovenop je basisprogramma</div>
+        <p>Lessen van maximaal 10 mensen, maandag tot en met zaterdag.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Meer dan 10 lesuren per week</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Maximaal 10 mensen per les</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Begeleiding tijdens elke les</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Ook los af te nemen met een strippenkaart van 5 of 10 lessen</li>
+        </ul>
+        <a class="btn btn--white" href="#kennismaking">Aanmelden</a>
+      </article>
+
+      <article class="plan">
+        <h3>Personal Training</h3>
+        <div class="price">XX,-</div>
+        <div class="per">per maand</div>
+        <p>Wekelijks 1-op-1 met een coach, met een plan dat op jouw doel is gebouwd.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Sessies van ongeveer 50 minuten, 1-op-1</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Uitgebreide intake en een persoonlijk trainingsplan</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Voedingsadvies en thuisoefeningen</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Contact met je coach via de app</li>
+        </ul>
+        <a class="btn btn--white" href="#kennismaking">Aanmelden</a>
+      </article>
+    </div>
+
+    <p class="price-note">Tijdens de gratis proeftraining rekenen we het samen door, zodat je precies weet waar je aan toe bent voordat je iets tekent.</p>
+  </div>
+</section>
+
+<!-- ====================== 11. REVIEWS ====================== -->
+<section class="section section--dark" style="padding-top:0">
+  <div class="wrap">
+    <div class="rail-head">
+      <div>
+        <p class="eyebrow">4,9 op Google</p>
+        <h2>Wij zijn enthousiast<br>en onze sporters ook</h2>
+      </div>
+      <div class="rail-nav" data-rail-nav="revRail">
+        <button type="button" data-dir="-1" aria-label="Vorige review"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Volgende review"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="rail" id="revRail">
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Wilma Wolting</h3>
+        <p>Het is heel fijn sporten bij Connect Fit. Geen gedoe met instellen van de apparaten en geen wachttijd bij de apparaten.</p>
+      </article>
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Yvonne Koster</h3>
+        <p>Een hele fijne sportschool, goede begeleiding en doordat je in moet plannen wanneer je wil sporten is er altijd plek op de toestellen.</p>
+      </article>
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Moniek Kemink-Pieters</h3>
+        <p>Net een aantal weken begonnen. Voel me nu al fitter en heb meer energie gedurende de dag. Ook super blij met de ruime openingstijden.</p>
+      </article>
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Marion Cairo</h3>
+        <p>Ik ben nu 3 maanden actief bij ConnectFit en ik doe het programma fit in 30 minuten. Heel simpel, maar de EGYM helpt mij.</p>
+      </article>
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Janneke de Jonge</h3>
+        <p>Sinds een jaar met veel plezier hier aan het sporten. Apparaten zijn op mij ingesteld, programma wisselt regelmatig.</p>
+      </article>
+      <article class="rev">
+        <span class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .7-5.2 4.8 1.5 7-6.3-3.6L5.7 21l1.5-7L2 9.3l7-.7z"/></svg></span>
+        <h3>Noëlle Gils</h3>
+        <p>Fijne kleinschalige sportschool. Goede begeleiding met bemande en onbemande uren waarop jij je kan inschrijven.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 12. FAQ ====================== -->
+<section class="section section--dark" style="padding-top:0" id="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <p class="eyebrow">Veelgestelde vragen</p>
+        <h2 style="margin-bottom:16px">Vragen over fitness in Hoogeveen</h2>
+
+        <div class="faq-item is-open">
+          <button class="faq-q" aria-expanded="true">Waar zit ConnectFit in Hoogeveen?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Aan de van Echtenstraat 37 in Hoogeveen. In hetzelfde pand vind je ook Fysiotherapie Hoogeveen-Nieuwlande, Personal Training en de Reformer Pilates-studio.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Wat kost een sportschool in Hoogeveen bij ConnectFit?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Dat hangt af van het programma dat je kiest. De opties staan hierboven op een rij. Tijdens de gratis proeftraining rekenen we het samen door, zodat je precies weet waar je aan toe bent voordat je iets tekent.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Wanneer is de sportschool open?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Elke dag van 6:00 tot 22:00. Je traint dus voor je werk, tussendoor of 's avonds laat.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Moet ik ervaring hebben om te beginnen?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Nee. Je Fit-Coach stelt de toestellen voor je in en legt uit hoe de ronde werkt. Beginners en gevorderden trainen naast elkaar, ieder op eigen niveau.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Wat is EGYM precies?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>EGYM is een vaste trainingsronde op slimme krachttoestellen. In Hoogeveen staan er 16, plus een EGYM Hub en een cardiotoestel. De toestellen herkennen je via je polsband en stellen zithoogte en weerstand automatisch in. Zo train je je hele lichaam in ongeveer 30 minuten.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hoe vaak moet ik trainen?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Twee tot drie keer per week, 30 minuten per keer. Dat is het uitgangspunt van het EGYM-programma. Wil je vaker of langer, dan kan dat op de vrije fitnessvloer.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Staat er altijd een Fit-Coach op de vloer?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Niet elk uur. Maandag tot en met donderdag is er begeleiding in de ochtend en in de avond, vrijdag en zaterdag in de ochtend. Samen zijn dat 40+ bemande uren per week. Op de onbemande uren train je met je programma op de Hub en met instructies per oefening op het scherm.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Moet ik reserveren of kan ik zo binnenlopen?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Voor EGYM reserveer je je plek, zodat er een toestel voor je klaarstaat. Op de vrije fitnessvloer loop je binnen wanneer het je uitkomt tussen 6:00 en 22:00.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Kan ik eerst een keer proefdraaien?
+            <span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span></button>
+          <div class="faq-a"><p>Ja, de proeftraining is gratis en vrijblijvend. Je loopt een keer mee, we doen een Bio-Age-meting en je ziet hoe je er nu voor staat. De hoofdcoach belt je binnen 24 uur nadat je het formulier hebt ingevuld, vaak nog dezelfde dag.</p></div>
+        </div>
+      </div>
+
+      <div class="faq-img">
+        <img src="/connectfit-pages/assets/hoogeveen-egym-fitcoach.jpeg" alt="Begeleiding op een EGYM-toestel bij ConnectFit Hoogeveen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 13. FORMULIER ====================== -->
+<section class="section section--dark" style="padding-top:0" id="kennismaking">
+  <div class="wrap">
+    <div class="form-grid">
+      <div>
+        <p class="eyebrow">Gratis en vrijblijvend</p>
+        <h2>Vraag je gratis proeftraining in Hoogeveen aan</h2>
+        <p style="color:var(--muted);font-size:17px;margin-top:20px;max-width:32em">Vul je gegevens in en de hoofdcoach belt je binnen 24 uur, vaak nog dezelfde dag. Je loopt een keer mee, we doen een Bio-Age-meting en daarna weet je of dit bij je past.</p>
+
+        <div class="info-blocks">
+          <div>
+            <h3>Adres</h3>
+            <p>van Echtenstraat 37<br>7902 EK Hoogeveen</p>
+          </div>
+          <div>
+            <h3>Openingstijden</h3>
+            <p>Maandag tot en met zondag<br>6:00 tot 22:00</p>
+          </div>
+          <div>
+            <h3>Telefoon</h3>
+            <p><a href="tel:0528449133">0528 - 449 133</a><br>Ook op WhatsApp</p>
+          </div>
+          <div>
+            <h3>E-mail</h3>
+            <p><a href="mailto:info@connectfit.nl">info@connectfit.nl</a></p>
           </div>
         </div>
-        <div class="stat-badge badge-tl">
-          <div class="n">30 min</div>
-          <div class="t">per training</div>
-        </div>
-        <div class="stat-badge badge-br">
-          <div class="n">1.350+</div>
-          <div class="t">leden gingen je voor</div>
-        </div>
       </div>
-    </div>
-  </header>
 
-  <!-- ============ ANKERNAVIGATIE ============ -->
-  <div class="anchor-strip">
-    <div class="wrap anchor-row">
-      <a href="#diensten">Trainingen & diensten</a>
-      <a href="#egym">EGYM</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">Veelgestelde vragen</a>
-      <a href="#locatie">Locatie & diensten</a>
-    </div>
-  </div>
-
-  <!-- ============ TRUST BAR ============ -->
-  <div class="trust">
-    <div class="wrap trust-grid">
-      <div class="trust-col">
-        <h3>4,9 uit 91+ reviews</h3>
-        <p>Leden waarderen ConnectFit met een <strong>4,9</strong> op Google, uit meer dan <strong>200 beoordelingen</strong>.</p>
-      </div>
-      <div class="trust-col">
-        <h3>3 locaties in Drenthe</h3>
-        <p>Train in <strong>Hoogeveen, Nieuwlande of Ruinen</strong>. Altijd een ConnectFit dichtbij huis of werk.</p>
-      </div>
-      <div class="trust-col">
-        <h3>Begeleiding op de vloer</h3>
-        <p>Een <strong>Fit-Coach kijkt met je mee</strong>, van je eerste training tot je vaste routine.</p>
-      </div>
-      <div class="trust-col">
-        <h3>Open 6:00 - 22:00, elke dag</h3>
-        <p>Ruime openingstijden op elke locatie, zodat jij traint <strong>wanneer het jou uitkomt</strong>.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ DIENSTEN OVERZICHT ============ -->
-  <section class="sec" id="diensten">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Trainingen & diensten</span>
-        <h2>Voor elk doel het juiste programma</h2>
-        <p>Geen massale sportschool met één standaardformule, maar begeleiding die past bij wat jij nodig hebt.</p>
-      </div>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>EGYM Cirkeltraining</h3>
-          <p>Je hele lichaam getraind in 30 minuten. De toestellen stellen zich automatisch op jou in via je polsband.</p>
-          <a href="/connectfit-pages/egym/">Meer informatie →</a>
+      <form class="card-form" novalidate>
+        <div class="fields">
+          <div>
+            <label for="vn">Voornaam</label>
+            <input id="vn" name="voornaam" type="text" placeholder="Voornaam" autocomplete="given-name">
+          </div>
+          <div>
+            <label for="an">Achternaam</label>
+            <input id="an" name="achternaam" type="text" placeholder="Achternaam" autocomplete="family-name">
+          </div>
+          <div>
+            <label for="em">E-mailadres *</label>
+            <input id="em" name="email" type="email" required placeholder="jouw@email.nl" autocomplete="email">
+          </div>
+          <div>
+            <label for="tel">Telefoonnummer *</label>
+            <input id="tel" name="telefoon" type="tel" required placeholder="06 12 34 56 78" autocomplete="tel">
+          </div>
+          <div class="field--full">
+            <label for="loc">Locatie</label>
+            <select id="loc" name="locatie">
+              <option selected>Hoogeveen</option>
+              <option>Nieuwlande</option>
+              <option>Ruinen</option>
+            </select>
+          </div>
+          <div class="field--full">
+            <label for="doel">Waar wil je aan werken?</label>
+            <select id="doel" name="doel">
+              <option value="">Kies wat het dichtst in de buurt komt</option>
+              <option>Sterker worden</option>
+              <option>Fitter worden en meer energie</option>
+              <option>Afvallen</option>
+              <option>Herstellen van een klacht, samen met de fysiotherapeut</option>
+              <option>Weer op gang komen na een tijd niet sporten</option>
+            </select>
+          </div>
+          <div class="field--full">
+            <label>Neem je iemand mee?</label>
+            <div class="radios">
+              <label class="radio"><input type="radio" name="mee" value="ja"> Ja, ik neem iemand mee</label>
+              <label class="radio"><input type="radio" name="mee" value="nee"> Nee, ik kom alleen</label>
+            </div>
+          </div>
+          <div class="field--full">
+            <button class="btn btn--red" type="submit" style="width:100%">Plan mijn proeftraining</button>
+            <p class="form-note">Je zit nergens aan vast. We bespreken de prijzen pas als je hebt gezien wat je krijgt.</p>
+          </div>
         </div>
-        <div class="service-card">
-          <h3>Reformer Pilates</h3>
-          <p>De enige Reformer Pilates-studio van Hoogeveen. Kleine groepen, veel persoonlijke aandacht.</p>
-          <a href="/connectfit-pages/reformer-pilates/">Meer informatie →</a>
-        </div>
-        <div class="service-card">
-          <h3>Personal Training</h3>
-          <p>1-op-1 begeleiding inclusief voedingsadvies, volledig afgestemd op jouw doelen en tempo.</p>
-          <a href="/connectfit-pages/personal-training/">Meer informatie →</a>
-        </div>
-        <div class="service-card">
-          <h3>Fysiotherapie</h3>
-          <p>Geïntegreerde fysiopraktijk onder hetzelfde dak, van blessurepreventie tot herstel.</p>
-          <a href="/connectfit-pages/fysiotherapie/">Meer informatie →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BENEFITS + STATS ============ -->
-  <section class="sec sec-alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Waarom ConnectFit</span>
-        <h2>Aanbod voor elk doel, begeleiding bij elke stap</h2>
-      </div>
-      <div class="benefit-grid">
-        <div class="benefit-card">
-          <div class="benefit-ico">🎯</div>
-          <div><h3>Onderdeel voor elk doel</h3><p>Van EGYM tot Pilates en personal training, jij kiest wat bij je past.</p></div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico">⏱️</div>
-          <div><h3>Fit in 30 minuten</h3><p>EGYM traint je hele lichaam in een halfuur, zonder gedoe met instellen.</p></div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico">🤝</div>
-          <div><h3>Persoonlijke begeleiding</h3><p>Een Fit-Coach op de vloer kijkt met je mee en stuurt bij waar nodig.</p></div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico">🏥</div>
-          <div><h3>Alles onder één dak</h3><p>Fitness, fysiotherapie, Pilates en diëtetiek in hetzelfde pand.</p></div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico">😌</div>
-          <div><h3>Voor ieder niveau</h3><p>Beginners en gevorderden trainen naast elkaar, ieder op zijn eigen tempo.</p></div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico">📍</div>
-          <div><h3>3 locaties in Drenthe</h3><p>Hoogeveen, Nieuwlande en Ruinen, dus altijd dichtbij.</p></div>
-        </div>
-      </div>
-      <div class="stats-strip">
-        <div class="stat-item"><div class="n">16</div><div class="t">EGYM-toestellen (Hoogeveen)</div></div>
-        <div class="stat-item"><div class="n">30</div><div class="t">Minuten per training</div></div>
-        <div class="stat-item"><div class="n">4,9</div><div class="t">Gemiddelde beoordeling</div></div>
-        <div class="stat-item"><div class="n">3</div><div class="t">Locaties in Drenthe</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ LOCATIE / BOUTIQUE ============ -->
-  <section class="sec feature" id="locatie">
-    <div class="wrap feature-grid">
-      <div>
-        <span class="label">Locatie & diensten</span>
-        <h2>ConnectFit Hoogeveen, boutique fitness in het hart van de stad</h2>
-        <p>Aan de Van Echtenstraat 37 vind je 16 EGYM-toestellen, een Reformer Pilates-studio en de geïntegreerde fysiotherapiepraktijk, allemaal onder één dak.</p>
-        <p>Geen massale sportschool met spiegelwanden, maar een kleinschalige studio waar je Fit-Coach je bij naam kent en op de vloer met je meekijkt.</p>
-        <a href="#aanmelden" class="btn btn-ghost" style="margin-top:8px;">Plan gratis kennismaking</a>
-      </div>
-      <div class="feature-photo">
-        <div class="pn"><strong>Foto plaatsen</strong>Gevel of interieur van ConnectFit Hoogeveen, Van Echtenstraat 37</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EGYM ============ -->
-  <section class="sec feature alt-bg" id="egym">
-    <div class="wrap feature-grid rev">
-      <div>
-        <span class="label">EGYM</span>
-        <h2>Data-gestuurd trainen, de machines doen het werk</h2>
-        <p>Je polsband registreert je profiel en de toestellen stellen zich automatisch in op jouw kracht en houding. Je Fit-Coach houdt je scherp en past de training aan zodra dat nodig is.</p>
-        <p>Zo train je nooit een oefening fout en zie je zwart op wit dat je vooruitgaat, training na training.</p>
-        <a href="#aanmelden" class="btn btn-red" style="margin-top:8px;">Probeer EGYM 10 dagen gratis</a>
-      </div>
-      <div class="feature-photo">
-        <div class="pn"><strong>Foto plaatsen</strong>EGYM-scherm of polsband in gebruik</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ URGENCY BANNER ============ -->
-  <section class="urgency">
-    <div class="wrap">
-      <h2>10 dagen gratis sporten, geen verplichtingen</h2>
-      <p>Probeer ConnectFit Hoogeveen gratis, zonder lidmaatschap, zonder verplichting.</p>
-      <a href="#aanmelden" class="btn btn-white">Claim jouw gratis dag <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-  <!-- ============ ABONNEMENTEN ============ -->
-  <section class="sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Abonnementen</span>
-        <h2>Kies het abonnement dat bij jou past</h2>
-      </div>
-      <div class="price-grid">
-        <div class="price-card">
-          <h3>Flex</h3>
-          <div class="price">XX,- <span style="font-size:14px;font-weight:600;color:var(--muted);">/maand</span></div>
-          <ul>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Maandelijks opzegbaar</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toegang tot EGYM en vrije fitness</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Persoonlijke intake</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Evaluatie elke 10 weken</li>
-          </ul>
-          <a href="#aanmelden" class="btn btn-ghost btn-full">Word lid</a>
-        </div>
-        <div class="price-card">
-          <h3>Jaar</h3>
-          <div class="price">XX,- <span style="font-size:14px;font-weight:600;color:var(--muted);">/maand</span></div>
-          <ul>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Laagste maandprijs</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Alle voordelen van Flex</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Vaste trainingsroutine</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Evaluatie elke 10 weken</li>
-          </ul>
-          <a href="#aanmelden" class="btn btn-ghost btn-full">Word lid</a>
-        </div>
-        <div class="price-card featured">
-          <span class="ribbon">Aanbevolen</span>
-          <h3>Traject</h3>
-          <div class="price">XX,- <span style="font-size:14px;font-weight:600;color:rgba(255,255,255,.55);">/maand</span></div>
-          <ul>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>3 maanden intensief traject</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Wekelijkse personal coaching</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Voedingsbegeleiding inbegrepen</li>
-            <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Toegang tot alle 3 locaties</li>
-          </ul>
-          <a href="#aanmelden" class="btn btn-red btn-full">Word lid</a>
-        </div>
-      </div>
-      <div class="price-foot">
-        <p>Liever eerst proberen? 10 dagen gratis sporten, zonder abonnement.</p>
-        <a href="#aanmelden" class="btn btn-ghost">Claim je gratis dag</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SOCIAL PROOF ============ -->
-  <section class="sec proof" id="reviews">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Wat leden zeggen</span>
-        <h2>1.350+ mensen gingen je voor</h2>
-      </div>
-      <div class="score-row">
-        <div class="score-n">4,9</div>
-        <div class="score-meta">
-          <div class="rstars">★★★★★</div>
-          <div class="sub">uit 91+ beoordelingen</div>
-        </div>
-      </div>
-      <div class="reviews">
-        <div class="review">
-          <div class="rstars">★★★★★</div>
-          <p>"Nooit gedacht dat ik nog eens met plezier zou trainen. Geen wachttijd, geen gedoe, en de apparaten staan altijd goed."</p>
-          <div class="who"><div class="avatar">A</div><div><div class="nm">Annemarie</div><div class="loc">Lid in Hoogeveen</div></div></div>
-        </div>
-        <div class="review">
-          <div class="rstars">★★★★★</div>
-          <p>"Ik had geen ervaring en zag op tegen een grote sportschool. Hier stellen ze alles voor je in en train je op je eigen tempo."</p>
-          <div class="who"><div class="avatar">S</div><div><div class="nm">Susanne</div><div class="loc">Lid in Hoogeveen</div></div></div>
-        </div>
-        <div class="review">
-          <div class="rstars">★★★★★</div>
-          <p>"3 maanden bezig en mijn rugspieren ontspannen veel beter dan voorheen. Elke paar weken een meting, je ziet precies waar je staat."</p>
-          <div class="who"><div class="avatar">I</div><div><div class="nm">Ingrid</div><div class="loc">Lid in Hoogeveen</div></div></div>
-        </div>
-        <div class="review">
-          <div class="rstars">★★★★★</div>
-          <p>"Kleinschalig, altijd een apparaat vrij, en je hoeft zelf niets in te stellen. De coaches kennen je echt bij naam."</p>
-          <div class="who"><div class="avatar">M</div><div><div class="nm">Manon</div><div class="loc">Lid in Hoogeveen</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="sec faq" id="faq">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">Veelgestelde vragen</span>
-        <h2>Goed om te weten</h2>
-      </div>
-      <div class="faq-wrap">
-        <div class="faq-item">
-          <button class="faq-q">Is ConnectFit geschikt voor beginners? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Ja, juist beginners voelen zich bij ConnectFit thuis. Je Fit-Coach stelt alles voor je in en legt uit hoe de training werkt. Beginners en gevorderden trainen naast elkaar, ieder op zijn eigen niveau.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Hoe werkt de 30-minuten training? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Op de EGYM loop je een vaste cirkel van slimme toestellen die zich via je polsband automatisch op jouw kracht en houding instellen. Zo train je je hele lichaam in ongeveer 30 minuten, zonder wachttijd.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Wat kost een lidmaatschap bij ConnectFit? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Dat hangt af van de looptijd en of je EGYM combineert met bijvoorbeeld personal training of Reformer Pilates. Tijdens de gratis kennismaking stelt je coach twee passende opties voor.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Kan ik eerst gratis proberen? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Ja. Je sport 10 dagen gratis en vrijblijvend, zonder lidmaatschap. Zo ervaar je zelf of ConnectFit bij je past voordat je een keuze maakt.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Wat als ik een blessure heb? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">De fysiotherapiepraktijk zit bij ConnectFit Hoogeveen onder hetzelfde dak. Je Fit-Coach past de training aan op jouw situatie en stemt waar nodig af met de fysiotherapeut.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Wat is het verschil met een gewone sportschool? <span class="plus">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Bij ConnectFit train je kleinschalig, met een Fit-Coach op de vloer en apparaten die zich automatisch op jou instellen. Geen grote, anonieme sportschoolvloer, maar persoonlijke aandacht en begeleiding bij elke stap.</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HERO-TESTIMONIAL ============ -->
-  <section class="sec tst">
-    <div class="wrap tst-inner">
-      <p class="tst-quote">"Ik had van alles geprobeerd, maar bij ConnectFit voelde het anders. De coaches kenden mij bij naam, pasten alles op mij aan, en de 30-minuten aanpak paste perfect in mijn drukke schema. 7 maanden later ben ik 44 kg lichter en heb ik meer energie dan ooit."</p>
-      <p class="tst-name">— Henri, <strong>-44 kg in 7 maanden</strong>, lid in Hoogeveen</p>
-    </div>
-  </section>
-
-  <!-- ============ FORMULIER / AFSLUITENDE CTA ============ -->
-  <section class="sec lead" id="aanmelden">
-    <div class="wrap lead-grid">
-      <div>
-        <span class="label">Aanmelden</span>
-        <h2>10 dagen gratis sporten in Hoogeveen</h2>
-        <ul class="checklist">
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Geen lidmaatschap nodig</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Persoonlijke begeleiding inbegrepen</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>EGYM-toestellen inbegrepen</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Gratis intake en fittest</li>
-          <li><span class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Geen verplichtingen achteraf</li>
-        </ul>
-      </div>
-      <form class="lead-form" novalidate>
-        <div class="fld-row">
-          <label class="fld-label" for="voornaam">Voornaam</label>
-          <input class="fld" type="text" id="voornaam" name="voornaam" autocomplete="given-name" placeholder="Bijv. Sanne" required>
-        </div>
-        <div class="fld-row">
-          <label class="fld-label" for="achternaam">Achternaam</label>
-          <input class="fld" type="text" id="achternaam" name="achternaam" autocomplete="family-name" placeholder="Bijv. Jansen" required>
-        </div>
-        <div class="fld-row">
-          <label class="fld-label" for="telefoon">Telefoonnummer</label>
-          <input class="fld" type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78" required>
-        </div>
-        <div class="fld-row">
-          <label class="fld-label" for="email">E-mailadres</label>
-          <input class="fld" type="email" id="email" name="email" autocomplete="email" placeholder="jij@voorbeeld.nl" required>
-        </div>
-        <button type="submit" class="btn btn-red btn-full">Meld je gratis aan <span class="arrow">→</span></button>
-        <p class="trust-note">
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.4" stroke="#8a8a92" stroke-width="1.3"/><path d="M4.6 6V4.4a2.4 2.4 0 014.8 0V6" stroke="#8a8a92" stroke-width="1.3" stroke-linecap="round"/></svg>
-          Jouw gegevens zijn veilig, geen spam.
-        </p>
-        <p class="sub-note">Wij nemen binnen 24 uur contact met je op.</p>
       </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="foot">
-    <div class="wrap">
-      <div class="foot-grid">
-        <div>
-          <a href="/connectfit-pages/" class="logo">Connect<span>Fit</span></a>
-          <p>Jouw fitnesscentrum met persoonlijke aandacht. Boutique fitness met EGYM, personal training, Reformer Pilates en fysiotherapie in Hoogeveen, Nieuwlande en Ruinen.</p>
-        </div>
-        <div>
-          <h4>Aanbod</h4>
-          <ul>
-            <li><a href="/connectfit-pages/egym/">EGYM</a></li>
-            <li><a href="/connectfit-pages/fitness/">Fitness</a></li>
-            <li><a href="/connectfit-pages/reformer-pilates/">Reformer Pilates</a></li>
-            <li><a href="/connectfit-pages/personal-training/">Personal Training</a></li>
-            <li><a href="/connectfit-pages/fysiotherapie/">Fysiotherapie</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Locaties</h4>
-          <ul>
-            <li><a href="/connectfit-pages/hoogeveen/">Hoogeveen</a></li>
-            <li><a href="/connectfit-pages/nieuwlande/">Nieuwlande</a></li>
-            <li><a href="/connectfit-pages/ruinen/">Ruinen</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li>0528 - 449133</li>
-            <li>info@connectfit.nl</li>
-            <li>Van Echtenstraat 37</li>
-            <li>Hoogeveen</li>
-          </ul>
+<!-- ====================== 14. SLUIT-CTA ====================== -->
+<section class="section closer">
+  <div class="wrap">
+    <p class="eyebrow" style="text-align:center">Van Echtenstraat 37, Hoogeveen</p>
+    <h2>Ook klaar om ConnectFit te worden?</h2>
+    <p>Kom een keer langs, loop een ronde mee en kijk zelf hoe er in Hoogeveen getraind wordt.</p>
+    <div class="btn-row">
+      <a class="btn btn--red" href="#kennismaking">Gratis proeftraining</a>
+      <a class="btn btn--ghost" href="/connectfit-pages/locaties">Bekijk de andere locaties</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 15. FOOTER ====================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="https://cdn.prod.website-files.com/6a467060f9183037088cd08e/6a50a15d28437afb09192089_connectfit-logo-wit.png" alt="ConnectFit"></div>
+        <p class="foot-intro">ConnectFit is een fitnessconcept in Hoogeveen, Ruinen en Nieuwlande. Kleinschalig, met een Fit-Coach op de vloer.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.9-2.8-1.2-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3v.5z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm0 6.6A2.6 2.6 0 1112 9.4a2.6 2.6 0 010 5.2zM16.5 6a1 1 0 100 2 1 1 0 000-2zM12 4.4c2.5 0 2.8 0 3.8.1 2.5.1 3.7 1.3 3.8 3.8 0 1 .1 1.3.1 3.7s0 2.8-.1 3.7c-.1 2.5-1.3 3.7-3.8 3.8-1 .1-1.3.1-3.8.1s-2.8 0-3.7-.1c-2.5-.1-3.7-1.3-3.8-3.8 0-1-.1-1.3-.1-3.7s0-2.8.1-3.7C4.6 5.8 5.8 4.6 8.3 4.5c.9-.1 1.2-.1 3.7-.1zM12 2.7c-2.5 0-2.9 0-3.8.1-3.4.1-5.3 2-5.4 5.4 0 1-.1 1.3-.1 3.8s0 2.9.1 3.8c.1 3.4 2 5.3 5.4 5.4 1 .1 1.3.1 3.8.1s2.9 0 3.8-.1c3.4-.1 5.3-2 5.4-5.4.1-1 .1-1.3.1-3.8s0-2.9-.1-3.8c-.1-3.4-2-5.3-5.4-5.4-.9-.1-1.3-.1-3.8-.1z"/></svg></a>
         </div>
       </div>
-      <div class="foot-bot">
-        <span>© 2026 ConnectFit. Alle rechten voorbehouden.</span>
-        <span><a href="/connectfit-pages/privacybeleid/">Privacybeleid</a> &nbsp;·&nbsp; <a href="/connectfit-pages/algemene-voorwaarden/">Algemene voorwaarden</a></span>
+
+      <div>
+        <h3>Hoogeveen</h3>
+        <ul class="foot-list">
+          <li><a href="/connectfit-pages/hoogeveen/fitness">Vrije fitness</a></li>
+          <li><a href="/connectfit-pages/hoogeveen/egym">EGYM</a></li>
+          <li><a href="/connectfit-pages/reformer-pilates">Reformer Pilates</a></li>
+          <li><a href="/connectfit-pages/hoogeveen/personal-training">Personal Training</a></li>
+          <li><a href="/connectfit-pages/hoogeveen/fysiotherapie">Fysiotherapie</a></li>
+        </ul>
+        <p class="foot-addr">van Echtenstraat 37, Hoogeveen</p>
+      </div>
+
+      <div>
+        <h3>Nieuwlande</h3>
+        <ul class="foot-list">
+          <li><a href="/connectfit-pages/nieuwlande/fitness">Vrije fitness</a></li>
+          <li><a href="/connectfit-pages/nieuwlande/egym">EGYM</a></li>
+          <li><a href="/connectfit-pages/nieuwlande/fysiotherapie">Fysiotherapie</a></li>
+        </ul>
+        <p class="foot-addr">Brugstraat 90, Nieuwlande</p>
+      </div>
+
+      <div>
+        <h3>Ruinen</h3>
+        <ul class="foot-list">
+          <li><a href="/connectfit-pages/ruinen/fitness">Vrije fitness</a></li>
+          <li><a href="/connectfit-pages/ruinen/egym">EGYM</a></li>
+          <li><a href="/connectfit-pages/ruinen">Locatie Ruinen</a></li>
+        </ul>
+        <p class="foot-addr">Voor de Blanken 17, Ruinen</p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <ul class="foot-list">
+          <li><a href="tel:0528449133">0528 - 449 133</a></li>
+          <li><a href="mailto:info@connectfit.nl">info@connectfit.nl</a></li>
+          <li><a href="tel:0613260606">Personal Training: 06 13 26 06 06</a></li>
+          <li><a href="tel:0528354740">Fysiotherapie: 0528 354 740</a></li>
+        </ul>
+        <a class="btn btn--red btn--sm" href="#kennismaking" style="margin-top:20px">Gratis proeftraining</a>
       </div>
     </div>
-  </footer>
 
-  <script>
-    document.querySelectorAll('.faq-q').forEach(function (q) {
-      q.addEventListener('click', function () {
-        var item = q.parentElement;
-        var a = item.querySelector('.faq-a');
-        var open = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(function (i) {
-          i.classList.remove('open');
-          i.querySelector('.faq-a').style.maxHeight = null;
-        });
-        if (!open) {
-          item.classList.add('open');
-          a.style.maxHeight = a.scrollHeight + 'px';
-        }
-      });
+    <div class="foot-bar">
+      <span>© 2026 ConnectFit</span>
+      <ul>
+        <li><a href="/connectfit-pages/algemene-voorwaarden">Algemene voorwaarden</a></li>
+        <li><a href="/connectfit-pages/privacybeleid">Privacy Statement</a></li>
+        <li><a href="/connectfit-pages/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA, alleen mobiel -->
+<div class="sticky-cta"><a class="btn btn--red" href="#kennismaking">Plan je gratis proeftraining</a></div>
+
+<!-- ====================== OPEN PUNTEN (weghalen voor livegang) ====================== -->
+<aside class="todo">
+  <div class="wrap">
+    <h2>Open punten op deze pagina</h2>
+    <ol>
+      <li><strong>"EGYM Cirkel" is overal vervangen door "EGYM Fitness" of "EGYM"</strong>, conform <code>campagne-guardrails.md §1</code>. De aangeleverde tekst gebruikte de term acht keer. De mechaniek staat er nog wel in: vaste ronde, tegelijk doorwisselen, geen wachttijd.</li>
+      <li><strong>Aantal reviews.</strong> Overal "4,9 op Google" zonder getal, zolang 91 / 127 / 200 niet is uitgezocht (§3). Zodra het aantal per locatie vaststaat: hero-rating, vier-blok, reviewkop en de JSON-LD gelijktrekken en <code>aggregateRating</code> toevoegen.</li>
+      <li><strong>De zes reviewers zijn overgenomen van <code>/fitness</code></strong> en zijn niet per locatie uitgesplitst. Voor een locatiepagina horen hier Hoogeveense reviews. Opvragen bij Bryan.</li>
+      <li><strong>Foto's.</strong> Er zijn maar twee Hoogeveen-foto's beschikbaar (EGYM-vloer en Bio-Age-meting), die nu vier keer terugkomen. Extra beeld nodig: gevel van Echtenstraat 37, vrije fitnessvloer, Reformer-studio.</li>
+      <li><strong>Postcode 7902 EK</strong> is aangevuld uit openbare bron en nog niet geverifieerd. Staat ook in de JSON-LD.</li>
+      <li><strong>Bereikbaarheid ontbreekt.</strong> Parkeren, fietsenstalling en de wijken waar leden vandaan komen zijn sterke lokale SEO-signalen. Opvragen, dan komt er een blok bij onder "Specialisten".</li>
+      <li><strong>Prijzen zijn XX,-</strong> conform §2. Echte bedragen voor Hoogeveen invullen voor livegang.</li>
+      <li><strong>"Lifestylecoaches"</strong> komt uit de aangeleverde tekst en staat niet in <code>locaties.md</code>. Bevestigen dat die rol er echt is, anders eruit.</li>
+      <li><strong>Interne links.</strong> <code>/hoogeveen/egym</code>, <code>/hoogeveen/fitness</code>, <code>/hoogeveen/personal-training</code> en <code>/hoogeveen/fysiotherapie</code> staan in <code>pages.tsv</code> maar zijn nog niet gebouwd.</li>
+      <li><strong>Body-font.</strong> Het Webflow-project gebruikt "Google Sans Flex" als geüploade font. Lokaal rendert DM Sans; in Webflow pakt hij automatisch de echte.</li>
+    </ol>
+  </div>
+</aside>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://www.connectfit.nl/hoogeveen#gym",
+      "name": "ConnectFit Hoogeveen",
+      "description": "Boutique sportschool in Hoogeveen met 16 EGYM-toestellen, een vrije fitnessvloer, Reformer Pilates, Personal Training en fysiotherapie in hetzelfde pand.",
+      "url": "https://www.connectfit.nl/hoogeveen",
+      "telephone": "+31528449133",
+      "email": "info@connectfit.nl",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "van Echtenstraat 37",
+        "postalCode": "7902 EK",
+        "addressLocality": "Hoogeveen",
+        "addressRegion": "Drenthe",
+        "addressCountry": "NL"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "06:00",
+        "closes": "22:00"
+      }],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "16 EGYM-krachttoestellen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Vrije fitnessvloer", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Reformer Pilates", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Personal Training", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Fysiotherapie in hetzelfde pand", "value": true }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.connectfit.nl/hoogeveen#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Waar zit ConnectFit in Hoogeveen?", "acceptedAnswer": { "@type": "Answer", "text": "Aan de van Echtenstraat 37 in Hoogeveen. In hetzelfde pand vind je ook Fysiotherapie Hoogeveen-Nieuwlande, Personal Training en de Reformer Pilates-studio." } },
+        { "@type": "Question", "name": "Wanneer is de sportschool open?", "acceptedAnswer": { "@type": "Answer", "text": "Elke dag van 6:00 tot 22:00." } },
+        { "@type": "Question", "name": "Wat is EGYM precies?", "acceptedAnswer": { "@type": "Answer", "text": "EGYM is een vaste trainingsronde op slimme krachttoestellen. In Hoogeveen staan er 16, plus een EGYM Hub en een cardiotoestel. De toestellen herkennen je via je polsband en stellen zithoogte en weerstand automatisch in. Zo train je je hele lichaam in ongeveer 30 minuten." } },
+        { "@type": "Question", "name": "Moet ik ervaring hebben om te beginnen?", "acceptedAnswer": { "@type": "Answer", "text": "Nee. Je Fit-Coach stelt de toestellen voor je in en legt uit hoe de ronde werkt. Beginners en gevorderden trainen naast elkaar, ieder op eigen niveau." } },
+        { "@type": "Question", "name": "Staat er altijd een Fit-Coach op de vloer?", "acceptedAnswer": { "@type": "Answer", "text": "Niet elk uur. Maandag tot en met donderdag is er begeleiding in de ochtend en in de avond, vrijdag en zaterdag in de ochtend. Samen zijn dat 40+ bemande uren per week. Op de onbemande uren train je met je programma op de Hub en met instructies per oefening op het scherm." } },
+        { "@type": "Question", "name": "Kan ik eerst een keer proefdraaien?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, de proeftraining is gratis en vrijblijvend. Je loopt een keer mee, we doen een Bio-Age-meting en je ziet hoe je er nu voor staat. De hoofdcoach belt je binnen 24 uur nadat je het formulier hebt ingevuld, vaak nog dezelfde dag." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.connectfit.nl/" },
+        { "@type": "ListItem", "position": 2, "name": "Locaties", "item": "https://www.connectfit.nl/locaties" },
+        { "@type": "ListItem", "position": 3, "name": "Hoogeveen", "item": "https://www.connectfit.nl/hoogeveen" }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Nav krijgt een achtergrond zodra je scrollt ---- */
+  var bar = document.querySelector('.navbar');
+  function stick(){ bar.classList.toggle('is-stuck', window.scrollY > 40); }
+  window.addEventListener('scroll', stick, { passive: true });
+  stick();
+
+  /* ---- Hero-beeldslider ---- */
+  var shot = document.getElementById('heroShot');
+  if (shot) {
+    var figs = shot.querySelectorAll('figure');
+    var dots = document.getElementById('heroDots');
+    var i = 0, timer;
+    figs.forEach(function(f, n){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role','tab');
+      b.setAttribute('aria-label','Foto ' + (n+1));
+      b.setAttribute('aria-current', n === 0 ? 'true' : 'false');
+      b.addEventListener('click', function(){ go(n); restart(); });
+      dots.appendChild(b);
     });
-  </script>
+    function go(n){
+      i = (n + figs.length) % figs.length;
+      figs.forEach(function(f,k){ f.classList.toggle('is-on', k === i); });
+      dots.querySelectorAll('button').forEach(function(b,k){ b.setAttribute('aria-current', k === i ? 'true':'false'); });
+    }
+    function restart(){ clearInterval(timer); timer = setInterval(function(){ go(i+1); }, 5000); }
+    restart();
+    shot.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    shot.addEventListener('mouseleave', restart);
+  }
 
+  /* ---- Horizontale rails ---- */
+  document.querySelectorAll('[data-rail-nav]').forEach(function(nav){
+    var rail = document.getElementById(nav.getAttribute('data-rail-nav'));
+    if (!rail) return;
+    function step(dir){
+      var card = rail.firstElementChild;
+      if (!card) return;
+      var w = card.getBoundingClientRect().width + 20;
+      rail.scrollBy({ left: dir * w, behavior: 'smooth' });
+    }
+    nav.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){ step(parseInt(b.getAttribute('data-dir'),10)); });
+    });
+    function sync(){
+      var max = rail.scrollWidth - rail.clientWidth - 2;
+      nav.querySelector('[data-dir="-1"]').disabled = rail.scrollLeft <= 2;
+      nav.querySelector('[data-dir="1"]').disabled  = rail.scrollLeft >= max;
+    }
+    rail.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  });
+
+  /* ---- FAQ ---- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    function open(){ item.classList.add('is-open'); q.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    function close(){ item.classList.remove('is-open'); q.setAttribute('aria-expanded','false'); a.style.maxHeight = 0; }
+    if (item.classList.contains('is-open')) open();
+    q.addEventListener('click', function(){
+      var wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(function(o){
+        o.classList.remove('is-open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        o.querySelector('.faq-a').style.maxHeight = 0;
+      });
+      if (!wasOpen) open();
+    });
+    window.addEventListener('resize', function(){
+      if (item.classList.contains('is-open')) a.style.maxHeight = a.scrollHeight + 'px';
+    });
+  });
+
+  /* ---- Formulier ---- */
+  var form = document.querySelector('.card-form');
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Demo-pagina. In Webflow gaat dit formulier naar de leadinbox.');
+  });
+})();
+</script>
 </body>
 </html>
