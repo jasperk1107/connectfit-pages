@@ -306,24 +306,30 @@
   </div>
 </section>
 
-<!-- ====================== 8. FACILITEITEN ====================== -->
-<section class="section" style="padding-top:0" id="faciliteiten">
+<!-- ====================== 8. LOCATIE ====================== -->
+<section class="section" id="locatie">
   <div class="wrap">
-    <p class="eyebrow">Wat er op de vloer staat</p>
-    <h2 style="margin-bottom:38px">De faciliteiten in Hoogeveen</h2>
+    <div class="faq-grid">
+      <div>
+        <p class="eyebrow">Locatie</p>
+        <h2 style="margin-bottom:20px">Sportschool in Hoogeveen,<br>aan de van Echtenstraat</h2>
+        <p style="color:var(--muted-dark);max-width:34em">Je vindt ConnectFit Hoogeveen aan de <strong>van Echtenstraat 37</strong>. Achter dezelfde deur zitten de fitnessvloer, de 16 EGYM-toestellen, de Reformer Pilates-studio, Personal Training en Fysiotherapie Hoogeveen-Nieuwlande. Loop je vast op een schouder of een knie, dan hoef je niet naar de andere kant van de stad voor je behandeling.</p>
+        <p style="color:var(--muted-dark);max-width:34em;margin-top:18px">Kom je uit Hollandscheveld, Noordscheschut, Elim, Pesse of Fluitenberg, dan train je hier zonder dat je er je avond aan kwijt bent. De zaal is <strong>elke dag open van 6:00 tot 22:00</strong>, dus je kiest zelf of je voor je werk komt, tussendoor of 's avonds.</p>
 
-    <div class="grid-3">
-      <div class="svc">
-        <h3>Cardio</h3>
-        <p>Loopbanden, roeimachines en crosstrainers om je conditie op te bouwen of los te draaien voor je aan de kracht begint.</p>
+        <div class="addr-card">
+          <h3>ConnectFit Hoogeveen</h3>
+          <p>van Echtenstraat 37, 7902 EK Hoogeveen<br>
+          <a href="tel:0528449133">0528 - 449 133</a><br>
+          Dagelijks open van 6:00 tot 22:00 uur</p>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn--red" href="#kennismaking">Plan je gratis kennismaking</a>
+        </div>
       </div>
-      <div class="svc">
-        <h3>Kracht en vrije gewichten</h3>
-        <p>16 EGYM-toestellen, dumbbells, kettlebells en halterstangen. Van geleide oefeningen tot vrij trainen met je eigen schema.</p>
-      </div>
-      <div class="svc">
-        <h3>Functioneel en stabiliteit</h3>
-        <p>Ballen, elastieken en steps voor stabiliteit, mobiliteit en de oefeningen die je fysiotherapeut meegeeft.</p>
+
+      <div class="faq-img">
+        <img src="/connectfit-pages/assets/hoogeveen-egym-fitcoach.jpeg" alt="De trainingsvloer van ConnectFit aan de van Echtenstraat 37 in Hoogeveen">
       </div>
     </div>
   </div>
@@ -731,7 +737,9 @@
       <li><strong>Diëtetiek staat niet in de kaart "Alles voor je gezondheid op één plek"</strong>, terwijl de live site het daar wel noemt. <code>campagne-guardrails.md §9 / locaties.md</code> schrijft de USP-regel voor als "fysiotherapie en personal training onder hetzelfde dak", diëtetiek is er op 2026-08-15 bewust uitgehaald. Bevestigen welke van de twee wint, dan trek ik site en campagne gelijk.</li>
       <li><strong>Postcode 7902 EK</strong> is aangevuld uit openbare bron en nog niet geverifieerd. Staat ook in de JSON-LD.</li>
       <li><strong>Ledenaantallen staan nergens op deze pagina</strong>, op instructie van 2026-08-29. Waar eerst "600+ leden in Hoogeveen" stond, staat nu "16 EGYM-toestellen". Regel vastgelegd in <code>campagne-guardrails.md §2</code>.</li>
-      <li><strong>Bereikbaarheid ontbreekt.</strong> Parkeren, fietsenstalling en de wijken waar mensen vandaan komen zijn sterke lokale SEO-signalen. Opvragen, dan komt er een blok bij onder "Specialisten".</li>
+      <li><strong>Parkeren staat nog niet in het locatieblok.</strong> Op de Ruinen-pagina staat "parkeren kan voor de deur", voor Hoogeveen weet ik dat niet. Aanvullen zodra je het bevestigt, plus fietsenstalling. Sterke lokale signalen.</li>
+      <li><strong>De omliggende dorpen in het locatieblok</strong> (Hollandscheveld, Noordscheschut, Elim, Pesse, Fluitenberg) heb ik gekozen op geografie, niet op waar leden vandaan komen. Als je de echte postcodeverdeling hebt, zet ik die dorpen erin.</li>
+      <li><strong>Gevelfoto ontbreekt.</strong> Het locatieblok vraagt om de ingang aan de van Echtenstraat 37 in daglicht, plus een lazy loaded Google Maps-kaart eronder in Webflow.</li>
       <li><strong>Prijzen zijn XX,-</strong> conform §2. Echte bedragen voor Hoogeveen invullen voor livegang.</li>
       <li><strong>"Lifestylecoaches"</strong> komt uit de aangeleverde tekst en staat niet in <code>locaties.md</code>. Bevestigen dat die rol er echt is, anders eruit.</li>
       <li><strong>Interne links.</strong> <code>/hoogeveen/egym</code>, <code>/hoogeveen/fitness</code>, <code>/hoogeveen/personal-training</code> en <code>/hoogeveen/fysiotherapie</code> staan in <code>pages.tsv</code> maar zijn nog niet gebouwd.</li>

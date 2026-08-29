@@ -409,4 +409,16 @@ select option{background:var(--navy);color:#fff}
   .perk-loc{top:18px;left:22px;right:22px}
 }
 
+/* ---------- Adreskaart (locatieblok) ----------
+   Wit kaartje met adres, telefoon en openingstijden, in het locatieblok van een
+   locatiepagina. Werkt op lichte en op donkere secties. */
+.addr-card{
+  border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:28px;
+  max-width:26em;background:#fff;color:var(--navy);
+}
+.addr-card h3{font-size:16px;margin-bottom:12px}
+.addr-card p{font-size:15.5px;color:var(--muted-dark);margin:0}
+.addr-card a{text-decoration:underline;text-underline-offset:3px}
+.section--dark .addr-card,.section--mint .addr-card{background:#fff}
+
 @media print{.todo,.sticky-cta{display:none}}
