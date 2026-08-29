@@ -23,6 +23,19 @@ td.n{white-space:nowrap}td.kw{color:#666;font-size:13px}
 .live{background:#e3f0e4;color:#1d6b28}.todo{background:#f0efe3;color:#77682a}
 p.auto{background:#eef4fd;border-left:3px solid #0b57d0;color:#1b3a6b;font-size:13px;padding:10px 14px;margin:0 0 24px;border-radius:0 4px 4px 0}'
 
+# Overzicht krijgt meer breedte: 7 kolommen passen niet in 920px, waardoor het
+# pad per teken afbrak. Paden en zoekwoorden nooit meer breken, tabel scrolt.
+css_ov="$css
+body{max-width:none;padding:32px 28px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{min-width:1180px}
+td code{white-space:nowrap;word-break:normal}
+th:nth-child(3),td:nth-child(3){white-space:nowrap;width:1%}
+th:nth-child(2),td:nth-child(2){min-width:170px}
+td.kw{white-space:nowrap}
+td.meta{font-size:13px;color:#333;min-width:230px}
+.len{display:inline-block;margin-left:6px;font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a8a8a;background:#f5f5f5;padding:3px 6px;border-radius:3px;vertical-align:1px}"
+
 mk_placeholder () { # $1=naam $2=pad $3=keyword $4=doelbestand
   cat <<HTML
 <!doctype html>
@@ -68,10 +81,11 @@ printf 'User-agent: *\nDisallow: /\n' > "$BUILD/robots.txt"
   echo '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
   echo '<meta name="robots" content="noindex,nofollow">'
   echo '<title>ConnectFit sitestructuur</title>'
-  echo "<style>$css</style>"
+  echo "<style>$css_ov</style>"
   echo '<h1>ConnectFit sitestructuur</h1>'
   echo '<p class="sub">Previews in de volgorde van de spreadsheet. Het pad is gelijk aan dat van de echte site, dus de preview-URL is de basis plus het pad. Elke pagina opent in een nieuw tabblad.</p>'
   echo '<p class="auto">Dit overzicht werkt zichzelf bij. Zodra een pagina in de werkmap verandert, staat hij binnen een minuut hier.</p>'
+  echo '<div class="scroll">'
   echo '<table><tr><th>#</th><th>Pagina</th><th>Pad</th><th>Status</th><th>Hoofdzoekwoord</th><th>Meta title</th><th>Meta description</th></tr>'
   i=0
   while IFS=$'\t' read -r path naam kw bron; do
@@ -86,7 +100,7 @@ printf 'User-agent: *\nDisallow: /\n' > "$BUILD/robots.txt"
     printf '<tr><td class="n">%s</td><td class="n"><a href="%s%s" target="_blank" rel="noopener">%s</a></td><td><code>%s</code></td><td>%s</td><td class="kw">%s</td><td class="meta">%s</td><td class="meta">%s</td></tr>\n' \
       "$i" "$PREFIX" "$path" "$naam" "$path" "$s" "${kw:-—}" "$mtc" "$mdc"
   done < "$DST/pages.tsv"
-  echo '</table>'
+  echo '</table></div>'
   printf '<p class="sub" style="margin-top:24px">Basis: <code>%s</code> &middot; bijgewerkt %s</p>\n' "$BASE" "$(date '+%d-%m-%Y %H:%M')"
 } > "$BUILD/overzicht-index.html"
 mkdir -p "$BUILD/overzicht" && mv "$BUILD/overzicht-index.html" "$BUILD/overzicht/index.html"
