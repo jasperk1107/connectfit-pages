@@ -38,6 +38,13 @@ body{
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
+
+/* Interne tekstlinks in bodytekst. Zonder deze regel erven ze color:inherit en
+   text-decoration:none uit de reset hierboven en zijn ze onvindbaar voor de
+   bezoeker. Knoppen en svc-links houden hun eigen opmaak. */
+.section p a:not(.btn):not(.svc-link){text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:1px;text-decoration-color:var(--red)}
+.section p a:not(.btn):not(.svc-link):hover{color:var(--red)}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 h1,h2,h3,.h-style{
