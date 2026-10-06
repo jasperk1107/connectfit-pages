@@ -428,4 +428,20 @@ select option{background:var(--navy);color:#fff}
 .addr-card a{text-decoration:underline;text-underline-offset:3px}
 .section--dark .addr-card,.section--mint .addr-card{background:#fff}
 
+/* ---------- Plekkenteller (actiepagina's) ----------
+   Per locatie hoeveel plekken er nog zijn, met een rode balk. Toegevoegd voor
+   /10jaar (2026-10-06). De breedte van de balk zet je inline op de span
+   (style="width:80%" bij 8 van 10). Getallen met de hand bijwerken. */
+.spots{
+  border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:28px;
+  max-width:30em;background:#fff;color:var(--navy);display:grid;gap:18px;
+}
+.spot-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-size:15px;color:var(--muted-dark)}
+.spot-row strong{font-family:Montserrat,sans-serif;font-weight:700;font-style:italic;
+  text-transform:uppercase;font-size:15px;color:var(--navy)}
+.spot-bar{height:8px;border-radius:var(--pill);background:var(--off);overflow:hidden;margin-top:8px}
+.spot-bar span{display:block;height:100%;background:var(--red);border-radius:inherit}
+.spots-note{font-size:14px;color:var(--muted-dark);margin-top:12px}
+
 @media print{.todo,.sticky-cta{display:none}}
